@@ -7,7 +7,7 @@ function App() {
     <div>
       <header></header>
       <main>
-        <h1>Здесь будет наш сайт</h1>
+        <h1>Здесь будет наш сай</h1>
         <Registration/>
       </main>
       <footer></footer>
