@@ -8,7 +8,7 @@ function App() {
       <header></header>
       <main>
         <h1>Здесь будет наш сайт</h1>
-        <Auth/>
+        <Registration/>
       </main>
       <footer></footer>
     </div>
