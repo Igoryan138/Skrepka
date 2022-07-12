@@ -1,16 +1,25 @@
 
+import { Route, Routes } from 'react-router-dom'
 import './App.css';
 import { Registration, Auth } from './components';
+import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
+import Faq from '../components/Faq/Faq';
+import Main from '../components/Main/Main';
 
 function App() {
   return (
-    <div>
-      <header></header>
+    <div className="App">
+        <Navbar />
       <main>
-        <h1>Здесь будет наш сай</h1>
-        <Registration/>
+        <Routes>
+          <Route path="/" element={<Main/>}/>
+          <Route path="registration" element={<Registration/>} />
+          <Route path="login" element={<Auth/>} />
+          <Route path="faq" element={<Faq/>} />
+        </Routes>
       </main>
-      <footer></footer>
+        <Footer />
     </div>
   );
 }
