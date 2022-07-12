@@ -1,5 +1,6 @@
 
 import './App.css';
+import { Registration, Auth } from './components';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <header></header>
       <main>
         <h1>Здесь будет наш сайт</h1>
+        <Auth/>
       </main>
       <footer></footer>
     </div>
