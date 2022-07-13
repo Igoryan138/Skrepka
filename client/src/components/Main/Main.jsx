@@ -1,8 +1,9 @@
 import React from 'react'
 
-export  function Main() {
+export function Main() {
   return (
-    <div>Main</div>
+    <main>
+      Main
+    </main>
   )
 }
-

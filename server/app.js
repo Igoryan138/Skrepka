@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require("cors");
 const dbCheck = require('./db/dbCheck') // подключение скрипта проверки соединения с БД
 const indexRouter = require('./routes/index');
+const categoryRouter = require('./routes/category');
 
 // ! Инициализируем приложение
 const app = express() // создали экземпляр сервера
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // ! -->Тут пишем роуты<--
 app.use('/', indexRouter);
+// app.use('/category', categoryRouter);
 
 // ! Начинаем слушать порт для запуска сервера
 app.listen(PORT, () => { // начинаем слушать сервер на указанном порте
