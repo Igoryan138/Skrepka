@@ -11,6 +11,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      identifier: {
+        type: Sequelize.STRING
+      },
       logo: {
         type: Sequelize.STRING
       },
