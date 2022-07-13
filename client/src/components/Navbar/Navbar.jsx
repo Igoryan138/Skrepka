@@ -12,17 +12,30 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              {/* <li className="nav-item">
-                <Link to="#" className="nav-link active" aria-current="page">Категории</Link>
-              </li> */}
+
+              <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul className="navbar-nav">
+                  <li className="nav-item dropdown">
+                    <Link to="/" className="nav-link dropdown-toggle"  id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Категория
+                    </Link>
+                    <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li><Link to="/category" className="dropdown-item">Все</Link></li>
+                      <li><Link to="/category/personals" className="dropdown-item">Личные вещи</Link></li>
+                      <li><Link to="/category/electronics" className="dropdown-item">Электроника</Link></li>
+                      <li><Link to="/category/automobile" className="dropdown-item">Авто</Link></li>
+                      <li><Link to="/category/animals" className="dropdown-item">Животные</Link></li>
+                      <li><Link to="/category/hobbies" className="dropdown-item">Хобби и отдых</Link></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
               <li className="nav-item">
-                <Link to="registration" className="nav-link" >Регистрация</Link>
+                <Link to="registration" className="nav-link">Регистрация</Link>
               </li>
               <li className="nav-item">
-                <Link to="login"className="nav-link" >Войти</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="#" className="nav-link disabled">Disabled</Link>
+                <Link to="login" className="nav-link">Войти</Link>
               </li>
             </ul>
           </div>
