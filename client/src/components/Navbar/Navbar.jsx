@@ -22,7 +22,7 @@ export default function Navbar() {
                 <Link to="login"className="nav-link" >Войти</Link>
               </li>
               <li className="nav-item">
-                <Link to="#" className="nav-link disabled">Disabled</Link>
+                <Link to="profile" className="nav-link">Профиль</Link>
               </li>
             </ul>
           </div>
