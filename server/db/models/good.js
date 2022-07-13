@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   Good.init({
     title: DataTypes.STRING,
     description: DataTypes.STRING,
+    exchange: DataTypes.STRING,
     photo: DataTypes.STRING,
     city: DataTypes.STRING,
     isModerate: DataTypes.BOOLEAN,

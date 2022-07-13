@@ -35,7 +35,10 @@ export default function Navbar() {
                 <Link to="registration" className="nav-link">Регистрация</Link>
               </li>
               <li className="nav-item">
-                <Link to="login" className="nav-link">Войти</Link>
+                <Link to="login"className="nav-link" >Войти</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="profile" className="nav-link">Профиль</Link>
               </li>
             </ul>
           </div>
