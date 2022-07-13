@@ -1,6 +1,7 @@
 
-import { Route, Routes } from 'react-router-dom'
 import './App.css';
+import { Route, Routes } from 'react-router-dom'
+import AddAdvertisement from './components/AddAdvertisement/AddAdvertisement';
 import Profile from './components/Profile/Profile';
 // import { Registration, Auth } from './components';
 // import Navbar from '../components/Navbar/Navbar';
@@ -16,11 +17,11 @@ function App() {
       </header>
       <main>
         <Routes>
-          {/* <Route path="/" element={<Main/>}/>
-          <Route path="registration" element={<Registration/>} />
-          <Route path="login" element={<Auth/>} />
-          <Route path="faq" element={<Faq/>} /> */}
-
+          {/* <Route path="/" element={<Main/>}/> */}
+          {/* <Route path="registration" element={<Registration/>} /> */}
+          {/* <Route path="login" element={<Auth/>} /> */}
+          {/* <Route path="faq" element={<Faq/>} /> */}
+          <Route path='add' element={<AddAdvertisement />} />
         </Routes>
         <Profile />
 
