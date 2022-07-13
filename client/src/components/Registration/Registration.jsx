@@ -22,9 +22,9 @@ export  function Registration() {
   axios.post('http://localhost:3100/registration', input)
     .then(res =>{
       //if status 200 
-      if(userData){
+      // if(userData){
 
-      }
+      // }
       console.log(res)
       // // navigate('/')
     })
