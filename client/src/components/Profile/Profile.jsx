@@ -1,11 +1,7 @@
 import style from './Profile.module.css'
 import { Link, Outlet } from 'react-router-dom'
-import { Route, Routes } from 'react-router-dom'
-import MyAdvertisements from './MyAdvertisements/MyAdvertisements'
-import Account from './Account/Account'
-import MyApplications from './MyApplications/MyApplications'
-import Messages from './Messages/Messages'
-import Favourites from './Favourites/Favourites'
+
+
 
 
 
