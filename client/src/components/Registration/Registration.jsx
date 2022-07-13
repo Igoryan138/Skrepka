@@ -34,7 +34,7 @@ export  function Registration() {
     setEmail('')
     setTel('')
     setPassword('')
-    navigate('/')
+    // navigate('/')
   }
 
   return (

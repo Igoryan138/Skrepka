@@ -2,8 +2,12 @@ import './App.css';
 
 import { Route, Routes } from 'react-router-dom'
 import { Registration, Auth, Navbar, Footer, Faq, Main } from './components';
+import { useEffect } from 'react';
 
 function App() {
+
+  //useEffect() проверка на сервере есть ли пользователь в сессии 
+
   return (
     <div className="App">
         <Navbar />
