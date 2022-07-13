@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navbar() {
+export  function Navbar() {
   return (
     <>
       <header>

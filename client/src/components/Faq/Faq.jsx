@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Faq() {
+export  function Faq() {
   return (
     <div>Faq</div>
   )
