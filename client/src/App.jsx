@@ -1,17 +1,13 @@
-
 import './App.css';
+
+
 import { Route, Routes } from 'react-router-dom'
+import { Registration, Auth, Navbar, Footer, Faq, Main } from './components';
+// import { useEffect } from 'react';
 import AddAdvertisement from './components/AddAdvertisement/AddAdvertisement';
 import Profile from './components/Profile/Profile';
-import { Registration, Auth } from './components';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-import Faq from './components/Faq/Faq';
-import Main from './components/Main/Main';
-
 import AllCategories from './components/AllCategories/AllCategories';
 import OneCategory from './components/OneCategory/OneCategory';
-
 import Account from './components/Profile/Account/Account';
 import MyAdvertisements from './components/Profile/MyAdvertisements/MyAdvertisements';
 import MyApplications from './components/Profile/MyApplications/MyApplications';
@@ -20,6 +16,9 @@ import Messages from './components/Profile/Messages/Messages';
 
 
 function App() {
+
+  //useEffect() проверка на сервере есть ли пользователь в сессии 
+
   return (
     <div className="App">
       <Navbar />
