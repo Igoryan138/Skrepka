@@ -2,10 +2,10 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css';
 import { Registration, Auth } from './components';
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
-import Faq from '../components/Faq/Faq';
-import Main from '../components/Main/Main';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Faq from './components/Faq/Faq';
+import Main from './components/Main/Main';
 
 function App() {
   return (
