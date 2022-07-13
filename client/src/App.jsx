@@ -36,7 +36,7 @@ function App() {
       <Route path="login" element={<Auth />} />
       <Route path="faq" element={<Faq />} />
       <Route path="category">
-        <Route path="" element={<AllCategories />} />
+        <Route path="" element={<OneCategory />} />
         <Route path=":name" element={<OneCategory />} />
       </Route>
       <Route path='add' element={<AddAdvertisement />} />
