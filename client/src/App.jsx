@@ -3,11 +3,11 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom'
 import AddAdvertisement from './components/AddAdvertisement/AddAdvertisement';
 import Profile from './components/Profile/Profile';
-// import { Registration, Auth } from './components';
-// import Navbar from '../components/Navbar/Navbar';
-// import Footer from '../components/Footer/Footer';
-// import Faq from '../components/Faq/Faq';
-// import Main from '../components/Main/Main';
+import { Registration, Auth } from './components';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Faq from './components/Faq/Faq';
+import Main from './components/Main/Main';
 
 function App() {
   return (
