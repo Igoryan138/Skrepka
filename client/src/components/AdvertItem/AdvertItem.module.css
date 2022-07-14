@@ -1,0 +1,19 @@
+.bigPhoto {
+  width: 30%;
+  height: 150px;
+}
+
+.miniPhoto {
+  width: 15%;
+  height: 5%;
+}
+
+.center {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mainPhoto {
+  display: flex;
+  
+}

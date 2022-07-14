@@ -8,7 +8,7 @@ const FileStore = require("session-file-store")(session);
 const path = require('path'); 
 const dbCheck = require('./db/dbCheck') // подключение скрипта проверки соединения с БД
 const indexRouter = require('./routes/index');
-const advertisementRouter = require('./routes/advertisementRouter');
+const addRouter = require('./routes/addRouter');
 const registrationRouter = require('./routes/registrationRouter');
 const loginRouter = require('./routes/authRouter');
 const logoutRouter = require('./routes/logOutRouter');
@@ -48,7 +48,7 @@ app.use(
 
 // ! -->Тут пишем роуты<--
 app.use('/', indexRouter);
-app.use('/add', advertisementRouter)
+app.use('/add', addRouter)
 app.use('/registration', registrationRouter)
 app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
