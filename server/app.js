@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 app.use('/advertisement', advertisementRouter)
 app.use('/registration', registrationRouter)
-// app.use('/category', categoryRouter);
+app.use('/category', categoryRouter);
 
 // ! Начинаем слушать порт для запуска сервера
 app.listen(PORT, () => { // начинаем слушать сервер на указанном порте

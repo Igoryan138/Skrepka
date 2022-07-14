@@ -7,7 +7,7 @@ import { Main, Navbar, Footer, Registration, Auth, Faq } from './components';
 
 import AddAdvertisement from './components/AddAdvertisement/AddAdvertisement';
 import Profile from './components/Profile/Profile';
-import OneCategory from './components/AdvertList/AdvertList';
+import AdvertList from './components/AdvertList/AdvertList';
 import Account from './components/Profile/Account/Account';
 import MyAdvertisements from './components/Profile/MyAdvertisements/MyAdvertisements';
 import MyApplications from './components/Profile/MyApplications/MyApplications';
@@ -35,8 +35,8 @@ function App() {
       <Route path="login" element={<Auth />} />
       <Route path="faq" element={<Faq />} />
       <Route path="category">
-        <Route path="" element={<OneCategory />} />
-        <Route path=":name" element={<OneCategory />} />
+        <Route path="" element={<AdvertList />} />
+        <Route path=":name" element={<AdvertList />} />
       </Route>
       <Route path='add' element={<AddAdvertisement />} />
       <Route path='profile/*' element={<Profile />} >
