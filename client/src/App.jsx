@@ -17,15 +17,7 @@ import AdvertItem from './components/AdvertItem/AdvertItem';
 
 
 function App() {
-  const dispatch = useDispatch()
-
-  //useEffect() проверка на сервере есть ли пользователь в сессии
-
-  // ! Получаем список категорий + записываем состояние в стор
-  useEffect(() => {
-    dispatch(setCategories())
-  }, [dispatch])
-
+  
   return (
     <div className="App">
       <Navbar />
