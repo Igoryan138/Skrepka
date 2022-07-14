@@ -12,8 +12,7 @@ const advertisementRouter = require('./routes/advertisementRouter');
 const registrationRouter = require('./routes/registrationRouter');
 const loginRouter = require('./routes/authRouter');
 const logoutRouter = require('./routes/logOutRouter');
-
-// const categoryRouter = require('./routes/category');
+const categoryRouter = require('./routes/category');
 
 
 // ! Инициализируем приложение
