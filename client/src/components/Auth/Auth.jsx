@@ -16,7 +16,7 @@ export  function Auth() {
 
   function authHandler(e){
     e.preventDefault()
-    axios.post('http://localhost:3100/login', input)
+    axios.post('http://localhost:3100/login', input, {withCredentials:true})
       .then(res => {
        if(res.data){
         setInput('')
