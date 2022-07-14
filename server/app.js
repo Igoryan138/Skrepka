@@ -6,14 +6,26 @@ const cors = require("cors");
 const indexRouter = require('./routes/index');
 const advertisementRouter = require('./routes/advertisementRouter');
 const registrationRouter = require('./routes/registrationRouter');
-const categoryRouter = require('./routes/category');
+const session = require('express-session');
+const FileStore = require("session-file-store")(session);
+// const categoryRouter = require('./routes/category');
 
 
 // ! Инициализируем приложение
 const app = express() // создали экземпляр сервера
-const session = require('express-session');
+
 const PORT = process.env.PORT || 3002 // создали константу с портом
 // dbCheck() // вызов функции проверки соединения с базоый данных
+
+const sessionConfig = {
+  store: new FileStore(),
+  key: process.env.COOKIE_NAME,
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+  httpOnly: true,
+  cookie: { expires: 24 * 60 * 60e3 },
+};
 
 // ! Подключаем миддлварки
 app.use(cors());
@@ -21,10 +33,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
-  session({
-    secret:process.env.SECRET,
-    saveUninitialized:true
-  })
+  session(sessionConfig)
 )
 
 // ! -->Тут пишем роуты<--

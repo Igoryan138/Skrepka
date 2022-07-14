@@ -1,6 +1,9 @@
-import { rootReducer } from './reducers/rootReducer'
 import { configureStore } from '@reduxjs/toolkit'
+import { categoryReduser } from './reducers/categoryReduser'
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    // user: userReducer,
+    category: categoryReduser
+  }
 })

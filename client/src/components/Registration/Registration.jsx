@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -9,7 +9,7 @@ export  function Registration() {
 
   const [input, setInput] = useState('');
   
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   
 
   function inputHandler(e){
@@ -22,11 +22,10 @@ export  function Registration() {
   axios.post('http://localhost:3100/registration', input)
     .then(res =>{
       //if status 200 
-      // if(userData){
-
-      // }
-      console.log(res)
-      // // navigate('/')
+      if(res.data){
+        setInput('')
+        navigate('/')
+      }
     })
   }
 
@@ -50,7 +49,7 @@ export  function Registration() {
 
   <div className="col-md-4">
     <label htmlFor="validationCustom02" className="htmlForm-label">Телефон</label>
-    <input name='tel'  onChange={inputHandler} type="text" className="htmlForm-control" id="validationCustom02" placeholder='example: 89645553325' required/>
+    <input name='phone'  onChange={inputHandler} type="text" className="htmlForm-control" id="validationCustom02" placeholder='example: 89645553325' required/>
   </div>
 
   <div className="col-md-4">
