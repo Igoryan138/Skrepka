@@ -1,8 +1,24 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { logOutUser } from '../../redux/actions/user.action'
 import AllCategories from '../AllCategories/AllCategories'
 
 export function Navbar() {
+
+  const dispatch = useDispatch()
+const id = useSelector((store) => store.user.id)
+console.log(id);
+
+  const logoutHandler = (e) => {
+    e.preventDefault()
+    // axios.post("http://localhost:3100/logout")
+    //   .then(res => {
+    //     console.log(res)
+    //   })
+    dispatch(logOutUser(id))
+
+  }
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,6 +41,9 @@ export function Navbar() {
               <li className="nav-item">
                 <Link to="profile" className="nav-link">Профиль</Link>
               </li>
+              <button className="nav-item" onClick={logoutHandler}>
+                Выйти
+              </button>
             </ul>
           </div>
         </div>

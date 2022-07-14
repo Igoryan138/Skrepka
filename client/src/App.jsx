@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom'
 import { setCategories } from './redux/actions/category.action';
-import { Main, Navbar, Footer, Registration, Auth, Faq } from './components';
+import { Main, Navbar, Footer, Registration, Auth, Faq, Logout } from './components';
 
 import AddAdvertisement from './components/AddAdvertisement/AddAdvertisement';
 import Profile from './components/Profile/Profile';
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
+      
       <Routes>
       <Route path="/" element={<Main />} />
       <Route path="registration" element={<Registration />} />

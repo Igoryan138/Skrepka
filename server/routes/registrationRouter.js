@@ -8,15 +8,14 @@ const saltRounds = 7;
 router.route('/')
   .post(async (req, res) => {
     const input = req.body;
-    console.log(req.body)
-    console.log(input.password)
+    console.log('req.body',req.body)
    
 try {
   const hashedPassword = await bcrypt.hash(input.password, saltRounds)
-  console.log(hashedPassword);
+  console.log('hashedPassword',hashedPassword);
 
    const checkUserEmail = await User.findOne({where:{email: input.email}})
-   console.log(checkUserEmail);
+   console.log('checkUserEmail',checkUserEmail);
 
 //  //Проерка пользователя:
   if(checkUserEmail){
@@ -35,7 +34,13 @@ try {
     req.session.userId = newUser.id
     req.session.userName = newUser.firstName
 
-    const userData = [newUser.id, newUser.firstName, newUser.lastName, newUser.email, newUser.phone]
+    const userData = {
+      id:newUser.id,
+      firstName: newUser.firstName,
+      lastName: newUser.lastName,
+      email: newUser.email, 
+      phone: newUser.phone
+    }
     res.json(userData)
   }
 

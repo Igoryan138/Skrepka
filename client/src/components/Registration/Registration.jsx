@@ -1,15 +1,17 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/actions/user.action'
 
 
 
 export  function Registration() {
-
-  const [input, setInput] = useState('');
   
-  const navigate = useNavigate();
+
+  const [input, setInput] = useState({});
+  const dispatch = useDispatch();
+ 
   
 
   function inputHandler(e){
@@ -18,15 +20,11 @@ export  function Registration() {
   }
   
   function regHandler(event){
+    
   event.preventDefault()
-  axios.post('http://localhost:3100/registration', input)
-    .then(res =>{
-      //if status 200 
-      if(res.data){
-        setInput('')
-        navigate('/')
-      }
-    })
+    dispatch(setUser(input))
+   
+      // setInput('')
   }
 
   return (
@@ -44,7 +42,7 @@ export  function Registration() {
   
   <div className="col-md-3">
     <label  htmlFor="validationCustom05" className="htmlForm-label">E-mail</label>
-    <input name='email'  onChange={inputHandler} type="text" className="htmlForm-control" id="validationCustom05" placeholder='example: ivan@mail.ru' required/>
+    <input name='email'  onChange={inputHandler} type="email" className="htmlForm-control" id="validationCustom05" placeholder='example: ivan@mail.ru' required/>
   </div>
 
   <div className="col-md-4">
@@ -54,7 +52,7 @@ export  function Registration() {
 
   <div className="col-md-4">
     <label htmlFor="validationCustom02" className="htmlForm-label">Пароль</label>
-    <input name='password'  onChange={inputHandler} type="text" className="htmlForm-control" id="validationCustom02" required/>
+    <input name='password'  onChange={inputHandler} type="password" className="htmlForm-control" id="validationCustom02" required/>
   </div>
 
   <div className="col-12">

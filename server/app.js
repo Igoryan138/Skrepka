@@ -7,6 +7,7 @@ const indexRouter = require('./routes/index');
 const advertisementRouter = require('./routes/advertisementRouter');
 const registrationRouter = require('./routes/registrationRouter');
 const loginRouter = require('./routes/authRouter');
+const logoutRouter = require('./routes/logOutRouter');
 const session = require('express-session');
 const FileStore = require("session-file-store")(session);
 // const categoryRouter = require('./routes/category');
@@ -42,6 +43,7 @@ app.use('/', indexRouter);
 app.use('/advertisement', advertisementRouter)
 app.use('/registration', registrationRouter)
 app.use('/login', loginRouter)
+app.use('/logout', logoutRouter)
 // app.use('/category', categoryRouter);
 
 // ! Начинаем слушать порт для запуска сервера
