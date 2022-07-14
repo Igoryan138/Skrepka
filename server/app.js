@@ -21,19 +21,19 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(
-  session({
-    secret:process.env.SECRET,
-    saveUninitialized:true
-  })
-)
+app.use(express.urlencoded({ extended: false }));
+// app.use(
+//   session({
+//     secret:process.env.SECRET,
+//     saveUninitialized:true
+//   })
+// )
 
 // ! -->Тут пишем роуты<--
 app.use('/', indexRouter);
 app.use('/add', advertisementRouter)
 app.use('/registration', registrationRouter)
-// app.use('/category', categoryRouter);
+app.use('/category', categoryRouter);
 
 // ! Начинаем слушать порт для запуска сервера
 app.listen(PORT, () => { // начинаем слушать сервер на указанном порте
