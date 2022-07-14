@@ -5,17 +5,14 @@ import Advert from '../Advert/Advert'
 import styles from './style.module.css'
 
 export default function AdvertList() {
+  // ! Завожу стейт для объявлений
   const [adverts, setAdverts] = useState([])
 
-  // ! Достаю из адресной строки параметр
+  // ! Достаю из адресной строки параметр категории
   const { name } = useParams()
-  // ! Достаю из стора список всех категорий
-  // const categories = useSelector((store) => store.category)
 
   // ! Запрашиваю с сервера все объявления по данной категории
   useEffect(() => {
-    // ! Нахожу в сторе текущую категорию
-    // const currentCategory = categories.filter(el => el.identifier === name)[0]
     if (name) {
       axios.get(`${process.env.REACT_APP_API_URL}category/${name}`)
         .then((advertsFromServer) => {
@@ -31,7 +28,6 @@ export default function AdvertList() {
 
   return (
     <>
-      {/* <div>Категория {currentCategory?.name}</div> */}
       <div className={styles.list}>
         {adverts.map((el) => <Advert key={el.id} el={el} />)}
       </div>

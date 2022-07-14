@@ -1,11 +1,30 @@
 const router = require('express').Router()
-const { Category, Good } = require('../db/models')
+const { Category, Good, Photo } = require('../db/models')
 
 router.get('/', async (req, res) => {
   try {
-    const goods = await Good.findAll( { raw: true } )
-    // console.log('goods', goods);
-    res.json(goods)
+    const goods = await Good.findAll({
+      raw: true,
+      include: {
+        model: Photo,
+        attributes: ['url'],
+      },
+    })
+    // ! Функция для уникализации массива
+    function uniq(arr) {
+      const newArr = [];
+      newArr.push(arr[0])
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i].id != arr[i - 1].id) {
+          newArr.push(arr[i])
+        }
+      }
+      return newArr
+    }
+    // ! Делаем массив уникальным
+    const uniqArr = uniq(goods)
+    // ! Отправляем его на сервер
+    res.json(uniqArr)
   } catch (error) {
     console.log(error);
   }
@@ -13,14 +32,38 @@ router.get('/', async (req, res) => {
 
 router.get('/:name', async (req, res) => {
   const { name } = req.params
-  console.log('name', name);
+
   try {
     // ! Находим нужную категорию
-    const category = await Category.findOne(({where: { identifier: name }}))
-    console.log('category', category);
-    const goods = await Good.findAll(({ where: { categoryId: category.id }, raw: true }))
-    // console.log('goods', goods);
-    res.json(goods)
+    const category = await Category.findOne(({
+      where: { identifier: name },
+      raw: true,
+    }))
+
+    // ! Находим все товары этой категории
+    const goods = await Good.findAll(({
+      where: { categoryId: category.id },
+      raw: true,
+      include: {
+        model: Photo,
+        attributes: ['url'],
+      },
+    }))
+    // ! Функция для уникализации массива
+    function uniq(arr) {
+      const newArr = [];
+      newArr.push(arr[0])
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i].id != arr[i - 1].id) {
+          newArr.push(arr[i])
+        }
+      }
+      return newArr
+    }
+    // ! Делаем массив уникальным
+    const uniqArr = uniq(goods)
+    // ! Отправляем его на сервер
+    res.json(uniqArr)
   } catch (error) {
     console.log(error);
   }
