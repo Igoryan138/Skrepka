@@ -5,8 +5,7 @@ const { User } = require('../db/models/');
 
 const saltRounds = 7;
 
-router.route('/')
-  .post(async (req, res) => {
+router.post('/' ,async (req, res) => {
     const input = req.body;
     console.log('req.body',req.body)
    
@@ -33,6 +32,8 @@ try {
     //создаем сессиию
     req.session.userId = newUser.id
     req.session.userName = newUser.firstName
+
+
 
     const userData = {
       id:newUser.id,

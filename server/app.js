@@ -2,14 +2,16 @@ require('dotenv').config()
 const express = require('express');
 const morgan = require('morgan');
 const cors = require("cors");
+const session = require('express-session');
+const cookieParser = require('cookie-parser')
+const FileStore = require("session-file-store")(session);
 // const dbCheck = require('./db/dbCheck') // подключение скрипта проверки соединения с БД
 const indexRouter = require('./routes/index');
 const advertisementRouter = require('./routes/advertisementRouter');
 const registrationRouter = require('./routes/registrationRouter');
 const loginRouter = require('./routes/authRouter');
 const logoutRouter = require('./routes/logOutRouter');
-const session = require('express-session');
-const FileStore = require("session-file-store")(session);
+
 // const categoryRouter = require('./routes/category');
 
 
@@ -26,17 +28,22 @@ const sessionConfig = {
   resave: false,
   saveUninitialized: false,
   httpOnly: true,
-  cookie: { expires: 24 * 60 * 60e3 },
+  cookie: { maxAge: 1000* 60* 60},
 };
 
 // ! Подключаем миддлварки
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+app.use(cookieParser())
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   session(sessionConfig)
 )
+
 
 // ! -->Тут пишем роуты<--
 app.use('/', indexRouter);
