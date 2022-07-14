@@ -67,7 +67,7 @@ export default function AddAdvertisement() {
           <input name='exchange' onChange={(e) => setExchange(e.target.value)} className="form-control" id="exampleFormControlInput1" />
         </div>
         <div className="form-file">
-          <input name='photo' type="file" multiple accept='image/*' onChange={fileSelectedHandler} className="form-control" />
+          <input name='photo' type="file" multiple accept='image/*' enctype="multipart/form-data" onChange={fileSelectedHandler} className="form-control" />
           {imageURLs.map((imageSrc, i) => (
             <img key={i} src={imageSrc} alt="not fount" className={style.img} />
           ))}
