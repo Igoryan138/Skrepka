@@ -18,14 +18,14 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      name: 'Хобби',
+      name: 'Хобби и отдых',
       identifier: 'hobbies',
       logo: './icon/hobbi.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      name: 'Личные',
+      name: 'Личные вещи',
       identifier: 'personals',
       logo: './icon/personal.jpg',
       createdAt: new Date(),

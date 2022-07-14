@@ -7,8 +7,7 @@ import { Main, Navbar, Footer, Registration, Auth, Faq } from './components';
 
 import AddAdvertisement from './components/AddAdvertisement/AddAdvertisement';
 import Profile from './components/Profile/Profile';
-import AllCategories from './components/AllCategories/AllCategories';
-import OneCategory from './components/OneCategory/OneCategory';
+import OneCategory from './components/AdvertList/AdvertList';
 import Account from './components/Profile/Account/Account';
 import MyAdvertisements from './components/Profile/MyAdvertisements/MyAdvertisements';
 import MyApplications from './components/Profile/MyApplications/MyApplications';
