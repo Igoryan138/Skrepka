@@ -19,7 +19,7 @@ export const logOutUser = (id) => async (dispatch) => {
     dispatch({
       type: 'LOGOUT_USER',
     })
-    await axios.get(`${process.env.REACT_APP_API_URL}logout` )
+    await axios.get(`${process.env.REACT_APP_API_URL}logout`, {withCredentials:true} )
   } catch (error) {
     console.log(error)
   }

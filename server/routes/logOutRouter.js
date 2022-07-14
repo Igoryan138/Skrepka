@@ -1,9 +1,11 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  // const { id } = req.params
-  // console.log('REQ PARAMS ====>',id);
-  req.session.destroy()
+  if(req.session){
+    req.session.destroy();
+    res.clearCookie(process.env.COOKIE_NAME);
+    res.end();
+  }
 })
 
 
