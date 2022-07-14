@@ -19,9 +19,6 @@ module.exports = {
       exchange: {
         type: Sequelize.STRING,
       },
-      photo: {
-        type: Sequelize.STRING
-      },
       city: {
         type: Sequelize.STRING,
         allowNull: false

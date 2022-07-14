@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const morgan = require('morgan');
 const cors = require("cors");
+const path = require('path'); 
 const dbCheck = require('./db/dbCheck') // подключение скрипта проверки соединения с БД
 const indexRouter = require('./routes/index');
 const advertisementRouter = require('./routes/advertisementRouter');
@@ -18,18 +19,19 @@ dbCheck() // вызов функции проверки соединения с 
 // ! Подключаем миддлварки
 app.use(cors());
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(
-//   session({
-//     secret:process.env.SECRET,
-//     saveUninitialized:true
-//   })
-// )
+app.use(
+  session({
+    secret:process.env.SECRET,
+    saveUninitialized:true
+  })
+)
 
 // ! -->Тут пишем роуты<--
 app.use('/', indexRouter);
-app.use('/advertisement', advertisementRouter)
+app.use('/add', advertisementRouter)
 app.use('/registration', registrationRouter)
 app.use('/category', categoryRouter);
 
