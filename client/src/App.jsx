@@ -33,7 +33,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="registration" element={ id ? <Navigate to='/'/> : <Registration />} />

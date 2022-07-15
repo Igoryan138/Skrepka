@@ -37,3 +37,17 @@ export const chekUserAuth = () => async (dispatch) => {
     console.log(error);
   }
 }
+
+export const authUser = (input) => async (dispatch) => {
+  console.log(input);
+  try {
+    const user = await axios.post('http://localhost:3100/login', input, {withCredentials:true})
+    console.log('user', user.data);
+    dispatch({
+      type: 'SET_USER',
+      payload: user.data
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}

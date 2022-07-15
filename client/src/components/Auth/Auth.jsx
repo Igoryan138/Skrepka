@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { authUser, } from '../../redux/actions/user.action';
 
 export  function Auth() {
 
   const [input, setInput] = useState('');
-  
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   
 
   function inputHandler(e){
@@ -16,13 +15,8 @@ export  function Auth() {
 
   function authHandler(e){
     e.preventDefault()
-    axios.post('http://localhost:3100/login', input, {withCredentials:true})
-      .then(res => {
-       if(res.data){
-        setInput('')
-        navigate('/')
-       }
-      })
+    dispatch(authUser(input))
+    setInput('')
   }
 
 
