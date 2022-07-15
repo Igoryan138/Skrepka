@@ -1,8 +1,5 @@
 import './App.css';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom'
-import { setCategories } from './redux/actions/category.action';
 import { Main, Navbar, Footer, Registration, Auth, Faq, Logout } from './components';
 
 import AddAdvertisement from './components/AddAdvertisement/AddAdvertisement';
@@ -17,15 +14,7 @@ import AdvertItem from './components/AdvertItem/AdvertItem';
 
 
 function App() {
-  const dispatch = useDispatch()
-
-  //useEffect() проверка на сервере есть ли пользователь в сессии
-
-  // ! Получаем список категорий + записываем состояние в стор
-  useEffect(() => {
-    dispatch(setCategories())
-  }, [dispatch])
-
+  
   return (
     <div className="App">
       <Navbar />

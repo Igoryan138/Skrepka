@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
         attributes: ['url'],
       },
     })
+
     // ! Функция для уникализации массива
     function uniq(arr) {
       const newArr = [];
@@ -21,8 +22,10 @@ router.get('/', async (req, res) => {
       }
       return newArr
     }
+
     // ! Делаем массив уникальным
     const uniqArr = uniq(goods)
+
     // ! Отправляем его на сервер
     res.json(uniqArr)
   } catch (error) {
@@ -49,6 +52,7 @@ router.get('/:name', async (req, res) => {
         attributes: ['url'],
       },
     }))
+
     // ! Функция для уникализации массива
     function uniq(arr) {
       const newArr = [];
@@ -60,8 +64,10 @@ router.get('/:name', async (req, res) => {
       }
       return newArr
     }
+
     // ! Делаем массив уникальным
     const uniqArr = uniq(goods)
+    
     // ! Отправляем его на сервер
     res.json(uniqArr)
   } catch (error) {
