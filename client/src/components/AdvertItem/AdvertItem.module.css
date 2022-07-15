@@ -1,19 +1,39 @@
-.bigPhoto {
-  width: 30%;
-  height: 150px;
-}
-
-.miniPhoto {
-  width: 15%;
-  height: 5%;
-}
-
 .center {
   display: flex;
   justify-content: space-around;
 }
 
-.mainPhoto {
+.photo {
   display: flex;
-  
+  flex-direction: column;
+  width: 60%
 }
+
+.bigPhoto {
+  width: 100%;
+  height: 300px;
+}
+
+.bigPhotoImg {
+  height: 100%;
+}
+
+.miniPhoto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.miniPhotoImg {
+  display: inline-flex;
+  
+  width: 100px;
+  padding: 5px;
+}
+
+.contact {
+  width: 40%;
+}
+
+

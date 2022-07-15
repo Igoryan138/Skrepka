@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const multer = require('multer');
-const { Good, Photo } = require('../db/models')
+const { Good, Photo } = require('../db/models');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -54,5 +54,21 @@ router.get('/new', async (req, res) => {
     console.log(error);
   }
 });
+
+router.get('/:id', async (req, res) => {
+  const {id} = req.params;
+  console.log(id);
+  try {
+    const adv = await Good.findOne({where: { id }, raw: true})
+    const photo = await Photo.findAll({where: { goodId: id }, raw: true})
+    const urlPhoto = photo.map((el) => el.url)
+    adv.url = urlPhoto
+    console.log('adv', adv);
+    // console.log('photo', urlPhoto);
+    res.json(adv)
+  } catch (error) {
+    console.log('catch---->', error);
+  }
+})
 
 module.exports = router;
