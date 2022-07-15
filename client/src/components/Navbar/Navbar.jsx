@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { logOutUser } from '../../redux/actions/user.action'
+import {  logOutUser } from '../../redux/actions/user.action'
 import AllCategories from '../AllCategories/AllCategories'
 
 export function Navbar() {
 
   const dispatch = useDispatch()
-const id = useSelector((store) => store.user.id)
+  const id = useSelector((store) => store.user.id )
+  
+
 // console.log(id);
 
   const logoutHandler = (e) => {
@@ -41,9 +43,13 @@ const id = useSelector((store) => store.user.id)
               <li className="nav-item">
                 <Link to="profile" className="nav-link">Профиль</Link>
               </li>
-              <button className="nav-item" onClick={logoutHandler}>
+              
+              <li className="nav-item">
+              {/* <button className="nav-item" onClick={logoutHandler}>
                 Выйти
-              </button>
+              </button> */}
+                <Link to="#" className="nav-link" onClick={logoutHandler}>Выйти</Link>
+              </li>
             </ul>
           </div>
         </div>

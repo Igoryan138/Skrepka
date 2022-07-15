@@ -24,3 +24,16 @@ export const logOutUser = (id) => async (dispatch) => {
     console.log(error)
   }
 }
+
+export const chekUserAuth = () => async (dispatch) => {
+  try {
+    const user = await axios.get(`${process.env.REACT_APP_API_URL}auth`, {withCredentials:true})
+   
+    dispatch({
+      type: 'CHECK_AUTH',
+      payload: user.data
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}

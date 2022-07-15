@@ -13,6 +13,7 @@ const registrationRouter = require('./routes/registrationRouter');
 const loginRouter = require('./routes/authRouter');
 const logoutRouter = require('./routes/logOutRouter');
 const categoryRouter = require('./routes/category');
+const authRouter = require('./routes/chekAuthRouter');
 
 
 // ! Инициализируем приложение
@@ -53,6 +54,7 @@ app.use('/registration', registrationRouter)
 app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
 app.use('/category', categoryRouter);
+app.use('/auth' , authRouter)
 
 
 // ! Начинаем слушать порт для запуска сервера

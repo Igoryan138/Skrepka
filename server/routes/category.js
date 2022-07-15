@@ -32,7 +32,6 @@ router.get('/', async (req, res) => {
 
 router.get('/:name', async (req, res) => {
   const { name } = req.params
-
   try {
     // ! Находим нужную категорию
     const category = await Category.findOne(({
