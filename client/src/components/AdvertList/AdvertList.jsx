@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Advert from '../Advert/Advert'
+import Search from '../Search/Search'
 import styles from './style.module.css'
 
 export default function AdvertList() {
@@ -28,6 +29,7 @@ export default function AdvertList() {
 
   return (
     <>
+    <Search />
       <div className={styles.list}>
         {adverts.map((el) => <Advert key={el.id} el={el} />)}
       </div>

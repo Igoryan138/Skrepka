@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { Category, Good, Photo } = require('../db/models')
+const uniq = require('../middleware/uniq')
 
 router.get('/', async (req, res) => {
   try {
@@ -11,16 +12,97 @@ router.get('/', async (req, res) => {
       },
     })
 
-    // ! Функция для уникализации массива
-    function uniq(arr) {
-      const newArr = [];
-      newArr.push(arr[0])
-      for (let i = 1; i < arr.length; i++) {
-        if (arr[i].id != arr[i - 1].id) {
-          newArr.push(arr[i])
-        }
-      }
-      return newArr
+    // ! Делаем массив уникальным
+    const uniqArr = uniq(goods)
+
+    // ! Отправляем его на сервер
+    res.json(uniqArr)
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+router.post('/', async (req, res) => {
+  const { category, city, phrase } = req.body
+  console.log('category, city, phrase', category, city, phrase);
+  let goods
+
+  try {
+    // ! Проверка если город и категория не указаны
+    if (category === 'all' && city === 'all') {
+      // console.log('ничего не указано');
+      goods = await Good.findAll({
+        where: { title: phrase },
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
+    }
+
+    // ! Проверка если только категория не указана
+    if (category === 'all' && city !== 'all') {
+      // console.log('категория не указана');
+      goods = await Good.findAll({
+        where: { title: phrase, city },
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
+    }
+
+    // ! Проверка если только город не указан
+    if (category !== 'all' && city === 'all') {
+      // console.log('город не указан');
+      // * Находим категорию
+      const currentCategory = await Category.findOne({
+        where: { identifier: category }
+      })
+      goods = await Good.findAll({
+        where: { title: phrase, categoryId: currentCategory.id },
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
+    }
+
+    // ! Проверка если и категория и город указаны
+    if (category !== 'all' && city !== 'all') {
+      // console.log('все указано');
+      // * Находим категорию
+      const currentCategory = await Category.findOne({
+        where: { identifier: category }
+      })
+      goods = await Good.findAll({
+        where: {
+          title: phrase,
+          categoryId: currentCategory.id,
+          city,
+        },
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
+    }
+
+    console.log('goods', goods);
+
+    // ! Если не нашли ни один результат - то возвращаем все объявления
+    if(goods.length === 0) {
+      goods = await Good.findAll({
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
     }
 
     // ! Делаем массив уникальным
@@ -52,26 +134,15 @@ router.get('/:name', async (req, res) => {
       },
     }))
 
-    // ! Функция для уникализации массива
-    function uniq(arr) {
-      const newArr = [];
-      newArr.push(arr[0])
-      for (let i = 1; i < arr.length; i++) {
-        if (arr[i].id != arr[i - 1].id) {
-          newArr.push(arr[i])
-        }
-      }
-      return newArr
-    }
-
     // ! Делаем массив уникальным
     const uniqArr = uniq(goods)
-    
+
     // ! Отправляем его на сервер
     res.json(uniqArr)
   } catch (error) {
     console.log(error);
   }
 })
+
 
 module.exports = router;
