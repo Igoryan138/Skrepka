@@ -13,9 +13,8 @@ export default function Advert({ el }) {
       </Link>
       <div className="card-body">
         <p className="card-text">{el.city}</p>
-        <p className="card-text">{el.createdAt.slice(0,10)}</p>
+        <p className="card-text">{el.createdAt.slice(0, 10)}</p>
       </div>
-
     </div>
 
   )

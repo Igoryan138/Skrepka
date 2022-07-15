@@ -1,4 +1,5 @@
 import './App.css';
+
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom'
@@ -19,16 +20,13 @@ import { chekUserAuth } from './redux/actions/user.action';
 
 function App() {
   const dispatch = useDispatch()
-
   const id = useSelector((store) => store.user.id )
-
-  //useEffect() проверка на сервере есть ли пользователь в сессии
 
   // ! Получаем список категорий + записываем состояние в стор
   useEffect(() => {
-    dispatch(setCategories())
     dispatch(chekUserAuth());
   }, [dispatch])
+
 
   return (
     <div className="App">

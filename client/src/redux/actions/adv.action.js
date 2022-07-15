@@ -18,3 +18,13 @@ export const addAdv = (adv) => async (dispatch) => {
     console.log(error);
   }
 }
+
+export const selectAdv = (id) => async (dispatch) => {
+  try {
+    console.log('actionId', id);
+    const result = await axios.get(`${process.env.REACT_APP_API_URL}add/${id}`)
+    console.log(result.data);
+  } catch (error) {
+    console.log('catch---->', error);
+  }
+}
