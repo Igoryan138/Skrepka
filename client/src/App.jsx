@@ -15,6 +15,7 @@ import Favourites from './components/Profile/Favourites/Favourites';
 import Messages from './components/Profile/Messages/Messages';
 import AdvertItem from './components/AdvertItem/AdvertItem';
 import { chekUserAuth } from './redux/actions/user.action';
+import SearchResult from './components/SearchResult/SearchResult';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
           <Route path="" element={<AdvertList />} />
           <Route path=":name" element={<AdvertList />} />
         </Route>
-        <Route path="search" element={<AdvertList />} />
+        <Route path="search" element={<SearchResult />} />
         <Route path='add' >
           <Route path='' element={<AddAdvertisement />} />
           <Route path=':id' element={<AdvertItem />} />

@@ -24,13 +24,13 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const { category, city, phrase } = req.body
-  console.log('category, city, phrase', category, city, phrase);
+  console.log('category,  city, phrase', category, city, phrase);
   let goods
 
   try {
     // ! Проверка если город и категория не указаны
-    if (category === 'all' && city === 'all') {
-      // console.log('ничего не указано');
+    if (category === 'all' && city === 'all' && phrase) {
+      console.log('указана только фраза');
       goods = await Good.findAll({
         where: { title: phrase },
         raw: true,
@@ -42,8 +42,8 @@ router.post('/', async (req, res) => {
     }
 
     // ! Проверка если только категория не указана
-    if (category === 'all' && city !== 'all') {
-      // console.log('категория не указана');
+    if (category === 'all' && city !== 'all' && phrase) {
+      console.log('указаны фраза и город');
       goods = await Good.findAll({
         where: { title: phrase, city },
         raw: true,
@@ -55,8 +55,8 @@ router.post('/', async (req, res) => {
     }
 
     // ! Проверка если только город не указан
-    if (category !== 'all' && city === 'all') {
-      // console.log('город не указан');
+    if (category !== 'all' && city === 'all' && phrase) {
+      console.log('указаны фраза и категория');
       // * Находим категорию
       const currentCategory = await Category.findOne({
         where: { identifier: category }
@@ -72,8 +72,8 @@ router.post('/', async (req, res) => {
     }
 
     // ! Проверка если и категория и город указаны
-    if (category !== 'all' && city !== 'all') {
-      // console.log('все указано');
+    if (category !== 'all' && city !== 'all' && phrase) {
+      console.log('все указано');
       // * Находим категорию
       const currentCategory = await Category.findOne({
         where: { identifier: category }
@@ -92,7 +92,73 @@ router.post('/', async (req, res) => {
       })
     }
 
-    console.log('goods', goods);
+    // ! Проверка если фразы нет но есть категория и город
+    if (!phrase && category !== 'all' && city !== 'all') {
+      console.log('указаны категория и город');
+      // * Находим категорию
+      const currentCategory = await Category.findOne({
+        where: { identifier: category }
+      })
+      goods = await Good.findAll({
+        where: {
+          categoryId: currentCategory.id,
+          city,
+        },
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
+    }
+
+    // ! Проверка если фразы нет и есть только город
+    if (!phrase && category === 'all' && city !== 'all') {
+      console.log('указан только город');
+      goods = await Good.findAll({
+        where: {
+          city,
+        },
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
+    }
+
+    // ! Проверка если фразы нет и есть только категория
+    if (!phrase && category !== 'all' && city === 'all') {
+      console.log('указана только категория');
+      // * Находим категорию
+      const currentCategory = await Category.findOne({
+        where: { identifier: category }
+      })
+      goods = await Good.findAll({
+        where: {
+          categoryId: currentCategory.id,
+        },
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
+    }
+
+    // ! Проверка если фразы, города и категории нет
+    if (!phrase && category === 'all' && city === 'all') {
+      console.log('ничего не указано');
+      goods = await Good.findAll({
+        raw: true,
+        include: {
+          model: Photo,
+          attributes: ['url'],
+        },
+      })
+    }
+
+     console.log('goods', goods.length);
 
     // ! Если не нашли ни один результат - то возвращаем все объявления
     if(goods.length === 0) {
@@ -104,6 +170,7 @@ router.post('/', async (req, res) => {
         },
       })
     }
+
 
     // ! Делаем массив уникальным
     const uniqArr = uniq(goods)

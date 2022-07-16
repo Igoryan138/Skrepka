@@ -70,7 +70,7 @@ export function Main() {
     <main className={styles.Main}>
       <Search />
       <h2>Категории</h2>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="d-flex justify-content-around">
         {category.map((el) => <Category key={el.id} el={el} />)}
       </div>
       <div>
