@@ -25,6 +25,7 @@ router.post('/', upload.array('photo'), async (req, res) => {
 router.get('/new', async (req, res) => {
   try {
     const newAdverts = await Good.findAll({
+      order: [['id', 'DESC']],
       raw: true,
       limit: 12,
       include: {

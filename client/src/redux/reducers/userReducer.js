@@ -5,7 +5,6 @@ export function userReducer(state = {}, action) {
     case 'LOGOUT_USER':
       return {}
     case 'CHECK_AUTH':
-      console.log('action.payload======>',action.payload);
       return {...state,id:action.payload}
     default:
       return state
