@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const setUser = (input) => async (dispatch) => {
-  console.log(input);
+  // console.log(input);
   try {
     const user = await axios.post(`${process.env.REACT_APP_API_URL}registration`, input , {withCredentials: true})
     console.log('user', user.data);
@@ -39,10 +39,10 @@ export const chekUserAuth = () => async (dispatch) => {
 }
 
 export const authUser = (input) => async (dispatch) => {
-  console.log(input);
+  // console.log(input);
   try {
     const user = await axios.post('http://localhost:3100/login', input, {withCredentials:true})
-    console.log('user', user.data);
+    // console.log('user', user.data);
     dispatch({
       type: 'SET_USER',
       payload: user.data

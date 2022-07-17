@@ -3,7 +3,6 @@ import './App.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom'
-import { setCategories } from './redux/actions/category.action';
 import { Main, Navbar, Footer, Registration, Auth, Faq } from './components';
 
 import AddAdvertisement from './components/AddAdvertisement/AddAdvertisement';
@@ -16,6 +15,7 @@ import Favourites from './components/Profile/Favourites/Favourites';
 import Messages from './components/Profile/Messages/Messages';
 import AdvertItem from './components/AdvertItem/AdvertItem';
 import { chekUserAuth } from './redux/actions/user.action';
+import SearchResult from './components/SearchResult/SearchResult';
 
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
           <Route path="" element={<AdvertList />} />
           <Route path=":name" element={<AdvertList />} />
         </Route>
+        <Route path="search" element={<SearchResult />} />
         <Route path='add' >
           <Route path='' element={<AddAdvertisement />} />
           <Route path=':id' element={<AdvertItem />} />

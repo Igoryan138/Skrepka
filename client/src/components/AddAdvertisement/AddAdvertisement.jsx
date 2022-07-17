@@ -15,7 +15,6 @@ export default function AddAdvertisement() {
   const [city, setCity] = useState();
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([])
-  // console.log('city' ,city.value);
 
   useEffect(() => {
     if (images.length < 1) return;
@@ -32,14 +31,6 @@ export default function AddAdvertisement() {
   const addHandler = (e) => {
     e.preventDefault();
     const data = new FormData(e.target)
-    // const newGood = {
-    //   title,
-    //   description,
-    //   exchange,
-    //   city: city.value,
-    //   photo: images
-    // }
-    // console.log(newGood);
     dispatch(addAdv(data))
   }
 

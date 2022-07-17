@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCategories } from '../../redux/actions/category.action'
-import Advert from '../Advert/Advert'
 import Carousel from '../Carousel/Carousel'
 import Category from '../Category/Category'
 import Search from '../Search/Search'
@@ -71,7 +70,7 @@ export function Main() {
     <main className={styles.Main}>
       <Search />
       <h2>Категории</h2>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="d-flex justify-content-around">
         {category.map((el) => <Category key={el.id} el={el} />)}
       </div>
       <div>
