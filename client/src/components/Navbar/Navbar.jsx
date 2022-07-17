@@ -10,7 +10,7 @@ export function Navbar() {
   const id = useSelector((store) => store.user.id)
 
 
-  console.log('YA id =================', id);
+  // console.log('YA id =================', id);
 
   const logoutHandler = (e) => {
     e.preventDefault()
