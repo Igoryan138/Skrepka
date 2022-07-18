@@ -20,12 +20,17 @@ router.route('/').post( async (req, res) => {
       res.json('Не верный пароль')
     }
 
-    req.session.userId = user.id
-    req.session.userName = user.firstName
+    req.session.user = {
+      id:user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email, 
+      phone: user.phone
+    }
 
-    const id = user.id
-    const name = user.firstName
-    res.json({id, name})
+    // const id = user.id
+    // const name = user.firstName
+    res.json(req.session.user)
   } catch (error) {
     console.log(error)
   }

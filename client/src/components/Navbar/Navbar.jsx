@@ -7,7 +7,7 @@ import AllCategories from '../AllCategories/AllCategories'
 export function Navbar() {
 
   const dispatch = useDispatch()
-  const id = useSelector((store) => store.user.id)
+  const id = useSelector((store) => store.user.user?.id)
 
   const logoutHandler = (e) => {
     e.preventDefault()

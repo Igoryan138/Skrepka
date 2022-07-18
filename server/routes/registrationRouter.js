@@ -30,19 +30,22 @@ try {
     })
 
     //создаем сессиию
-    req.session.userId = newUser.id
-    req.session.userName = newUser.firstName
-
-
-
-    const userData = {
+    req.session.user = {
       id:newUser.id,
       firstName: newUser.firstName,
       lastName: newUser.lastName,
       email: newUser.email, 
       phone: newUser.phone
     }
-    res.json(userData)
+
+    // const userData = {
+    //   id:newUser.id,
+    //   firstName: newUser.firstName,
+    //   lastName: newUser.lastName,
+    //   email: newUser.email, 
+    //   phone: newUser.phone
+    // }
+    res.json(req.session.user)
   }
 
 
