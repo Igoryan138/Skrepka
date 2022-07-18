@@ -1,35 +1,35 @@
-import style from './MyAdvertisements.module.css'
+import style from './MyCompletedAdvert.module.css'
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux"
 import axios from 'axios'
 import { useState } from 'react'
-import MyAdvertItem from './MyAdvertItem/MyAdvertItem'
+import MyCompletedAdvertItem from '../MyCompletedAdvertItem/MyCompletedAdvertItem'
 
-export default function MyAdvertisements() {
+
+export default function MyCompletedAdvert() {
   const id = useSelector((store) => store.user.user.id)
-  const [adverts, setAdverts] = useState([])
+  const [completedAdverts, setCompletedAdverts] = useState([])
 
   useEffect(() => {
-    const result = axios.get(`${process.env.REACT_APP_API_URL}profile/advertisements/${id}`)
-      .then((res) => setAdverts(res.data))
+    axios.get(`${process.env.REACT_APP_API_URL}profile/advertisements/completed/${id}`)
+      .then((res) => setCompletedAdverts(res.data))
   }, [id])
- 
 
   return (
     <div>
       <div>
         <ul className="nav nav-tabs justify-content-center">
           <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="">Активные</Link>
+            <Link className="nav-link" aria-current="page" to="/profile/advertisements">Активные</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="completed">Завершенные</Link>
+            <Link className="nav-link active" to="completed">Завершенные</Link>
           </li>
         </ul>
       </div>
       <div className={style.item}>
-        {adverts?.map((el) => <MyAdvertItem key={el.id} el={el} />)}
+        {completedAdverts?.map((el) => <MyCompletedAdvertItem key={el.id} el={el} />)}
 
       </div>
       <div>
@@ -38,3 +38,4 @@ export default function MyAdvertisements() {
     </div>
   )
 }
+
