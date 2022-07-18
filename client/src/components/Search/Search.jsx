@@ -18,11 +18,15 @@ export default function Search() {
   // ! Обработчик формы
   const searchHandler = async (e) => {
     e.preventDefault();
-    const result = await axios.post(`${process.env.REACT_APP_API_URL}category`, search)
-    console.log('result', result.data);
-    const { data } = result
-    dispatch(setSearchResult(data))
-    search.category === 'all' ? navigate(`/category?q=${search.phrase}`) : navigate(`/category/${search.category}?q=${search.phrase}`)
+    try {
+      const result = await axios.post(`${process.env.REACT_APP_API_URL}category`, search)
+      console.log('result', result.data);
+      const { data } = result
+      dispatch(setSearchResult(data))
+      search.category === 'all' ? navigate(`/category?q=${search.phrase}`) : navigate(`/category/${search.category}?q=${search.phrase}`)  
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

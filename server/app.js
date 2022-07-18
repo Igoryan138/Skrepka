@@ -30,7 +30,7 @@ const sessionConfig = {
   resave: false,
   saveUninitialized: false,
   httpOnly: true,
-  cookie: { maxAge: 1000* 60* 60},
+  cookie: { maxAge: 1000* 60* 60 * 24},
 };
 
 // ! Подключаем миддлварки
@@ -41,6 +41,7 @@ app.use(cors({
 app.use(cookieParser())
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use("/public", express.static('public'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(

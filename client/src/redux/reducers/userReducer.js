@@ -11,7 +11,7 @@ export function userReducer(state = {
         isLoaded:true
       }
     case 'CHECK_AUTH':
-      console.log('action.payload======>',action.payload);
+      // console.log('action.payload======>',action.payload);
       return {...state,user:action.payload, isLoaded: true}
 
     default:

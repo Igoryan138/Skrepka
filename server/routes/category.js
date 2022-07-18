@@ -201,8 +201,11 @@ router.get('/:name', async (req, res) => {
       },
     }))
 
+    console.log('goods', goods);
     // ! Делаем массив уникальным
     const uniqArr = uniq(goods)
+
+    console.log('uniqArr', uniqArr);
 
     // ! Отправляем его на сервер
     res.json(uniqArr)

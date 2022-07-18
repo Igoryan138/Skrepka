@@ -13,6 +13,7 @@ export default function AdvertList() {
 
   // ! Достаем из стора все категории
   const { category } = useSelector((state) => state) 
+  // console.log('category', category);
 
   // ! Завожу стейт для текущей категории
   const [currentCategory, setCurrentCategory] = useState('')
@@ -20,15 +21,15 @@ export default function AdvertList() {
   // ! Достаю из адресной строки параметр категории
   const { name } = useParams()
 
-  useEffect(()=> {
-   if(name) {
-    setCurrentCategory(category.filter(el => el.identifier === name)[0].name)
-   } else {
-    setCurrentCategory('Все категории')
-   }
-  },[name])
+  // useEffect(()=> {
+  //  if(name) {
+  //   setCurrentCategory(category.filter(el => el.identifier === name)[0].name)
+  //  } else {
+  //   setCurrentCategory('Все категории')
+  //  }
+  // },[name])
 
-  console.log('currentCategory', currentCategory);
+  // console.log('currentCategory', currentCategory);
 
   // ! Достаем из стора результаты поиска
   const searchResult = useSelector((state) => state.search)
@@ -42,12 +43,17 @@ export default function AdvertList() {
     if (name) {
       axios.get(`${process.env.REACT_APP_API_URL}category/${name}`)
         .then((advertsFromServer) => {
+          // console.log('advertsFromServer.data', advertsFromServer.data);
           setAdverts(advertsFromServer.data)
+          // const x = category.filter(el => el.id = advertsFromServer.data[0].categoryId)
+          // console.log('x', x);
+          // setCurrentCategory(x.name)
         })
     } else {
       axios.get(`${process.env.REACT_APP_API_URL}category`)
         .then((advertsFromServer) => {
           setAdverts(advertsFromServer.data)
+          // setCurrentCategory('Все категории')
         })
     }
   }, [name])
@@ -55,7 +61,7 @@ export default function AdvertList() {
   return (
     <div className={styles.List}>
       <div>
-        <h1>{currentCategory}</h1>
+        {/* <h1>{currentCategory}</h1> */}
       </div>
       <div>
         <h2>Количество объявлений: {search ? searchResult.length : adverts.length}</h2>
