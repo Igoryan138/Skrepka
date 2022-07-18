@@ -24,10 +24,10 @@ export default function Account() {
     <>
     {mode === 'view' && (
       <div>
-        <div>{user?.firstName}</div>
-        <div>{user?.lastName}</div>
-        <div>{user?.email}</div>
-        <div>{user?.phone}</div>
+        <div>Имя: {user?.firstName}</div>
+        <div>Фамилия: {user?.lastName}</div>
+        <div>E-mail: {user?.email}</div>
+        <div>Телефон: {user?.phone}</div>
         <button onClick={() => setMode('edit')}>Редактировать</button>
       </div> 
     )} 
@@ -36,7 +36,9 @@ export default function Account() {
         e.preventDefault()
         dispatch(editUser({
           firstName,
-          lastName
+          lastName,
+          email,
+          phone
         })).then(()=>{
           setMode('view')
         })
