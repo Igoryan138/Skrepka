@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const multer = require('multer');
-const { Good, User, Photo } = require('../db/models');
+const moment = require('moment');
+const { Good, Photo, Category, User } = require('../db/models');
+
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    pathFile = 'public/photo';
+    pathFile = '../client/public/photo';
     cb(null, pathFile);
   },
   filename(req, file, cb) {
@@ -16,10 +18,25 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.post('/', upload.array('photo'), async (req, res) => {
-  console.log(req.file);
-  console.log(req.body);
-  // res.sendStatus(200)
+router.post('/new', upload.array('photo'), async (req, res) => {
+  console.log('req.files', req.files);
+  const { title, description, city, exchange, category } = req.body
+  // ! Находим категорию указанную при добавлении
+  const currentCategory = await Category.findOne({ where: { identifier: category }, raw: true },)
+  // console.log('currentCategory', currentCategory);
+  // ! Заносим товар в таблицу
+  const newGood = await Good.create({
+    title, description, city, exchange,
+    categoryId: currentCategory.id,
+  })
+  // ! Заносим фото в таблицу
+  for (let i = 0; i < req.files.length; i++) {
+    await Photo.create({
+      url: `/photo/${req.files[0].filename}`,
+      goodId: newGood.id
+    })
+  }
+  res.sendStatus(200)
 });
 
 router.get('/new', async (req, res) => {
@@ -57,7 +74,7 @@ router.get('/new', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   console.log(id);
   try {
     const adv = await Good.findOne({where: { id }, raw: true})
