@@ -15,6 +15,7 @@ const logoutRouter = require('./routes/logOutRouter');
 const categoryRouter = require('./routes/category');
 const authRouter = require('./routes/chekAuthRouter');
 const accountRouter = require('./routes/accountRouter');
+const dealRouter = require('./routes/dealRouter');
 
 
 // ! Инициализируем приложение
@@ -57,6 +58,7 @@ app.use('/logout', logoutRouter)
 app.use('/category', categoryRouter);
 app.use('/auth' , authRouter)
 app.use('/profile', accountRouter);
+app.use('/deal', dealRouter)
 
 
 // ! Начинаем слушать порт для запуска сервера

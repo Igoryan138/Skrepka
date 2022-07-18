@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const multer = require('multer');
-const { Good, Photo } = require('../db/models');
+const { Good, User, Photo } = require('../db/models');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -61,10 +61,16 @@ router.get('/:id', async (req, res) => {
   console.log(id);
   try {
     const adv = await Good.findOne({where: { id }, raw: true})
+    const user = await User.findOne({ where: { id: adv.userId }, raw: true})
+    delete user.password;
+    delete user.email;
+    delete user.createdAt;
+    delete user.updatedAt;
     const photo = await Photo.findAll({where: { goodId: id }, raw: true})
     const urlPhoto = photo.map((el) => el.url)
-    adv.url = urlPhoto
-    console.log('adv', adv);
+    adv.url = urlPhoto;
+    adv.user = user;
+    delete adv.userId
     // console.log('photo', urlPhoto);
     res.json(adv)
   } catch (error) {
