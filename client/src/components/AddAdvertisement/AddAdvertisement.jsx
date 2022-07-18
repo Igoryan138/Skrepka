@@ -2,7 +2,7 @@ import style from './AddAdvertisement.module.css'
 import React, { useEffect, useState } from 'react';
 import { AddressSuggestions } from 'react-dadata';
 import 'react-dadata/dist/react-dadata.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addAdv } from '../../redux/actions/adv.action';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +13,7 @@ export default function AddAdvertisement() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [newAdvert, setNewAdvert] = useState({})
+  const userId = useSelector((store) => store.user.user.id)
   // const [title, setTitle] = useState('')
   // const [description, setDescription] = useState('')
   // const [exchange, setExchange] = useState('')
@@ -41,6 +42,7 @@ export default function AddAdvertisement() {
   const addHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target)
+    formData.append('userId', userId)
     // console.log('formData', formData);
     try {
       await axios({

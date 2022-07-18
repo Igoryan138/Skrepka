@@ -14,7 +14,7 @@ export default function MyAdvertisements() {
     const result = axios.get(`${process.env.REACT_APP_API_URL}profile/advertisements/${id}`)
     .then((res) => setAdverts(res.data))
   }, [id])
-  console.log(adverts);
+  console.log('adverts',adverts);
   
 
 
