@@ -36,6 +36,10 @@ export const chekUserAuth = () => async (dispatch) => {
     // console.log('user.data====>',user.data);
   } catch (error) {
     console.log(error);
+    dispatch({
+      type: 'SET_USER',
+      payload: null
+    })
   }
 }
 
@@ -66,3 +70,18 @@ export const editUser = (params) => async (dispatch) => {
     console.log(error);
   }
 }
+
+// // Для отображения в профиле моих объявлений  ( должно работать)
+// export const myApplications = (id) => async (dispatch) => {
+//   try {
+//     const user = await axios.post('http://localhost:3100/profile/applications', id, {withCredentials:true})
+//     // console.log('user EDIT', user.data);
+//     dispatch({
+//       type: 'SET_USER',
+//       payload: user.data
+//     })
+//     return user.data
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
