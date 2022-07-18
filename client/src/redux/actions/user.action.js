@@ -56,7 +56,7 @@ export const authUser = (input) => async (dispatch) => {
 export const editUser = (params) => async (dispatch) => {
   try {
     const user = await axios.post('http://localhost:3100/profile/edit', params, {withCredentials:true})
-    // console.log('user', user.data);
+    console.log('user EDIT', user.data);
     dispatch({
       type: 'SET_USER',
       payload: user.data

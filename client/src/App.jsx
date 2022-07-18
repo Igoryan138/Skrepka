@@ -22,17 +22,17 @@ function App() {
   const dispatch = useDispatch()
   const id = useSelector((store) => store.user.user?.id )
   const store = useSelector((store) => store)
-console.log('store=====>',store);
+// console.log('store=====>',store);
   const isLoaded = useSelector((store) => store.user.isLoaded)
- console.log('id=======>',id);
+//  console.log('id=======>',id);
   // ! Получаем список категорий + записываем состояние в стор
   useEffect(() => {
     dispatch(chekUserAuth());
   }, [dispatch])
 
-  if(!isLoaded){
-    return 'LOADING...'
-  }
+  // if(!isLoaded){
+  //   return 'LOADING...'
+  // }
 
   return (
     <div className="App">

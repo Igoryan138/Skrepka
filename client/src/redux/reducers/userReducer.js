@@ -4,6 +4,7 @@ export function userReducer(state = {
 }, action) {
   switch (action.type) {
     case 'SET_USER':
+      console.log('user:action.payload',action.payload);
       return {...state,user:action.payload}
     case 'LOGOUT_USER':
       return {
@@ -11,7 +12,7 @@ export function userReducer(state = {
         isLoaded:true
       }
     case 'CHECK_AUTH':
-      console.log('action.payload======>',action.payload);
+      // console.log('action.payload======>',action.payload);
       return {...state,user:action.payload, isLoaded: true}
 
     default:

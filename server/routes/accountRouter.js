@@ -17,14 +17,17 @@ router.post('/account', async (req, res) => {
 })
 
 router.post('/edit',  async (req, res) => {
-  const {firstName } = req.body
+  const {firstName, lastName, phone, email } = req.body
 
   try {
     const user = await User.findByPk(req.session.user.id)
     if(!user){
       return res.status(403).json('Пользователь не найден')
     }
-    user.firstName = firstName
+    user.firstName = firstName,
+    user.lastName = lastName,
+    user.email = email
+    user.phone = phone,
     await user.save()
 
     req.session.user = {
