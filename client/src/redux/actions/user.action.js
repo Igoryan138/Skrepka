@@ -33,6 +33,7 @@ export const chekUserAuth = () => async (dispatch) => {
       type: 'CHECK_AUTH',
       payload: user.data
     })
+    console.log('user.data====>',user.data);
   } catch (error) {
     console.log(error);
   }
@@ -47,6 +48,20 @@ export const authUser = (input) => async (dispatch) => {
       type: 'SET_USER',
       payload: user.data
     })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const editUser = (params) => async (dispatch) => {
+  try {
+    const user = await axios.post('http://localhost:3100/profile/edit', params, {withCredentials:true})
+    console.log('user', user.data);
+    dispatch({
+      type: 'SET_USER',
+      payload: user.data
+    })
+    return user.data
   } catch (error) {
     console.log(error);
   }
