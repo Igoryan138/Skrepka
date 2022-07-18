@@ -4,7 +4,7 @@ export function userReducer(state = {
 }, action) {
   switch (action.type) {
     case 'SET_USER':
-      console.log('user:action.payload',action.payload);
+      // console.log('user:action.payload',action.payload);
       return {...state,user:action.payload}
     case 'LOGOUT_USER':
       return {

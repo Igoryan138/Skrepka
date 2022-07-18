@@ -10,7 +10,7 @@ export default function Account() {
   // const [currentuser, setCurrentUser] = useState({})
   const [mode, setMode] = useState('view') 
   const  user  = useSelector((store) => store.user.user)
-  console.log('USER=======>>>>>>>',user);
+  // console.log('USER=======>>>>>>>',user);
   // useEffect(()=>{
   //   axios.post('http://localhost:3100/profile/account', user )
   //     .then(res => setCurrentUser(res.data))
@@ -28,7 +28,7 @@ export default function Account() {
         <div>Фамилия: {user?.lastName}</div>
         <div>E-mail: {user?.email}</div>
         <div>Телефон: {user?.phone}</div>
-        <button onClick={() => setMode('edit')}>Редактировать</button>
+        <button type="submit" className="btn btn-info" onClick={() => setMode('edit')}>Редактировать</button>
       </div> 
     )} 
      {mode === 'edit' && (
@@ -48,8 +48,8 @@ export default function Account() {
         <input value={lastName} onChange={(e)=>setLastName(e.target.value)}  type= 'text'/> 
         <input value={email} onChange={(e)=>setEmail(e.target.value)}  type= 'text'/> 
         <input value={phone} onChange={(e)=>setPhone(e.target.value)}  type= 'text'/> 
-        <button>Сохранить</button>
-        <button onClick={() => setMode('view')}>Отменить</button>
+        <button type="submit" className="btn btn-success">Сохранить</button>
+        <button type="submit" className="btn btn-danger" onClick={() => setMode('view')}>Отменить</button>
       </form> 
     )} 
     

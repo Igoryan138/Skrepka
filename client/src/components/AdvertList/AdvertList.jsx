@@ -28,7 +28,7 @@ export default function AdvertList() {
    }
   },[name])
 
-  console.log('currentCategory', currentCategory);
+  // console.log('currentCategory', currentCategory);
 
   // ! Достаем из стора результаты поиска
   const searchResult = useSelector((state) => state.search)
