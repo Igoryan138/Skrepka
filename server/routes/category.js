@@ -183,7 +183,8 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/:name', async (req, res) => {
-  const { name } = req.params
+  const { skip=0, limit=10 } = req.query
+   const { name } = req.params
   try {
     // ! Находим нужную категорию
     const category = await Category.findOne(({
@@ -195,6 +196,8 @@ router.get('/:name', async (req, res) => {
     const goods = await Good.findAll(({
       where: { categoryId: category.id },
       raw: true,
+      offset: +skip,
+      limit: +limit,
       include: {
         model: Photo,
         attributes: ['url'],
@@ -205,7 +208,15 @@ router.get('/:name', async (req, res) => {
     const uniqArr = uniq(goods)
 
     // ! Отправляем его на сервер
-    res.json(uniqArr)
+    res.json({
+      count: await Good.count({
+        where:{
+          categoryId: category.id
+        }
+      }),
+      items:uniqArr,
+
+    })
   } catch (error) {
     console.log(error);
   }
