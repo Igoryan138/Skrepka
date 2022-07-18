@@ -15,15 +15,18 @@ router.post('/account', async (req, res) => {
   }
 })
 
-router.post('/edit', async (req, res) => {
-  const { firstName } = req.body
+router.post('/edit',  async (req, res) => {
+  const {firstName, lastName, phone, email } = req.body
 
   try {
     const user = await User.findByPk(req.session.user.id)
     if (!user) {
       return res.status(403).json('Пользователь не найден')
     }
-    user.firstName = firstName
+    user.firstName = firstName,
+    user.lastName = lastName,
+    user.email = email
+    user.phone = phone,
     await user.save()
 
     req.session.user = {
@@ -41,13 +44,17 @@ router.post('/edit', async (req, res) => {
 
 router.get('/advertisements/:id', async (req, res) => {
   const { id } = req.params
+  console.log('id',id);
   try {
     const adverts = await Good.findAll({ where: { userId: id }, raw: true })
+    console.log('adverts',adverts);
     const allId = adverts.map((el) => el.id)
+    console.log('allId',allId);
     
     const photo = []
     for (let i = 0; i < allId.length; i++) {
       const firstPhoto = await Photo.findOne({ where: { goodId: allId[i] }, raw: true })
+      console.log('firstPhoto=====',firstPhoto);
       photo.push(firstPhoto.url)
       adverts[i].url = firstPhoto.url
     }

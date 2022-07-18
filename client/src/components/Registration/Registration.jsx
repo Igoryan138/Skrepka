@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/actions/user.action'
 

@@ -20,7 +20,9 @@ const upload = multer({ storage });
 
 router.post('/new', upload.array('photo'), async (req, res) => {
   console.log('req.files', req.files);
-  const { title, description, city, exchange, category } = req.body
+  console.log('req.body', req.body);
+  const { userId ,title, description, city, exchange, category } = req.body
+
   // ! Находим категорию указанную при добавлении
   const currentCategory = await Category.findOne({ where: { identifier: category }, raw: true },)
   // console.log('currentCategory', currentCategory);
@@ -28,6 +30,7 @@ router.post('/new', upload.array('photo'), async (req, res) => {
   const newGood = await Good.create({
     title, description, city, exchange,
     categoryId: currentCategory.id,
+    userId: +userId
   })
   // ! Заносим фото в таблицу
   for (let i = 0; i < req.files.length; i++) {

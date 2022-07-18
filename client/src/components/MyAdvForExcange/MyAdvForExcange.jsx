@@ -22,7 +22,7 @@ export default function MyAdvForExcange({ el, notMineAdvId }) {
               <h5 className="card-title">{el.title}</h5>
             </Link>
             <Link to={`/exchange/success`}>
-              <button type="button" onClick={addDeal} class="btn btn-success">Предложить на обмен</button>
+              <button type="button" onClick={addDeal} className="btn btn-success">Предложить на обмен</button>
             </Link>
           </div>
         </div>
