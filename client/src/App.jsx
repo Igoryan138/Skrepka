@@ -16,7 +16,8 @@ import Messages from './components/Profile/Messages/Messages';
 import AdvertItem from './components/AdvertItem/AdvertItem';
 import { chekUserAuth } from './redux/actions/user.action';
 import SearchResult from './components/SearchResult/SearchResult';
-
+import Exchange from './Exchange/Exchange';
+import Success from './components/Success/Success';
 
 function App() {
   const dispatch = useDispatch()
@@ -57,6 +58,10 @@ function App() {
           <Route path="applications" element={<MyApplications />} />
           <Route path="favourites" element={<Favourites />} />
           <Route path="messages" element={<Messages />} />
+        </Route>
+        <Route path='exchange' >
+          <Route path=":id" element={id ? <Exchange loginUser={id} /> : <Navigate to='/'/>} />
+          <Route path="success" element={id && <Success loginUser={id} /> } />
         </Route>
       </Routes>
 

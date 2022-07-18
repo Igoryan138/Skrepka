@@ -65,7 +65,7 @@ export default function AdvertList() {
   return (
     <div className={styles.List}>
       <div>
-        <h1>{currentCategory}</h1>
+        {/* <h1>{currentCategory}</h1> */}
       </div>
       <div>
         <h2>Количество объявлений: {search ? searchResult.length : adverts.length}</h2>
