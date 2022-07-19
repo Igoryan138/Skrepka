@@ -7,7 +7,7 @@ import Carousel from '../Carousel/Carousel'
 import Search from '../Search/Search'
 import styles from './style.module.css'
 
-const limit = 20
+const limit = 2
 
 
 export default function AdvertList() {
@@ -71,7 +71,7 @@ export default function AdvertList() {
         <h2>Количество объявлений: {search ? searchResult.length : adverts.length}</h2>
       </div>
       <Search />
-       {/* <div className="pagination">
+       <div className="pagination">
         <button onClick={()=> setPage(page -1)}>
           left
         </button>
@@ -81,27 +81,10 @@ export default function AdvertList() {
         <button onClick={()=> setPage(page +1)}>
           right
         </button>
-      </div>  */}
+      </div> 
      
 
-     <div className="pagination">
-        <nav aria-label="Page navigation example">
-          <ul className="pagination justify-content-center">
-          <li className="page-item" onClick={ ()=> setPage(page -1)}>
-              <a className="page-link"  >Назад</a>
-            </li>
-
-            {/* {pages.map((el) =><li className="page-item"><a className="page-link" href={el}>1</a></li> */}
-
-            <li className="page-item"><a className="page-link" href={page}>1</a></li>
-
-
-            <li className="page-item" onClick={ ()=> setPage(page +1)}>
-              <a className="page-link"  >Вперед</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+     
      
 
       {search ? (<div className={styles.list}>
@@ -111,26 +94,18 @@ export default function AdvertList() {
       </div>)}
 
 
-
-
-
-
-
       <div className="pagination">
-        <nav aria-label="Page navigation example">
-          <ul className="pagination justify-content-center">
-            <li className="page-item disabled">
-              <a className="page-link" href="#" tabIndex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li className="page-item"><a className="page-link" href="#">1</a></li>
-            <li className="page-item"><a className="page-link" href="#">2</a></li>
-            <li className="page-item"><a className="page-link" href="#">3</a></li>
-            <li className="page-item">
-              <a className="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        <button onClick={()=> setPage(page -1)}>
+          left
+        </button>
+        <span>
+          {page} / {pages}     
+        </span>
+        <button onClick={()=> setPage(page +1)}>
+          right
+        </button>
+      </div> 
+
     </div>
 
 
