@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import style from './style.module.css'
+// import style from './style.module.css'
 export function Footer() {
   return (
-    <div className={style.footer}>
+    <div style={{
+      position: "fixed",
+      left: 0,
+      bottom: 0,
+      right: 0,
+      backgroundColor: "red"
+    }}>
 
-      <footer className="py-3">
+      <footer className="py-3"  >
         <ul className="nav justify-content-center border-bottom pb-3 mb-3">
 
           <li className="nav-item">
