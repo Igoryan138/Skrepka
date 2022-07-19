@@ -61,8 +61,8 @@ export default function AddAdvertisement() {
       <form onSubmit={addHandler} encType="multipart/form-data">
         <div className="mb-3">
           <label htmlFor="exampleFormControlTextarea1" className="form-label">Выберите категорию товара</label>
-          <select onChange={inputsHandler} name="category" className="form-select h-100 w-25" aria-label="Default select example">
-            <option value="all"> Все категории</option>
+          <select required onChange={inputsHandler} name="category" className="form-select h-100 w-25" aria-label="Default select example">
+            <option selected disabled>Выберите категорию</option>
             <option value="personals">Личные вещи</option>
             <option value="electronics">Электроника</option>
             <option value="automobile">Авто</option>
@@ -72,18 +72,18 @@ export default function AddAdvertisement() {
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">Напишите название:</label>
-          <input name='title' onChange={inputsHandler} className="form-control" id="exampleFormControlInput1" />
+          <input required name='title' onChange={inputsHandler} className="form-control" id="exampleFormControlInput1" />
         </div>
         <div className="mb-3">
           <label htmlFor="exampleFormControlTextarea1" className="form-label">Добавьте описание:</label>
-          <textarea name='description' onChange={inputsHandler} className="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+          <textarea required name='description' onChange={inputsHandler} className="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
         </div>
         {/* <div className="mb-3">
           <label htmlFor="exampleFormControlTextarea1" className="form-label">Выберите город:</label>
           <AddressSuggestions name='city' token={process.env.REACT_APP_API_KEY} onChange={inputsHandler} />
         </div> */}
-        <select onChange={inputsHandler} name="city" className="form-select h-100 w-25" aria-label="Default select example">
-          <option value="all" >Все города</option>
+        <select required onChange={inputsHandler} name="city" className="form-select h-100 w-25" aria-label="Default select example">
+          <option selected disabled>Выберите город</option>
           <option value="Москва">Москва</option>
           <option value="Иркутск">Иркутск</option>
           <option value="Челябинск">Челябинск</option>
@@ -96,7 +96,7 @@ export default function AddAdvertisement() {
         </div>
         <div className="form-file">
           <label>Выберите файл</label>
-          <input type="file" multiple name="photo" onChange={inputsHandler} />
+          <input required type="file" multiple name="photo" onChange={inputsHandler} />
           {/* <input name='photo' type="file" multiple accept='image/*' enctype="multipart/form-data" onChange={fileSelectedHandler} className="form-control" />
           {imageURLs.map((imageSrc, i) => (
             <img key={i} src={imageSrc} alt="not fount" className={style.img} />

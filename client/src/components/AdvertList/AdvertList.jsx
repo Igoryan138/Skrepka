@@ -35,7 +35,7 @@ export default function AdvertList() {
     } else {
       setCurrentCategory('Все категории')
     }
-  }, [name])
+  }, [category, name])
 
   // console.log('currentCategory', currentCategory);
 
