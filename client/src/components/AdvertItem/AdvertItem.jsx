@@ -18,7 +18,7 @@ export default function AdvertItem() {
   const [arrow, setArrow] = useState('hidden')
 
   const myAdv = (isLogin === advert?.user?.id)
-  console.log(myAdv);
+  // console.log(myAdv);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}add/${id}`)
@@ -45,27 +45,31 @@ export default function AdvertItem() {
     }
   }
 
+  const isFavorite = () => {
+    axios.post(`${process.env.REACT_APP_API_URL}add/favorite`, { id: +id, isLogin })
+  }
+
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>
         <div onClick={onLast} style={{ background: 'white', width: '20px', height: '20px' }}></div>
-        <img src={bigPhoto} width={500} alt="main" />
+        <img src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} width={500} alt="main" />
         <div onClick={onNext} style={{ background: 'white', width: '20px', height: '20px' }}></div>
       </Modal>
       <div className={style.center}> 0
         <div className={style.photo}> 1
           <div className={style.title}>
             <div>
-              Избранное
+              <img src="/icon/favoriteOff.png" onClick={isFavorite} width={40} alt="" />
             </div>
             <h1>{advert?.title}</h1>
           </div>
           <div className={style.bigPhoto}>
-            <img src={bigPhoto} onClick={() => setVisible(true)} className={style.bigPhotoImg} alt="main" />
+            <img src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} onClick={() => setVisible(true)} className={style.bigPhotoImg} alt="main" />
           </div>
 
           <div className={style.miniPhoto}>
-            {advert?.url?.map((el, i) => <img key={i} src={el} onClick={() => setBigPhoto(el)} className={style.miniPhotoImg} alt="mini" />)}
+            {advert?.url?.map((el, i) => <img key={i} src={`${process.env.REACT_APP_API_URL}${el}`} onClick={() => setBigPhoto(el)} className={style.miniPhotoImg} alt="mini" />)}
           </div>
 
         </div>
@@ -73,7 +77,12 @@ export default function AdvertItem() {
         <div className={style.contact}>
           <br /><br /><br /><br /><br />
           {myAdv ?
+          <>
             <h3>Это Ваше объявление. Хотите посмотреть все свои обявления?</h3>
+            <Link to={'/profile/advertisements'} >
+              <button type="button" className="btn btn-success">Перейти к моим объявлениям</button>
+            </Link>
+          </>
             :
             (isLogin ?
               <>

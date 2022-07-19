@@ -18,14 +18,15 @@ import { chekUserAuth } from './redux/actions/user.action';
 import SearchResult from './components/SearchResult/SearchResult';
 import Exchange from './Exchange/Exchange';
 import Success from './components/Success/Success';
+import MyCompletedAdvert from './components/Profile/MyAdvertisements/MyCompletedAdvert/MyCompletedAdvert';
 
 function App() {
   const dispatch = useDispatch()
-  const id = useSelector((store) => store.user.user?.id )
+  const id = useSelector((store) => store.user.user?.id)
   const store = useSelector((store) => store)
-// console.log('store=====>',store);
+  // console.log('store=====>',store);
   const isLoaded = useSelector((store) => store.user.isLoaded)
-//  console.log('id=======>',id);
+  //  console.log('id=======>',id);
   // ! Получаем список категорий + записываем состояние в стор
   useEffect(() => {
     dispatch(chekUserAuth());
@@ -40,8 +41,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="registration" element={ id ? <Navigate to='/'/> : <Registration />} />
-        <Route path="login" element={id ? <Navigate to='/'/> :<Auth />} />
+        <Route path="registration" element={id ? <Navigate to='/' /> : <Registration />} />
+        <Route path="login" element={id ? <Navigate to='/' /> : <Auth />} />
         <Route path="faq" element={<Faq />} />
         <Route path="category">
           <Route path="" element={<AdvertList />} />
@@ -54,14 +55,17 @@ function App() {
         </Route>
         <Route path='profile/*' element={id && <Profile />  } >
           <Route path="account" element={<Account />} />
-          <Route path="advertisements" element={<MyAdvertisements />} />
+          <Route path="advertisements">
+            <Route path='' element={<MyAdvertisements />} />
+            <Route path='completed' element={<MyCompletedAdvert />} />
+          </Route>
           <Route path="applications" element={<MyApplications />} />
           <Route path="favourites" element={<Favourites />} />
           <Route path="messages" element={<Messages />} />
         </Route>
         <Route path='exchange' >
-          <Route path=":id" element={id ? <Exchange loginUser={id} /> : <Navigate to='/'/>} />
-          <Route path="success" element={id && <Success loginUser={id} /> } />
+          <Route path=":id" element={id ? <Exchange loginUser={id} /> : <Navigate to='/' />} />
+          <Route path="success" element={id && <Success loginUser={id} />} />
         </Route>
       </Routes>
 
