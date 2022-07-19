@@ -7,7 +7,7 @@ import { useState } from 'react'
 import MyAdvertItem from './MyAdvertItem/MyAdvertItem'
 
 export default function MyAdvertisements() {
-  const id = useSelector((store) => store.user.user.id)
+  const id = useSelector((store) => store.user.user?.id)
   const [adverts, setAdverts] = useState([])
 
   useEffect(() => {
@@ -30,10 +30,6 @@ export default function MyAdvertisements() {
       </div>
       <div className={style.item}>
         {adverts?.map((el) => <MyAdvertItem key={el.id} el={el} />)}
-
-      </div>
-      <div>
-        <Link to='/add' className="btn btn-secondary">Добавить объявление</Link>
       </div>
     </div>
   )

@@ -90,6 +90,10 @@ router.post('/completed', async (req, res) => {
   }
 })
 
+router.post('/favorite', async (req, res) => {
+  console.log(req.body);
+})
+
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   console.log(id);
