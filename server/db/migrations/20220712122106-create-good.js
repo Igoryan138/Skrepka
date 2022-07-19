@@ -23,6 +23,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      status: {
+        type: Sequelize.STRING,
+        defaultValue: 'active'
+      },
       isModerate: {
         type: Sequelize.BOOLEAN,
         defaultValue: false

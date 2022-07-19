@@ -10,26 +10,27 @@ export default function MyAdvertisements() {
   // store.user.user?.id
   const id = useSelector((store) => store.user.user?.id )
   const [adverts, setAdverts] = useState([])
-  
+
   useEffect(() => {
     const result =  axios.get(`${process.env.REACT_APP_API_URL}profile/advertisements/${id}`)
     .then((res) => setAdverts(res.data))
   }, [id])
-  console.log('adverts',adverts);
-  
-
+ 
 
   return (
     <div>
       <div>
-        Мои объявления
+        <ul className="nav nav-tabs justify-content-center">
+          <li className="nav-item">
+            <Link className="nav-link active" aria-current="page" to="">Активные</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="completed">Завершенные</Link>
+          </li>
+        </ul>
       </div>
       <div className={style.item}>
         {adverts?.map((el) => <MyAdvertItem key={el.id} el={el} />)}
-
-      </div>
-      <div>
-        <Link to='/add' className="btn btn-secondary">Добавить объявление</Link>
       </div>
     </div>
   )

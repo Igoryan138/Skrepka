@@ -45,6 +45,10 @@ export default function AdvertItem() {
     }
   }
 
+  const isFavorite = () => {
+    axios.post(`${process.env.REACT_APP_API_URL}add/favorite`, { id: +id, isLogin })
+  }
+
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>
@@ -56,7 +60,7 @@ export default function AdvertItem() {
         <div className={style.photo}> 1
           <div className={style.title}>
             <div>
-              Избранное
+              <img src="/icon/favoriteOff.png" onClick={isFavorite} width={40} alt="" />
             </div>
             <h1>{advert?.title}</h1>
           </div>
@@ -73,7 +77,12 @@ export default function AdvertItem() {
         <div className={style.contact}>
           <br /><br /><br /><br /><br />
           {myAdv ?
+          <>
             <h3>Это Ваше объявление. Хотите посмотреть все свои обявления?</h3>
+            <Link to={'/profile/advertisements'} >
+              <button type="button" className="btn btn-success">Перейти к моим объявлениям</button>
+            </Link>
+          </>
             :
             (isLogin ?
               <>

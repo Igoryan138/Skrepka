@@ -165,10 +165,10 @@ router.post('/', async (req, res) => {
       })
     }
 
-     console.log('goods', goods.length);
+    //  console.log('goods', goods.length);
 
     // ! Если не нашли ни один результат - то возвращаем все объявления
-    if(goods.length === 0) {
+    if (goods.length === 0) {
       goods = await Good.findAll({
         raw: true,
         include: {
@@ -190,14 +190,16 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/:name', async (req, res) => {
-  const { skip=0, limit=10 } = req.query
-   const { name } = req.params
+  const { skip = 0, limit = 10 } = req.query
+  const { name } = req.params
   try {
+
     // ! Находим нужную категорию
     const category = await Category.findOne(({
       where: { identifier: name },
       raw: true,
     }))
+    // console.log('category', category);
 
     // ! Находим все товары этой категории
     const goods = await Good.findAll(({
@@ -211,21 +213,20 @@ router.get('/:name', async (req, res) => {
       },
     }))
 
-    console.log('goods', goods);
+    // console.log('goods', goods);
     // ! Делаем массив уникальным
     const uniqArr = uniq(goods)
 
-    console.log('uniqArr', uniqArr);
+    // console.log('uniqArr', uniqArr);
 
     // ! Отправляем его на сервер
     res.json({
       count: await Good.count({
-        where:{
+        where: {
           categoryId: category.id
         }
       }),
-      items:uniqArr,
-
+      items: uniqArr,
     })
   } catch (error) {
     console.log(error);

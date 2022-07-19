@@ -35,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     exchange: DataTypes.STRING,
     city: DataTypes.STRING,
+    status: DataTypes.STRING,
     isModerate: DataTypes.BOOLEAN,
     userId: DataTypes.INTEGER,
     categoryId: DataTypes.INTEGER
