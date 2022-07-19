@@ -49,6 +49,7 @@ router.post('/new', upload.array('photo'), async (req, res) => {
 });
 
 router.get('/new', async (req, res) => {
+  console.log('зашел');
   try {
     const newAdverts = await Good.findAll({
       order: [['id', 'DESC']],
