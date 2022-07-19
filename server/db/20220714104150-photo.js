@@ -4,7 +4,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Photos', [
       {
-        url: 'https://picsum.photos/id/1/300/200',
+        url: 'photo/19072022-133059_547-dlya_dushi_35_13130628.jpeg',
         goodId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
