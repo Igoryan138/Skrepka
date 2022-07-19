@@ -8,7 +8,8 @@ import styles from './search.module.css'
 export default function Search() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [search, setSearch] = useState({category: 'all', city: 'all'})
+  const [search, setSearch] = useState({category: 'all', phrase: null, city: 'all'})
+  // console.log('search', search);
 
   // ! Обработчик инпутов
   const inputsHandler = (e) => {
@@ -20,10 +21,10 @@ export default function Search() {
     e.preventDefault();
     try {
       const result = await axios.post(`${process.env.REACT_APP_API_URL}category`, search)
-      console.log('result', result.data);
+      // console.log('result', result.data);
       const { data } = result
       dispatch(setSearchResult(data))
-      search.category === 'all' ? navigate(`/category?q=${search.phrase}`) : navigate(`/category/${search.category}?q=${search.phrase}`)  
+        search.category === 'all' ? navigate(`/category?q=${search.phrase}`) : navigate(`/category/${search.category}?q=${search.phrase}`)
     } catch (error) {
       console.log(error);
     }

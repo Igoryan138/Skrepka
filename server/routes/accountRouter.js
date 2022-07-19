@@ -44,17 +44,17 @@ router.post('/edit',  async (req, res) => {
 
 router.get('/advertisements/:id', async (req, res) => {
   const { id } = req.params
-  console.log('id',id);
+  // console.log('id',id);
   try {
     const adverts = await Good.findAll({ where: { userId: id }, raw: true })
-    console.log('adverts',adverts);
+    // console.log('adverts',adverts);
     const allId = adverts.map((el) => el.id)
-    console.log('allId',allId);
+    // console.log('allId',allId);
     
     const photo = []
     for (let i = 0; i < allId.length; i++) {
       const firstPhoto = await Photo.findOne({ where: { goodId: allId[i] }, raw: true })
-      console.log('firstPhoto=====',firstPhoto);
+      // console.log('firstPhoto=====',firstPhoto);
       photo.push(firstPhoto.url)
       adverts[i].url = firstPhoto.url
     }
