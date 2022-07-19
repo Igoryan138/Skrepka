@@ -1,5 +1,10 @@
 .Main {
   width: 70%;
+  /* width: 100vh; */
+  /* height: 100vh; */
   margin: 0 auto;
   margin-top: 50px;
+ display: flex;
+ flex-direction: column;
 }
+
