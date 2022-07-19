@@ -3,9 +3,12 @@ const { Category, Good, Photo } = require('../db/models')
 const uniq = require('../middleware/uniq')
 
 router.get('/', async (req, res) => {
+  const { skip=0, limit=10 } = req.query
   try {
     const goods = await Good.findAll({
       raw: true,
+      offset: +skip,
+      limit: +limit,
       include: {
         model: Photo,
         attributes: ['url'],
@@ -16,7 +19,11 @@ router.get('/', async (req, res) => {
     const uniqArr = uniq(goods)
 
     // ! Отправляем его на сервер
-    res.json(uniqArr)
+    res.json({
+      count:uniqArr.length,
+      items:uniqArr,
+
+    })
   } catch (error) {
     console.log(error);
   }

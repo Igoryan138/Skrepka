@@ -52,7 +52,7 @@ function App() {
           <Route path='' element={<AddAdvertisement />} />
           <Route path=':id' element={<AdvertItem />} />
         </Route>
-        <Route path='profile/*' element={id ? <Profile />  : <Navigate to='/'/>} >
+        <Route path='profile/*' element={id && <Profile />  } >
           <Route path="account" element={<Account />} />
           <Route path="advertisements" element={<MyAdvertisements />} />
           <Route path="applications" element={<MyApplications />} />
