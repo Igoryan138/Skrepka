@@ -12,8 +12,8 @@ export default function MyAdvertisements() {
   const [adverts, setAdverts] = useState([])
 
   useEffect(() => {
-    const result = axios.get(`${process.env.REACT_APP_API_URL}profile/advertisements/${id}`)
-      .then((res) => setAdverts(res.data))
+    const result =  axios.get(`${process.env.REACT_APP_API_URL}profile/advertisements/${id}`)
+    .then((res) => setAdverts(res.data))
   }, [id])
  
 
