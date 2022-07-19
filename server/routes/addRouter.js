@@ -19,10 +19,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/new', upload.array('photo'), async (req, res) => {
+
   // console.log('req.files', req.files);
   // console.log('req.body', req.body);
   const { userId, title, description, city, exchange, category } = req.body
   // console.log('userId, title, description, city, exchange, category', userId, title, description, city, exchange, category);
+
 
   // ! Находим категорию указанную при добавлении
   const currentCategory = await Category.findOne({ where: { identifier: category }, raw: true },)
@@ -79,6 +81,24 @@ router.get('/new', async (req, res) => {
     console.log(error);
   }
 });
+
+router.post('/completed', async (req, res) => {
+  const { id } = req.body;
+  console.log(req.body);
+  try {
+    const good = await Good.findOne({ where: { id } })
+    good.status = 'completed';
+    good.save()
+    console.log(good);
+    res.sendStatus(200)
+  } catch (error) {
+    console.log('catchError---->', error);
+  }
+})
+
+router.post('/favorite', async (req, res) => {
+  console.log(req.body);
+})
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;

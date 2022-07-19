@@ -14,9 +14,7 @@ export function Navbar() {
 
   }
   return (
-
     <header>
-
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">Главная</Link>
@@ -34,8 +32,11 @@ export function Navbar() {
                     </li>
 
                     <li className="nav-item">
-                     
                       <Link to="#" className="nav-link" onClick={logoutHandler}>Выйти</Link>
+                    </li>
+
+                    <li className="nav-item">
+                      <Link to='/add' className="btn btn-secondary">Добавить объявление</Link>
                     </li>
                   </>
 
@@ -51,7 +52,6 @@ export function Navbar() {
 
                 )
               }
-
             </ul>
           </div>
         </div>
