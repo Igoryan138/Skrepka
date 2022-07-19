@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const multer = require('multer');
 const moment = require('moment');
-const { Good, Photo, Category, User } = require('../db/models');
+const { Good, Photo, Category, User, Favourite } = require('../db/models');
 
 
 const storage = multer.diskStorage({
@@ -97,7 +97,17 @@ router.post('/completed', async (req, res) => {
 })
 
 router.post('/favorite', async (req, res) => {
-  console.log(req.body);
+  const { id, isLogin } = req.body
+  console.log(id, isLogin);
+  try {
+    // const serchFav = await Favourite.findAll({ where: { userId: isLogin, goodId: id }})
+    // console.log(serchFav);
+    // if (!serchFav) {
+      await Favourite.create({ userId: isLogin, goodId: id })
+    // }
+  } catch (error) {
+    console.log('catchError---->', error);
+  }
 })
 
 router.get('/:id', async (req, res) => {
