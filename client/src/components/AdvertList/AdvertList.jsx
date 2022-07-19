@@ -7,14 +7,16 @@ import Carousel from '../Carousel/Carousel'
 import Search from '../Search/Search'
 import styles from './style.module.css'
 
-const limit = 2
+const limit = 20
 
 
 export default function AdvertList() {
-  const [pages, setPages] = useState(1)          //всего страниц
-  const [page, setPage] = useState(1)       //текущая страница
+  const [pages, setPages] = useState(1)  //всего страниц
+  const [page, setPage] = useState(1)    //текущая страница
+
   // ! Завожу стейт для объявлений
   const [adverts, setAdverts] = useState([])
+  // console.log('adverts', adverts);
 
   // ! Достаем из стора все категории
   const { category } = useSelector((state) => state)
@@ -43,6 +45,7 @@ export default function AdvertList() {
   // ! Достаем из адресной строки параметр поиска search
   let location = useLocation()
   let { search } = location
+  // console.log('search', search);
 
   // ! Запрашиваю с сервера все объявления по данной категории
   useEffect(() => {
@@ -50,12 +53,16 @@ export default function AdvertList() {
     if (name) {
       axios.get(`${process.env.REACT_APP_API_URL}category/${name}?limit=${limit}&skip=${skip}`)
         .then((advertsFromServer) => {
+          // console.log('advertsFromServer', advertsFromServer);
+          // ! setAdverts(advertsFromServer.data.items)
           setAdverts(advertsFromServer.data.items)
           setPages(Math.ceil(advertsFromServer.data.count / limit))    //узнаем кол-во страниц
         })
     } else {
       axios.get(`${process.env.REACT_APP_API_URL}category?limit=${limit}&skip=${skip}`)
         .then((advertsFromServer) => {
+          // console.log('advertsFromServer', advertsFromServer);
+          // ! setAdverts(advertsFromServer.data.items)
           setAdverts(advertsFromServer.data.items)
           setPages(Math.ceil(advertsFromServer.data.count / limit))  //узнаем кол-во страниц
         })
@@ -65,7 +72,7 @@ export default function AdvertList() {
   return (
     <div className={styles.List}>
       <div>
-        {/* <h1>{currentCategory}</h1> */}
+        <h1>{currentCategory}</h1>
       </div>
       <div>
         <h2>Количество объявлений: {search ? searchResult.length : adverts.length}</h2>
@@ -83,15 +90,14 @@ export default function AdvertList() {
         </button>
       </div>  */}
      
-
-     <div className="pagination">
+     {/* <div className="pagination">
         <nav aria-label="Page navigation example">
           <ul className="pagination justify-content-center">
           <li className="page-item" onClick={ ()=> setPage(page -1)}>
               <a className="page-link"  >Назад</a>
             </li>
 
-            {/* {pages.map((el) =><li className="page-item"><a className="page-link" href={el}>1</a></li> */}
+            {pages.map((el) =><li className="page-item"><a className="page-link" href={el}>1</a></li>
 
             <li className="page-item"><a className="page-link" href={page}>1</a></li>
 
@@ -101,22 +107,15 @@ export default function AdvertList() {
             </li>
           </ul>
         </nav>
-      </div>
+      </div> */}
      
-
       {search ? (<div className={styles.list}>
         {searchResult.map((el) => <Carousel key={el.id} el={el} />)}
       </div>) : (<div className={styles.list}>
         {adverts.map((el) => <Carousel key={el.id} el={el} />)}
       </div>)}
 
-
-
-
-
-
-
-      <div className="pagination">
+      {/* <div className="pagination">
         <nav aria-label="Page navigation example">
           <ul className="pagination justify-content-center">
             <li className="page-item disabled">
@@ -130,10 +129,7 @@ export default function AdvertList() {
             </li>
           </ul>
         </nav>
-      </div>
+      </div> */}
     </div>
-
-
-
   )
 }

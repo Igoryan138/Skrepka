@@ -66,12 +66,14 @@ router.get('/advertisements/completed/:id', async (req, res) => {
 
 router.get('/advertisements/:id', async (req, res) => {
   const { id } = req.params
-  console.log('id',id);
+  // console.log('id',id);
   try {
+
     const adverts = await Good.findAll({ where: { userId: id, status: 'active' }, raw: true })
     console.log('adverts',adverts);
+
     const allId = adverts.map((el) => el.id)
-    console.log('allId',allId);
+    // console.log('allId',allId);
     
     const photo = []
     for (let i = 0; i < allId.length; i++) {
