@@ -7,7 +7,7 @@ import Carousel from '../Carousel/Carousel'
 import Search from '../Search/Search'
 import styles from './style.module.css'
 
-const limit = 2
+const limit = 20
 
 
 export default function AdvertList() {

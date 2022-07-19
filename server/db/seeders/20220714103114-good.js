@@ -32,6 +32,7 @@ module.exports = {
         description: 'перстень-печатка',
         exchange: 'Подвеска или брошь',
         city: 'Москва',
+        status: 'active',
         isModerate: true,
         userId: 3,
         categoryId: 4,
