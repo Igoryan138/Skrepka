@@ -19,7 +19,7 @@ export default function MyAdvForExcange({ el, notMineAdvId }) {
     <div className={style.size}>
       <div className="col">
         <div className="card">
-          <img src={el.url} className="card-img-top" alt="" />
+          <img src={`${process.env.REACT_APP_API_URL}${el.url}`} style={{ width: '18rem' }} className="card-img-top" alt="" />
           <div className="card-body">
             <Link to={`/add/${el.id}`}>
               <h5 className="card-title">{el.title}</h5>

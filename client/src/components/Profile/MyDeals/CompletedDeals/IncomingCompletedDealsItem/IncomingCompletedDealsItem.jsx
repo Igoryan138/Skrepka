@@ -13,7 +13,7 @@ export default function IncomingCompletedDealsItem({ el, notMineIncomingGoods })
       <div className={style.size}>
         <div className="col">
           <div className="card">
-            <img src={el.url} className="card-img-top" alt="" />
+            <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className="card-img-top" alt="" />
             <div className="card-body">
               <Link to={`/add/${el.id}`}>
                 <h5 className="card-title">{el.title}</h5>
@@ -25,7 +25,7 @@ export default function IncomingCompletedDealsItem({ el, notMineIncomingGoods })
       <div className={style.size}>
         <div className="col">
           <div className="card">
-            <img src={notMineIncomingGoods.url} className="card-img-top" alt="" />
+            <img src={`${process.env.REACT_APP_API_URL}${notMineIncomingGoods.url}`} className="card-img-top" alt="" />
             <div className="card-body">
               <Link to={`/add/${notMineIncomingGoods.Good.id}`}>
                 <h5 className="card-title">{notMineIncomingGoods.Good.title}</h5>
