@@ -3,9 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function MyAdvertItem({ el }) {
-  const deleteAdvert = () => {
-    axios.delete(`${process.env.REACT_APP_API_URL}add/${el.id}`)
+export default function MyAdvertItem({ el, setAdverts, adverts }) {
+  const deleteAdvert = async () => {
+    await axios.delete(`${process.env.REACT_APP_API_URL}add/${el.id}`)
+    const undelAdvert = adverts.filter(add => add.id !== el.id)
+    setAdverts(undelAdvert)
   }
 
   return (
