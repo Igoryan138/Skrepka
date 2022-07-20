@@ -12,7 +12,7 @@ export default function Profile() {
       </div>
 
       <div className={style.menu}>
-        <div className='container'>
+        <div className={style.menu_left}>
           <div className="list-group">
             <Link to="account" className="list-group-item list-group-item-action" aria-current="true">
               Учетная запись
@@ -37,7 +37,7 @@ export default function Profile() {
             <Link to="messages" className="list-group-item list-group-item-action">Сообщения</Link>
           </div>
         </div>
-        <div className='container'>
+        <div className={style.menu_right}>
           <Outlet />
         </div>
       </div>

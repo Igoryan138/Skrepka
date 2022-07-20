@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { editUser } from '../../../redux/actions/user.action'
 // import { useState } from 'react'
 // import { useEffect } from 'react'
+import styles from './account.module.css'
 
 export default function Account() {
 
@@ -23,12 +24,12 @@ export default function Account() {
   return (
     <>
     {mode === 'view' && (
-      <div>
-        <div>Имя: {user?.firstName}</div>
-        <div>Фамилия: {user?.lastName}</div>
-        <div>E-mail: {user?.email}</div>
-        <div>Телефон: {user?.phone}</div>
-        <button type="submit" className="btn btn-info" onClick={() => setMode('edit')}>Редактировать</button>
+      <div className={styles.profile}>
+        <h5>Имя: {user?.firstName}</h5>
+        <h5>Фамилия: {user?.lastName}</h5>
+        <h5>E-mail: {user?.email}</h5>
+        <h5>Телефон: {user?.phone}</h5>
+        <button type="submit" className="btn btn-info mt-2" onClick={() => setMode('edit')}>Редактировать</button>
       </div> 
     )} 
      {mode === 'edit' && (

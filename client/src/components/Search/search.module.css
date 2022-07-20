@@ -3,3 +3,48 @@
   margin: 0;
   padding: 0;
 }
+
+.category {
+  width: 20%;
+}
+
+.phrase {
+  width: 50%;
+}
+
+.city {
+  width: 20%;
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+
+  .category {
+    width: 30%;
+  }
+  
+  .phrase {
+    width: 30%;
+  }
+  
+  .city {
+    width: 30%;
+  }
+}
+
+@media (max-width: 767px) {
+  .search {
+    flex-wrap: wrap;
+  }
+  
+  .category {
+    width: 30%;
+  }
+  
+  .phrase {
+    width: 30%;
+  }
+  
+  .city {
+    width: 30%;
+  }
+}

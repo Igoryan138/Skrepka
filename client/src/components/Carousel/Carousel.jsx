@@ -9,7 +9,6 @@ export default function Carousel({ el }) {
         <Link to={`/add/${el.id}`}>
           <img src={`${process.env.REACT_APP_API_URL}${el['Photos.url']}`} alt={el.title} />
         </Link>
-        <h1>{el.city}</h1>
       </div>
       <div className={styles.cardBottom}>
         <Link to={`/add/${el.id}`}>
@@ -17,6 +16,7 @@ export default function Carousel({ el }) {
         </Link>
         <span className={styles.date}>{el.createdAt.slice(0, 10)}</span>
       </div>
+      <h5>{el.city}</h5>
     </div>
   )
 }

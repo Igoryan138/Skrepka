@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Good.init({
     title: DataTypes.STRING,
-    description: DataTypes.STRING,
+    description: DataTypes.TEXT,
     exchange: DataTypes.STRING,
     city: DataTypes.STRING,
     status: DataTypes.STRING,

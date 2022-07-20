@@ -11,6 +11,28 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './main.module.css'
 
+// function SampleNextArrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={className}
+//       style={{ ...style, display: "block", color: "red" }}
+//       onClick={onClick}
+//     />
+//   );
+// }
+
+// function SamplePrevArrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={className}
+//       style={{ ...style, display: "block", background: "green" }}
+//       onClick={onClick}
+//     />
+//   );
+// }
+
 export function Main() {
   const dispatch = useDispatch()
   const [newAdverts, setNewAdverts] = useState([])
@@ -38,6 +60,8 @@ export function Main() {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
+    // nextArrow: <SampleNextArrow />,
+    // prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -70,7 +94,7 @@ export function Main() {
     <main className={styles.Main}>
       <Search />
       <h2>Категории</h2>
-      <div className="d-flex justify-content-around category">
+      <div className="d-flex justify-content-center">
         {category.map((el) => <Category key={el.id} el={el} />)}
       </div>
       <div>
