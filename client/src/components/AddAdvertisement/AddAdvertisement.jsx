@@ -38,7 +38,6 @@ export default function AddAdvertisement() {
     setNewAdvert(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-
   const addHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target)

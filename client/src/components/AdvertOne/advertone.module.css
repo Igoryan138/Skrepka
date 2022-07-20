@@ -7,9 +7,8 @@
 }
 
 .card {
-  /* border: 1px solid silver; */
-  /* background: white; */
-  background-color: rgb(255, 245, 226);
+  border: 1px solid silver;
+  background-color: rgb(230, 246, 255);
   border-radius: 8px;
   overflow: hidden;
   margin: 2%;
@@ -28,6 +27,8 @@
 }
 
 .cardTop img {
+  /* width: 100%; */
+  /* object-fit: cover; */
   height: 250px;
   object-fit: cover;
 }

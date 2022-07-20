@@ -94,15 +94,15 @@ export function Main() {
     <main className={styles.Main}>
       <Search />
       <h2>Категории</h2>
-      <div className="d-flex justify-content-center">
+      <div className={styles.Category}>
         {category.map((el) => <Category key={el.id} el={el} />)}
       </div>
-      <div>
-        <h2>Новые объявления</h2>
+      <h2>Новые объявления</h2>
+      <div className={styles.Slider}>
+        {/* <Slider {...settings}>
+          {newAdverts.map(el => <Carousel key={el.id} el={el} />)}
+        </Slider> */}
       </div>
-      <Slider {...settings}>
-        {newAdverts.map(el => <Carousel key={el.id} el={el} />)}
-      </Slider>
     </main>
   )
 }

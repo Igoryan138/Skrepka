@@ -3,6 +3,20 @@
   /* width: 100vh; */
   /* height: 100vh; */
   margin: 0 auto;
+}
+
+.Main h2 {
+  margin-top: 5%;
+}
+
+.Category {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2%;
+}
+
+.Slider {
   margin-top: 3%;
 }
 

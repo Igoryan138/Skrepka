@@ -8,7 +8,7 @@ import MyCompletedAdvertItem from '../MyCompletedAdvertItem/MyCompletedAdvertIte
 
 
 export default function MyCompletedAdvert() {
-  const id = useSelector((store) => store.user.user.id)
+  const id = useSelector((store) => store.user.user?.id)
   const [completedAdverts, setCompletedAdverts] = useState([])
 
   useEffect(() => {
