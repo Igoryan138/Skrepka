@@ -5,22 +5,17 @@ import axios from 'axios';
 
 
 export default function MyCompletedAdvertItem({ el }) {
-  const isCompleted = () => {
-    axios.post(`${process.env.REACT_APP_API_URL}add/completed`, { id: el.id })
-  }
-
-
   return (
     <div className={style.size}>
       <div className="col">
-        <div className="card">
-          <img src={el.url} className="card-img-top" alt="" />
-          <div className="card-body">
-            <Link to={`/add/${el.id}`}>
+        <Link to={`/add/${el.id}`}>
+          <div className="card">
+            <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className="card-img-top" alt={el.title} />
+            <div className="card-body">
               <h5 className="card-title">{el.title}</h5>
-            </Link>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   )
