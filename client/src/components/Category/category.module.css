@@ -1,0 +1,12 @@
+.category {
+  width: 15%;
+  height: auto;
+  margin: 1%;
+  border: 1px solid silver;
+  background-color: rgb(230, 246, 255);
+}
+
+.category img {
+  width: 100%;
+  height: auto;
+}

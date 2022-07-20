@@ -4,7 +4,7 @@ const uniq = require('../middleware/uniq')
 const { Op } = require("sequelize");
 
 router.get('/', async (req, res) => {
-  const { skip=0, limit=10 } = req.query
+  const { skip = 0, limit = 10 } = req.query
   try {
     const goods = await Good.findAll({
       raw: true,
@@ -21,8 +21,8 @@ router.get('/', async (req, res) => {
 
     // ! Отправляем его на сервер
     res.json({
-      count:uniqArr.length,
-      items:uniqArr,
+      count: uniqArr.length,
+      items: uniqArr,
 
     })
   } catch (error) {
@@ -40,7 +40,11 @@ router.post('/', async (req, res) => {
     if (category === 'all' && city === 'all' && phrase) {
       console.log('указана только фраза');
       goods = await Good.findAll({
-        where: { title: phrase },
+        where: {
+          title: {
+            [Op.iLike]: `%${phrase}%`
+          }
+        },
         raw: true,
         include: {
           model: Photo,
@@ -53,7 +57,12 @@ router.post('/', async (req, res) => {
     if (category === 'all' && city !== 'all' && phrase) {
       console.log('указаны фраза и город');
       goods = await Good.findAll({
-        where: { title: phrase, city },
+        where: {
+          title: {
+            [Op.iLike]: `%${phrase}%`
+          },
+          city
+        },
         raw: true,
         include: {
           model: Photo,
@@ -70,7 +79,12 @@ router.post('/', async (req, res) => {
         where: { identifier: category }
       })
       goods = await Good.findAll({
-        where: { title: phrase, categoryId: currentCategory.id },
+        where: {
+          title: {
+            [Op.iLike]: `%${phrase}%`
+          },
+          categoryId: currentCategory.id
+        },
         raw: true,
         include: {
           model: Photo,
@@ -88,7 +102,9 @@ router.post('/', async (req, res) => {
       })
       goods = await Good.findAll({
         where: {
-          title: phrase,
+          title: {
+            [Op.iLike]: `%${phrase}%`
+          },
           categoryId: currentCategory.id,
           city,
         },

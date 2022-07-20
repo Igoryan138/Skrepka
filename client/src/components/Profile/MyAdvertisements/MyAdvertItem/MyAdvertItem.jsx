@@ -9,18 +9,14 @@ export default function MyAdvertItem({ el }) {
   }
 
   return (
-    <div className={style.size}>
-      <div className="col">
-        <div className="card">
+        <div className={style.card}>
           <img src={`${process.env.REACT_APP_API_URL}${el.url}`}className="card-img-top" alt="" />
-          <div className="card-body">
+          <div className={style.card_body}>
             <Link to={`/add/${el.id}`}>
               <h5 className="card-title">{el.title}</h5>
             </Link>
-            <button type="button" onClick={isCompleted} className="btn btn-warning">Завершить</button>
+            <button type="button" onClick={isCompleted} className="btn btn-info">Завершить</button>
           </div>
         </div>
-      </div>
-    </div>
   )
 }

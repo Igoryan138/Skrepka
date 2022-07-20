@@ -1,3 +1,12 @@
 .menu {
   display: flex;
+  justify-content: center;
+}
+
+.menu_left {
+  width: 25%;
+}
+
+.menu_right {
+  width: 70%;
 }

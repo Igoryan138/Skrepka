@@ -5,7 +5,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import Advert from '../Advert/Advert'
 import Carousel from '../Carousel/Carousel'
 import Search from '../Search/Search'
-import styles from './style.module.css'
+import styles from './advertlist.module.css'
 
 const limit = 20
 

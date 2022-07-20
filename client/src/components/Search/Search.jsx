@@ -33,7 +33,7 @@ export default function Search() {
   return (
     <form onSubmit={searchHandler}>
     <div className={styles.search}>
-      <select onChange={inputsHandler} name="category" className="form-select h-100 w-25" aria-label="Default select example">
+      <select onChange={inputsHandler} name="category" className={`${styles.category} form-select h-100`} aria-label="Default select example">
         <option value="all"> Все категории</option>
         <option value="personals">Личные вещи</option>
         <option value="electronics">Электроника</option>
@@ -41,11 +41,11 @@ export default function Search() {
         <option value="animals">Животные</option>
         <option value="hobbies">Хобби и отдых</option>
       </select>
-      <div className="input-group mb-3 h-100 w-40">
+      <div className={`${styles.phrase} input-group mb-3 h-100`}>
         <input onChange={inputsHandler} name="phrase" type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
       </div>
-      <select onChange={inputsHandler} name="city" className="form-select h-100 w-25" aria-label="Default select example">
-        <option value="all" >Все города</option>
+      <select onChange={inputsHandler} name="city" className={`${styles.city} form-select h-100`} aria-label="Default select example">
+        <option value="all">Все города</option>
         <option value="Москва">Москва</option>
         <option value="Иркутск">Иркутск</option>
         <option value="Челябинск">Челябинск</option>

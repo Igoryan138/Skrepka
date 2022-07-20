@@ -38,38 +38,39 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="registration" element={id ? <Navigate to='/' /> : <Registration />} />
-        <Route path="login" element={id ? <Navigate to='/' /> : <Auth />} />
-        <Route path="faq" element={<Faq />} />
-        <Route path="category">
-          <Route path="" element={<AdvertList />} />
-          <Route path=":name" element={<AdvertList />} />
-        </Route>
-        <Route path="search" element={<SearchResult />} />
-        <Route path='add' >
-          <Route path='' element={<AddAdvertisement />} />
-          <Route path=':id' element={<AdvertItem />} />
-        </Route>
-        <Route path='profile/*' element={id && <Profile />  } >
-          <Route path="account" element={<Account />} />
-          <Route path="advertisements">
-            <Route path='' element={<MyAdvertisements />} />
-            <Route path='completed' element={<MyCompletedAdvert />} />
-          </Route>
-          <Route path="applications" element={<MyApplications />} />
-          <Route path="favourites" element={<Favourites />} />
-          <Route path="messages" element={<Messages />} />
-        </Route>
-        <Route path='exchange' >
-          <Route path=":id" element={id ? <Exchange loginUser={id} /> : <Navigate to='/' />} />
-          <Route path="success" element={id && <Success loginUser={id} />} />
-        </Route>
-      </Routes>
+        <Navbar />
 
-      <Footer />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="registration" element={id ? <Navigate to='/' /> : <Registration />} />
+          <Route path="login" element={id ? <Navigate to='/' /> : <Auth />} />
+          <Route path="faq" element={<Faq />} />
+          <Route path="category">
+            <Route path="" element={<AdvertList />} />
+            <Route path=":name" element={<AdvertList />} />
+          </Route>
+          <Route path="search" element={<SearchResult />} />
+          <Route path='add' >
+            <Route path='' element={<AddAdvertisement />} />
+            <Route path=':id' element={<AdvertItem />} />
+          </Route>
+          <Route path='profile/*' element={id && <Profile />} >
+            <Route path="account" element={<Account />} />
+            <Route path="advertisements">
+              <Route path='' element={<MyAdvertisements />} />
+              <Route path='completed' element={<MyCompletedAdvert />} />
+            </Route>
+            <Route path="applications" element={<MyApplications />} />
+            <Route path="favourites" element={<Favourites />} />
+            <Route path="messages" element={<Messages />} />
+          </Route>
+          <Route path='exchange' >
+            <Route path=":id" element={id ? <Exchange loginUser={id} /> : <Navigate to='/' />} />
+            <Route path="success" element={id && <Success loginUser={id} />} />
+          </Route>
+        </Routes>
+
+        <Footer />
     </div>
   );
 }

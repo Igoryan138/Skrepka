@@ -1,4 +1,31 @@
-.img {
+/* .img {
   width: 100px;
   margin: 15px;
+} */
+
+.selects {
+  display: flex;
+  justify-content: center;
 }
+
+.selects select {
+  width: 80%;
+  margin: 1%;
+}
+
+.city {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.change {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
