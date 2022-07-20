@@ -1,4 +1,18 @@
 .footer {
+ 
+ 
   margin-top: 3%;
-  border: 2px solid black;
+  flex: 0 0 auto;
+  border: 1px solid silver;
+  background-color: rgb(230, 246, 255);
+ 
+}
+
+
+footer a{
+  color:rgb(0, 0, 0);
+}
+
+footer a:hover{
+  color: #b2dfdb;
 }
