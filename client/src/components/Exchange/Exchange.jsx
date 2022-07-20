@@ -20,7 +20,7 @@ export default function Exchange({ loginUser }) {
     <div>
       <div>
         <h2>Вам понравилось это объявление:</h2>
-        <img src={advert?.url[0]} style={{ width: '18rem' }} alt=""></img>
+        <img src={`${process.env.REACT_APP_API_URL}${advert?.url[0]}`} style={{ width: '18rem' }} alt=""></img>
         <div className='card-body'>
           <Link to={`/add/${advert?.id}`}>
             <h5 className="card-title item">{advert?.title}</h5>

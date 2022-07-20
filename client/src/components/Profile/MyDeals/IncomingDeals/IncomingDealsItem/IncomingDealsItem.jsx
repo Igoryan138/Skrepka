@@ -17,7 +17,7 @@ export default function IncomingDealsItem({ el, notMineGoods }) {
       <div className={style.size}>
         <div className="col">
           <div className="card">
-            <img src={el.url} className="card-img-top" alt="" />
+            <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className="card-img-top" alt="" />
             <div className="card-body">
               <Link to={`/add/${el.id}`}>
                 <h5 className="card-title">{el.title}</h5>
@@ -29,7 +29,7 @@ export default function IncomingDealsItem({ el, notMineGoods }) {
       <div className={style.size}>
         <div className="col">
           <div className="card">
-            <img src={notMineGoods.url} className="card-img-top" alt="" />
+            <img src={`${process.env.REACT_APP_API_URL}${notMineGoods.url}`} className="card-img-top" alt="" />
             <div className="card-body">
               <Link to={`/add/${notMineGoods.Good.id}`}>
                 <h5 className="card-title">{notMineGoods.Good.title}</h5>
