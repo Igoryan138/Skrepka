@@ -6,8 +6,6 @@ import { useParams, Link } from 'react-router-dom'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Modal from '../Modal/Modal';
-// import { useDispatch } from 'react-redux';
-// import { selectAdv } from '../../redux/actions/adv.action';
 
 export default function AdvertItem() {
   const isLogin = useSelector((store) => store.user.user?.id)
@@ -16,9 +14,10 @@ export default function AdvertItem() {
   const [bigPhoto, setBigPhoto] = useState()
   const [visible, setVisible] = useState(false)
   const [arrow, setArrow] = useState('hidden')
+  const [favourite, setFavourite] = useState()
+  const [notActive, setNotActive] = useState()
 
   const myAdv = (isLogin === advert?.user?.id)
-  // console.log(myAdv);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}add/${id}`)
@@ -26,7 +25,14 @@ export default function AdvertItem() {
         setAdvert(res.data)
         setBigPhoto(res.data.url[0])
       })
-  }, [id])
+
+    axios.get(`${process.env.REACT_APP_API_URL}add/active/${id}`)
+      .then((res) => setNotActive(res.status === 201))
+
+    axios.post(`${process.env.REACT_APP_API_URL}add/favorite/check`, { id: +id, isLogin })
+      .then((res) => setFavourite(res.status === 200))
+    
+  }, [id, isLogin])
 
   const onNext = () => {
     const res = advert.url.findIndex((el) => el === bigPhoto)
@@ -45,8 +51,9 @@ export default function AdvertItem() {
     }
   }
 
-  const isFavorite = () => {
+  const isFavourite = () => {
     axios.post(`${process.env.REACT_APP_API_URL}add/favorite`, { id: +id, isLogin })
+      .then((res) => setFavourite(res.status === 200))
   }
 
   return (
@@ -60,7 +67,11 @@ export default function AdvertItem() {
         <div className={style.photo}> 1
           <div className={style.title}>
             <div>
-              <img src="/icon/favoriteOff.png" onClick={isFavorite} width={40} alt="" />
+              {favourite ? 
+              <img src="/icon/favoriteOn.png" onClick={isFavourite} width={40} alt="" />
+              :
+              <img src="/icon/favoriteOff.png" onClick={isFavourite} width={40} alt="" />
+              }
             </div>
             <h1>{advert?.title}</h1>
           </div>
@@ -76,13 +87,16 @@ export default function AdvertItem() {
 
         <div className={style.contact}>
           <br /><br /><br /><br /><br />
-          {myAdv ?
-          <>
-            <h3>Это Ваше объявление. Хотите посмотреть все свои обявления?</h3>
-            <Link to={'/profile/advertisements'} >
-              <button type="button" className="btn btn-success">Перейти к моим объявлениям</button>
-            </Link>
-          </>
+          { notActive ? 
+          <h3>К сожалению, сделка по этому объявлению уже состоялась.</h3>
+          :
+          (myAdv ?
+            <>
+              <h3>Это Ваше объявление. Хотите посмотреть все свои обявления?</h3>
+              <Link to={'/profile/advertisements'} >
+                <button type="button" className="btn btn-success">Перейти к моим объявлениям</button>
+              </Link>
+            </>
             :
             (isLogin ?
               <>
@@ -106,7 +120,7 @@ export default function AdvertItem() {
                 <Link to={'/login'} >
                   <button type="button" className="btn btn-success">Войти</button>
                 </Link>
-              </>)
+              </>))
           }
         </div>
       </div>

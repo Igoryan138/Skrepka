@@ -9,18 +9,26 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({Good}) {
+    static associate({Good, User}) {
       this.belongsTo(Good, {
-        foreignKey: 'firstGoodId'
+        foreignKey: 'notMineGoodId'
       });
       this.belongsTo(Good, {
-        foreignKey: 'secondGoodId'
-      })
+        foreignKey: 'myGoodId'
+      });
+      this.belongsTo(User, {
+        foreignKey: 'notMineUserId'
+      });
+      this.belongsTo(User, {
+        foreignKey: 'myUserId'
+      });
     }
   }
   Deal.init({
-    firstGoodId: DataTypes.INTEGER,
-    secondGoodId: DataTypes.INTEGER,
+    notMineGoodId: DataTypes.INTEGER,
+    myGoodId: DataTypes.INTEGER,
+    notMineUserId: DataTypes.INTEGER,
+    myUserId: DataTypes.INTEGER,    
     isActive: DataTypes.BOOLEAN
   }, {
     sequelize,

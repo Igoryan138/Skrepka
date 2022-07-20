@@ -10,23 +10,24 @@ import Profile from './components/Profile/Profile';
 import AdvertList from './components/AdvertList/AdvertList';
 import Account from './components/Profile/Account/Account';
 import MyAdvertisements from './components/Profile/MyAdvertisements/MyAdvertisements';
-import MyApplications from './components/Profile/MyApplications/MyApplications';
 import Favourites from './components/Profile/Favourites/Favourites';
 import Messages from './components/Profile/Messages/Messages';
 import AdvertItem from './components/AdvertItem/AdvertItem';
 import { chekUserAuth } from './redux/actions/user.action';
 import SearchResult from './components/SearchResult/SearchResult';
-import Exchange from './Exchange/Exchange';
 import Success from './components/Success/Success';
 import MyCompletedAdvert from './components/Profile/MyAdvertisements/MyCompletedAdvert/MyCompletedAdvert';
+import OutgoingDeals from './components/Profile/MyDeals/OutgoingDeals/OutgoingDeals';
+import CompletedDeals from './components/Profile/MyDeals/CompletedDeals/CompletedDeals';
+import IncomingDeals from './components/Profile/MyDeals/IncomingDeals/IncomingDeals';
+import Exchange from './components/Exchange/Exchange';
 
 function App() {
   const dispatch = useDispatch()
   const id = useSelector((store) => store.user.user?.id)
   const store = useSelector((store) => store)
-  // console.log('store=====>',store);
   const isLoaded = useSelector((store) => store.user.isLoaded)
-  //  console.log('id=======>',id);
+
   // ! Получаем список категорий + записываем состояние в стор
   useEffect(() => {
     dispatch(chekUserAuth());
@@ -59,7 +60,10 @@ function App() {
             <Route path='' element={<MyAdvertisements />} />
             <Route path='completed' element={<MyCompletedAdvert />} />
           </Route>
-          <Route path="applications" element={<MyApplications />} />
+          <Route path="outgoingDeals" element={<OutgoingDeals />} />
+          <Route path="incomingDeals" element={<IncomingDeals />} />
+          <Route path="completedDeals" element={<CompletedDeals />} />
+          
           <Route path="favourites" element={<Favourites />} />
           <Route path="messages" element={<Messages />} />
         </Route>
