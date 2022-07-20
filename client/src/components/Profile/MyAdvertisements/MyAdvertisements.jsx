@@ -7,8 +7,8 @@ import { useState } from 'react'
 import MyAdvertItem from './MyAdvertItem/MyAdvertItem'
 
 export default function MyAdvertisements() {
-  // store.user.user?.id
-  const id = useSelector((store) => store.user.user?.id )
+  const id = useSelector((store) => store.user.user?.id)
+  // console.log('id', id);
   const [adverts, setAdverts] = useState([])
 
   useEffect(() => {

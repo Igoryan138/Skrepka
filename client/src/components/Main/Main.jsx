@@ -20,7 +20,7 @@ export function Main() {
     dispatch(setCategories())
   }, [dispatch])
 
-  // ! Получаем последние 10 объявлений + записываем состояние 
+  // ! Получаем последние 12 объявлений + записываем состояние 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}add/new`)
       .then((advertsFromServer) => {
@@ -70,7 +70,7 @@ export function Main() {
     <main className={styles.Main}>
       <Search />
       <h2>Категории</h2>
-      <div className="d-flex justify-content-around">
+      <div className="d-flex justify-content-around category">
         {category.map((el) => <Category key={el.id} el={el} />)}
       </div>
       <div>

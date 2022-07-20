@@ -35,7 +35,7 @@ export default function AdvertList() {
     } else {
       setCurrentCategory('Все категории')
     }
-  }, [name])
+  }, [category, name])
 
   // console.log('currentCategory', currentCategory);
 
@@ -90,24 +90,6 @@ export default function AdvertList() {
         </button>
       </div>  */}
      
-     {/* <div className="pagination">
-        <nav aria-label="Page navigation example">
-          <ul className="pagination justify-content-center">
-          <li className="page-item" onClick={ ()=> setPage(page -1)}>
-              <a className="page-link"  >Назад</a>
-            </li>
-
-            {pages.map((el) =><li className="page-item"><a className="page-link" href={el}>1</a></li>
-
-            <li className="page-item"><a className="page-link" href={page}>1</a></li>
-
-
-            <li className="page-item" onClick={ ()=> setPage(page +1)}>
-              <a className="page-link"  >Вперед</a>
-            </li>
-          </ul>
-        </nav>
-      </div> */}
      
       {search ? (<div className={styles.list}>
         {searchResult.map((el) => <Carousel key={el.id} el={el} />)}
@@ -115,21 +97,19 @@ export default function AdvertList() {
         {adverts.map((el) => <Carousel key={el.id} el={el} />)}
       </div>)}
 
-      {/* <div className="pagination">
-        <nav aria-label="Page navigation example">
-          <ul className="pagination justify-content-center">
-            <li className="page-item disabled">
-              <a className="page-link" href="#" tabIndex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li className="page-item"><a className="page-link" href="#">1</a></li>
-            <li className="page-item"><a className="page-link" href="#">2</a></li>
-            <li className="page-item"><a className="page-link" href="#">3</a></li>
-            <li className="page-item">
-              <a className="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div> */}
+{/* 
+      <div className="pagination">
+        <button onClick={()=> setPage(page -1)}>
+          left
+        </button>
+        <span>
+          {page} / {pages}     
+        </span>
+        <button onClick={()=> setPage(page +1)}>
+          right
+        </button>
+      </div>  */}
+
     </div>
   )
 }

@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { Category, Good, Photo } = require('../db/models')
 const uniq = require('../middleware/uniq')
+const { Op } = require("sequelize");
 
 router.get('/', async (req, res) => {
   const { skip=0, limit=10 } = req.query

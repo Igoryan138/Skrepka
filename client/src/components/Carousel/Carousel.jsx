@@ -7,7 +7,7 @@ export default function Carousel({ el }) {
     <div className={styles.card}>
       <div className={styles.cardTop}>
         <Link to={`/add/${el.id}`}>
-          <img src={el['Photos.url']} alt={el.title} />
+          <img src={`${process.env.REACT_APP_API_URL}${el['Photos.url']}`} alt={el.title} />
         </Link>
         <h1>{el.city}</h1>
       </div>

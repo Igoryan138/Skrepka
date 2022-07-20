@@ -6,7 +6,7 @@ const { Good, Photo, Category, User, Favourites } = require('../db/models');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    pathFile = '../client/public/photo';
+    pathFile = 'public/photo';
     cb(null, pathFile);
   },
   filename(req, file, cb) {
@@ -41,7 +41,7 @@ router.post('/new', upload.array('photo'), async (req, res) => {
   // ! Заносим фото в таблицу
   for (let i = 0; i < req.files.length; i++) {
     await Photo.create({
-      url: `/photo/${req.files[i].filename}`,
+      url: `photo/${req.files[i].filename}`,
       goodId: newGood.id
     })
   }
@@ -49,6 +49,7 @@ router.post('/new', upload.array('photo'), async (req, res) => {
 });
 
 router.get('/new', async (req, res) => {
+  // console.log('зашел');
   try {
     const newAdverts = await Good.findAll({
       order: [['id', 'DESC']],
