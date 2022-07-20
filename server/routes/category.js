@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
   const { skip = 0, limit = 10 } = req.query
   try {
     const goods = await Good.findAll({
+      where: {status: 'active'},
       raw: true,
       offset: +skip,
       limit: +limit,
@@ -220,7 +221,7 @@ router.get('/:name', async (req, res) => {
 
     // ! Находим все товары этой категории
     const goods = await Good.findAll(({
-      where: { categoryId: category.id },
+      where: { categoryId: category.id, status: 'active' },
       raw: true,
       offset: +skip,
       limit: +limit,

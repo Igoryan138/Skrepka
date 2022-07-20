@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const multer = require('multer');
 const moment = require('moment');
+const uniq = require('../middleware/uniq')
 const { Good, Photo, Category, User, Favourites } = require('../db/models');
 
 
@@ -52,6 +53,7 @@ router.get('/new', async (req, res) => {
   // console.log('зашел');
   try {
     const newAdverts = await Good.findAll({
+      where: {status: 'active'},
       order: [['id', 'DESC']],
       raw: true,
       limit: 12,
@@ -60,18 +62,6 @@ router.get('/new', async (req, res) => {
         attributes: ['url'],
       }
     })
-
-    // ! Функция для уникализации массива
-    function uniq(arr) {
-      const newArr = [];
-      newArr.push(arr[0])
-      for (let i = 1; i < arr.length; i++) {
-        if (arr[i].id != arr[i - 1].id) {
-          newArr.push(arr[i])
-        }
-      }
-      return newArr
-    }
 
     // ! Делаем массив уникальным
     const uniqArr = uniq(newAdverts)
@@ -83,19 +73,6 @@ router.get('/new', async (req, res) => {
   }
 });
 
-router.get('/active/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const good = await Good.findOne({ where: { id }})
-    if (good.status === 'active') {
-      return res.sendStatus(200)
-    } else {
-      return res.sendStatus(201)
-    }
-  } catch (error) {
-    console.log('catchError---->', error);
-  }
-})
 
 router.post('/favorite', async (req, res) => {
   const { id, isLogin } = req.body
@@ -150,6 +127,20 @@ router.get('/favourites/:id', async (req, res) => {
   }
 })
 
+router.get('/active/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const good = await Good.findOne({ where: { id }})
+    if (good.status === 'active') {
+      return res.sendStatus(200)
+    } else {
+      return res.sendStatus(201)
+    }
+  } catch (error) {
+    console.log('catchError---->', error);
+  }
+})
+
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   // console.log(id);
@@ -173,10 +164,11 @@ router.get('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
+  console.log('req.params', req.params);
   try {
     const { id } = req.params;
-    const good = await Good.findOne({ where: { id } })
-    good.destroy();
+    await Photo.destroy({ where: { goodId: id } })
+    await Good.destroy({ where: { id } })
     res.sendStatus(200)
   } catch (error) {
     console.log('catchError---->', error);

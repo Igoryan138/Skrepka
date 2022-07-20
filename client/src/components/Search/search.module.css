@@ -16,7 +16,11 @@
   width: 20%;
 }
 
-@media (min-width: 768px) and (max-width: 1400px) {
+.search select, .search input {
+  border-color: #0D6EFE;
+}
+
+/* @media (min-width: 768px) and (max-width: 1400px) {
 
   .category {
     width: 30%;
@@ -47,4 +51,4 @@
   .city {
     width: 30%;
   }
-}
+} */

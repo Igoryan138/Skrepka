@@ -13,7 +13,7 @@ export default function AddAdvertisement() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [newAdvert, setNewAdvert] = useState({})
-  const userId = useSelector((store) => store.user.user.id)
+  const userId = useSelector((store) => store.user.user?.id)
   // const [title, setTitle] = useState('')
   // const [description, setDescription] = useState('')
   // const [exchange, setExchange] = useState('')
