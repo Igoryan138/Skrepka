@@ -1,0 +1,9 @@
+.size {
+  width: 32%;
+  margin: 2px;
+}
+
+.main {
+  display: flex;
+  border:1px solid black
+}

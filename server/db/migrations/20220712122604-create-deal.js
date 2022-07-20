@@ -8,8 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstGoodId: {
-        type: Sequelize.INTEGER,
+      notMineGoodId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
@@ -19,12 +18,31 @@ module.exports = {
           onDelete: "cascade"
         },
       },
-      secondGoodId: {
-        type: Sequelize.INTEGER,
+      myGoodId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
             tableName: 'Goods',
+          },
+          key: 'id',
+          onDelete: "cascade"
+        },
+      },
+      notMineUserId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Users',
+          },
+          key: 'id',
+          onDelete: "cascade"
+        },
+      },
+      myUserId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Users',
           },
           key: 'id',
           onDelete: "cascade"

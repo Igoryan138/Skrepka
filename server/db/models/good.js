@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'goodId'
       });
       this.hasMany(Deal, {
-        foreignKey: 'firstGoodId'
+        foreignKey: 'notMineGoodId'
       });
       this.hasMany(Deal, {
-        foreignKey: 'secondGoodId'
+        foreignKey: 'myGoodId'
       });
       this.hasMany(Photo, {
         foreignKey: 'goodId'

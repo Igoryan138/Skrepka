@@ -30,11 +30,7 @@ export default function MyCompletedAdvert() {
       </div>
       <div className={style.item}>
         {completedAdverts?.map((el) => <MyCompletedAdvertItem key={el.id} el={el} />)}
-
       </div>
-      {/* <div>
-        <Link to='/add' className="btn btn-secondary">Добавить объявление</Link>
-      </div> */}
     </div>
   )
 }

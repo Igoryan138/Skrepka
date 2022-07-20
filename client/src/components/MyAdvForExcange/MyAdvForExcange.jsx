@@ -2,13 +2,16 @@ import React from 'react'
 import style from './MyAdvForExcange.module.css'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 
 export default function MyAdvForExcange({ el, notMineAdvId }) {
+  const myUserId = useSelector((store) => store.user.user?.id)
   const addDeal = () => {
     axios.post(`${process.env.REACT_APP_API_URL}deal`, {
-      firstGoodId: notMineAdvId,
-      secondGoodId: el.id
+      notMineGoodId: notMineAdvId,
+      myGoodId: el.id,
+      myUserId
     })
   }
   
