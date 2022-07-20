@@ -2,7 +2,7 @@ import style from './Exchange.module.css'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import MyAdvForExcange from '../components/MyAdvForExcange/MyAdvForExcange'
+import MyAdvForExcange from '../MyAdvForExcange/MyAdvForExcange'
 
 export default function Exchange({ loginUser }) {
   const { id } = useParams()

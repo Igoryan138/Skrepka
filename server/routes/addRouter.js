@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const multer = require('multer');
 const moment = require('moment');
-const { Good, Photo, Category, User, Favourite } = require('../db/models');
+const { Good, Photo, Category, User, Favourites } = require('../db/models');
 
 
 const storage = multer.diskStorage({
@@ -82,15 +82,15 @@ router.get('/new', async (req, res) => {
   }
 });
 
-router.post('/completed', async (req, res) => {
-  const { id } = req.body;
-  console.log(req.body);
+router.get('/active/:id', async (req, res) => {
   try {
-    const good = await Good.findOne({ where: { id } })
-    good.status = 'completed';
-    good.save()
-    console.log(good);
-    res.sendStatus(200)
+    const { id } = req.params;
+    const good = await Good.findOne({ where: { id }})
+    if (good.status === 'active') {
+      return res.sendStatus(200)
+    } else {
+      return res.sendStatus(201)
+    }
   } catch (error) {
     console.log('catchError---->', error);
   }
@@ -100,11 +100,50 @@ router.post('/favorite', async (req, res) => {
   const { id, isLogin } = req.body
   console.log(id, isLogin);
   try {
-    // const serchFav = await Favourite.findAll({ where: { userId: isLogin, goodId: id }})
-    // console.log(serchFav);
-    // if (!serchFav) {
-      await Favourite.create({ userId: isLogin, goodId: id })
-    // }
+    const serchFav = await Favourites.findAll({ where: { userId: isLogin, goodId: id }})
+    console.log(serchFav);
+    if (serchFav == false) {
+      await Favourites.create({ userId: isLogin, goodId: id })
+      return res.sendStatus(200)
+    } else {
+      await serchFav[0].destroy()
+      return res.sendStatus(201)
+    }
+  } catch (error) {
+    console.log('catchError---->', error);
+  }
+})
+
+router.post('/favorite/check', async (req, res) => {
+  const { id, isLogin } = req.body
+  try {
+    const serchFav = await Favourites.findAll({ where: { userId: isLogin, goodId: id }})
+    console.log('check------>', serchFav);
+    if (serchFav == false) {
+      return res.sendStatus(201)
+    } else {
+      return res.sendStatus(200)
+    }
+  } catch (error) {
+    console.log('catchError---->', error);
+  }
+})
+
+router.get('/favourites/:id', async (req, res) => {
+  const { id } = req.params
+  console.log(id);
+  try {
+    const allFavourites = await Favourites.findAll({ 
+      where: { userId: id },
+      include: { model: Good }
+    })
+    const goods = allFavourites.map((el) => el.Good);
+    const allId = goods.map((el) => el.id)
+    for (let i = 0; i < allId.length; i++) {
+      const firstPhoto = await Photo.findOne({ where: { goodId: allId[i] }, raw: true })
+      goods[i].dataValues.url = firstPhoto.url
+    }
+    res.json(goods)
   } catch (error) {
     console.log('catchError---->', error);
   }
@@ -129,6 +168,17 @@ router.get('/:id', async (req, res) => {
     res.json(adv)
   } catch (error) {
     console.log('catch---->', error);
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const good = await Good.findOne({ where: { id } })
+    good.destroy();
+    res.sendStatus(200)
+  } catch (error) {
+    console.log('catchError---->', error);
   }
 })
 

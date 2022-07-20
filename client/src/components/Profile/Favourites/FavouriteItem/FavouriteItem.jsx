@@ -1,13 +1,9 @@
-import style from './MyAdvertItem.module.css'
-import React from 'react';
+import React from 'react'
+import style from './FavouriteItem.module.css'
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
-export default function MyAdvertItem({ el }) {
-  const deleteAdvert = () => {
-    axios.delete(`${process.env.REACT_APP_API_URL}add/${el.id}`)
-  }
-
+export default function FavouriteItem({ el }) {
+  console.log('el---', el);
   return (
     <div className={style.size}>
       <div className="col">
@@ -17,7 +13,6 @@ export default function MyAdvertItem({ el }) {
             <Link to={`/add/${el.id}`}>
               <h5 className="card-title">{el.title}</h5>
             </Link>
-            <button type="button" onClick={deleteAdvert} className="btn btn-warning">Завершить</button>
           </div>
         </div>
       </div>
