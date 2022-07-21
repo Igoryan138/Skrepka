@@ -2,9 +2,9 @@
   text-align: center;
   height: 100%;
   width: 100%;
- display: flex;
- flex-direction: column;
- min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -38,27 +38,38 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.main{
+.main {
   flex-grow: 1;
 
 }
 
 
-.navbar-expand-lg{
+.navbar-expand-lg {
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
 }
 
 
-header a{
-  color:rgb(0, 0, 0);
+header a {
+  color: rgb(0, 0, 0);
 }
 
-header a:hover{
+header a:hover {
   color: #b2dfdb;
 }
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+  font-size: 30px;
+}
+
+/* .slick-slide {
+  margin: 0 20px;
+} */
