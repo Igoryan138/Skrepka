@@ -1,12 +1,42 @@
 .category {
-  width: 15%;
-  height: auto;
+  width: 200px;
+  height: 250px;
   margin: 1%;
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
+  text-align: center;
+  vertical-align: middle;
+  font-size: large;
+}
+
+.category_text {
+  margin-top: 10px;
+  font-weight: 500;
 }
 
 .category img {
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 200px;
+}
+
+@media (max-width: 767px) {
+  .category {
+    width: 400px;
+    height: 500px;
+    margin: 2%;
+    border: 1px solid silver;
+    background-color: rgb(230, 246, 255);
+
+  }
+
+  .category_text {
+    margin-top: 20px;
+    font-weight: 700;
+  }
+
+  .category img {
+    object-fit: cover;
+    height: 430px;
+  }
 }

@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useParams } from 'react-router-dom'
 import Advert from '../Advert/Advert'
-import Carousel from '../Carousel/Carousel'
+import AdvertOne from '../AdvertOne/AdvertOne'
+// import Carousel from '../Carousel/Carousel'
 import Search from '../Search/Search'
 import styles from './advertlist.module.css'
 
@@ -56,7 +57,7 @@ export default function AdvertList() {
           // console.log('advertsFromServer', advertsFromServer);
           // ! setAdverts(advertsFromServer.data.items)
           setAdverts(advertsFromServer.data.items)
-          setPages(Math.ceil(advertsFromServer.data.count / limit))    //узнаем кол-во страниц
+          // setPages(Math.ceil(advertsFromServer.data.count / limit))    //узнаем кол-во страниц
         })
     } else {
       axios.get(`${process.env.REACT_APP_API_URL}category?limit=${limit}&skip=${skip}`)
@@ -64,7 +65,7 @@ export default function AdvertList() {
           // console.log('advertsFromServer', advertsFromServer);
           // ! setAdverts(advertsFromServer.data.items)
           setAdverts(advertsFromServer.data.items)
-          setPages(Math.ceil(advertsFromServer.data.count / limit))  //узнаем кол-во страниц
+          // setPages(Math.ceil(advertsFromServer.data.count / limit))  //узнаем кол-во страниц
         })
     }
   }, [name, page])
@@ -78,37 +79,12 @@ export default function AdvertList() {
         <h2>Количество объявлений: {search ? searchResult.length : adverts.length}</h2>
       </div>
       <Search />
-       {/* <div className="pagination">
-        <button onClick={()=> setPage(page -1)}>
-          left
-        </button>
-        <span>
-          {page} / {pages}     
-        </span>
-        <button onClick={()=> setPage(page +1)}>
-          right
-        </button>
-      </div>  */}
-     
      
       {search ? (<div className={styles.list}>
-        {searchResult.map((el) => <Carousel key={el.id} el={el} />)}
+        {searchResult.map((el) => <AdvertOne key={el.id} el={el} />)}
       </div>) : (<div className={styles.list}>
-        {adverts.map((el) => <Carousel key={el.id} el={el} />)}
+        {adverts.map((el) => <AdvertOne key={el.id} el={el} />)}
       </div>)}
-
-{/* 
-      <div className="pagination">
-        <button onClick={()=> setPage(page -1)}>
-          left
-        </button>
-        <span>
-          {page} / {pages}     
-        </span>
-        <button onClick={()=> setPage(page +1)}>
-          right
-        </button>
-      </div>  */}
 
     </div>
   )

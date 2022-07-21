@@ -6,10 +6,10 @@ export default function Category({ el }) {
   return (
     <div className={`${styles.category} card`}>
       <Link to={`category/${el.identifier}`}>
-        <img style={{ height: "200px" }} src={`${process.env.REACT_APP_API_URL}${el.logo}`} className="card-img-top" alt={el.name} />
+        <img src={`${process.env.REACT_APP_API_URL}${el.logo}`} className="card-img-top" alt={el.name} />
       </Link>
-      <div className="card-body">
-        <h6 className="card-text">{el.name}</h6>
+      <div className={styles.category_text}>
+        <span className="card_text">{el.name}</span>
       </div>
     </div>
   )

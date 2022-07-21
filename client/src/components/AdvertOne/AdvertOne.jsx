@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from './carousel.module.css'
+import styles from './advertone.module.css'
 
-export default function Carousel({ el }) {
+export default function AdvertOne({ el }) {
   return (
     <div className={styles.card}>
       <div className={styles.cardTop}>
@@ -20,4 +20,3 @@ export default function Carousel({ el }) {
     </div>
   )
 }
-

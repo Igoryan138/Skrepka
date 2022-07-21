@@ -1,37 +1,54 @@
 .search {
   display: flex;
-  margin: 0;
+  justify-content: center;
+  margin-top: 3%;
   padding: 0;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .category {
-  width: 20%;
+  width: 200px;
 }
 
 .phrase {
-  width: 50%;
+  width: 700px;
 }
 
 .city {
-  width: 20%;
+  width: 200px;
+}
+
+.search_button {
+  width: 100px;
 }
 
 .search select, .search input {
-  border-color: #0D6EFE;
+  border: 1px solid #0D6EFE;
 }
 
-/* @media (min-width: 768px) and (max-width: 1400px) {
+.category, .phrase, .search_button, .city{
+  margin-top: 10px;
+}
 
+@media (min-width: 768px) and (max-width: 1400px) {
+  .search {
+    flex-wrap: wrap;
+  }
   .category {
-    width: 30%;
+    width: 55%;
   }
   
   .phrase {
-    width: 30%;
+    width: 55%;
   }
   
   .city {
-    width: 30%;
+    width: 55%;
+  }
+
+  .search_button {
+    width: 55%;
   }
 }
 
@@ -41,14 +58,18 @@
   }
   
   .category {
-    width: 30%;
+    width: 75%;
   }
   
   .phrase {
-    width: 30%;
+    width: 75%;
   }
   
   .city {
-    width: 30%;
+    width: 75%;
   }
-} */
+
+  .search_button {
+    width: 75%;
+  }
+}

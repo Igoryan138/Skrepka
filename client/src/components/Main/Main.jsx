@@ -60,11 +60,11 @@ export function Main() {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1770,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -73,15 +73,15 @@ export function Main() {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 1340,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
+          nitialSlide: 2,
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
@@ -94,15 +94,15 @@ export function Main() {
     <main className={styles.Main}>
       <Search />
       <h2>Категории</h2>
-      <div className="d-flex justify-content-center">
+      <div className={styles.Category}>
         {category.map((el) => <Category key={el.id} el={el} />)}
       </div>
-      <div>
-        <h2>Новые объявления</h2>
+      <h2>Новые объявления</h2>
+      <div className={styles.Slider}>
+        <Slider {...settings}>
+          {newAdverts.map(el => <Carousel key={el.id} el={el} />)}
+        </Slider>
       </div>
-      <Slider {...settings}>
-        {newAdverts.map(el => <Carousel key={el.id} el={el} />)}
-      </Slider>
     </main>
   )
 }
