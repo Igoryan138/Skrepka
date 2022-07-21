@@ -59,9 +59,9 @@ export default function AdvertItem() {
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>
-        <img src={`${process.env.REACT_APP_API_URL}icon/left.png`} onClick={onLast} style={{ width: '30px', height: '50px', margin: '20px' }} alt=''/>
+        <img src={`${process.env.REACT_APP_API_URL}icon/left.png`} onClick={onLast} style={{ width: '30px', height: '50px', margin: '20px' }} alt='' />
         <img onClick={onNext} src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} width={800} alt="main" />
-        <img src={`${process.env.REACT_APP_API_URL}icon/right.png`} onClick={onNext} style={{ width: '30px', height: '50px', margin: '20px' }} alt=''/>
+        <img src={`${process.env.REACT_APP_API_URL}icon/right.png`} onClick={onNext} style={{ width: '30px', height: '50px', margin: '20px' }} alt='' />
       </Modal>
       <div className={style.center}>
 
@@ -96,7 +96,7 @@ export default function AdvertItem() {
               :
               (myAdv ?
                 <>
-                  <h3>Это Ваше объявление. <br/> Хотите посмотреть все свои обявления?</h3>
+                  <h3>Это Ваше объявление. <br /> Хотите посмотреть все свои обявления?</h3>
                   <Link to={'/profile/advertisements'} >
                     <button type="button" className="btn btn-success">Перейти к моим объявлениям</button>
                   </Link>
@@ -126,7 +126,22 @@ export default function AdvertItem() {
                     </Link>
                   </>))
             }
+            <br />
+            <div className={style.description}>
+              <h3>Описание</h3>
+              <p>{advert?.description || 'описание отсутствует'}</p>
+            </div>
+
+            <div className={style.exchange}>
+              {advert?.exchange ?
+                <>
+                  <h3>Желаемый обмен</h3>
+                  <p>{advert?.exchange}</p>
+                </>
+                : <></>}
+            </div>
           </div>
+
         </div>
 
         <div className={style.zaglushka}></div>
@@ -135,19 +150,7 @@ export default function AdvertItem() {
       <br />
       <div>
 
-        <div className={style.description}>
-          <h3>Описание</h3>
-          <p>{advert?.description || 'описание отсутствует'}</p>
-        </div>
 
-        <div className={style.exchange}>
-          {advert?.exchange ?
-            <>
-              <h3>Желаемый обмен</h3>
-              <p>{advert?.exchange}</p>
-            </>
-            : <></>}
-        </div>
 
       </div>
 

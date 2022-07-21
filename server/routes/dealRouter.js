@@ -117,11 +117,46 @@ router.put('/incoming/:id', async (req, res) => {
     const firstGood = await Good.findOne({ where: { id: deal.myGoodId } })
     firstGood.status = 'completed'
     firstGood.save()
+    const firstGoodPhoto = await Photo.findAll({ where: { goodId: firstGood.id }})
+
+    const newFirstGood = await Good.create({ 
+      title: firstGood.title,
+      description: firstGood.description,
+      exchange: firstGood.exchange,
+      city: firstGood.city,
+      userId: deal.notMineUserId,
+      categoryId: firstGood.categoryId
+    })
+
+    for (let i = 0; i < firstGoodPhoto.length; i++) {
+      await Photo.create({
+        url: firstGoodPhoto[i].url,
+        goodId: newFirstGood.id
+      })
+    }
 
     const secondGood = await Good.findOne({ where: { id: deal.notMineGoodId } })
     secondGood.status = 'completed'
     secondGood.save()
-    // console.log(secondGood);
+    const secondGoodPhoto = await Photo.findAll({ where: { goodId: secondGood.id }})
+
+    const newSecondGood = await Good.create({ 
+      title: secondGood.title,
+      description: secondGood.description,
+      exchange: secondGood.exchange,
+      city: secondGood.city,
+      userId: deal.myUserId,
+      categoryId: secondGood.categoryId
+    })
+
+    for (let i = 0; i < secondGoodPhoto.length; i++) {
+      await Photo.create({
+        url: secondGoodPhoto[i].url,
+        goodId: newSecondGood.id
+      })
+    }
+
+
     res.sendStatus(200)
   } catch (error) {
     console.log('catchError----->', error)
