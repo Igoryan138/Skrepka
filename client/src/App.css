@@ -2,7 +2,9 @@
   text-align: center;
   height: 100%;
   width: 100%;
-  flex: 1 1 auto;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
 }
 
 .App-logo {
@@ -40,4 +42,20 @@
     transform: rotate(360deg);
   }
 }
+
+.main{
+  flex-grow: 1;
+
+}
+
+/* 
+.navbar-expand-lg{
+  background-color:gold;
+  display: flex;
+
+} */
+
+
+
+
 

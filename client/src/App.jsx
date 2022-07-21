@@ -43,6 +43,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <div className="main">
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="registration" element={id ? <Navigate to='/' /> : <Registration />} />
@@ -79,6 +80,8 @@ function App() {
           <Route path="success" element={id && <Success loginUser={id} />} />
         </Route>
       </Routes>
+      </div>
+     
 
         <Footer />
     </div>

@@ -3,15 +3,15 @@ import style from './style.module.css'
 
 export function Faq() {
   return (
-    <div class={style.faq_container}>
+    <div className={style.faq_container}>
 
 
-      <h1 class="support-h1">Техническая поддержка</h1>
+      <h1 className="support-h1">Техническая поддержка</h1>
 
-      <h2 class="FAQ_headers">FAQ</h2>
+      <h2 className="FAQ_headers">FAQ</h2>
 
-      <div class="register">
-        <h3 class="FAQ_headers">Регистрация  пользователя </h3>
+      <div className="register">
+        <h3 className="FAQ_headers">Регистрация  пользователя </h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ab repellat accusamus obcaecati ipsam ea
           molestias
@@ -21,8 +21,8 @@ export function Faq() {
       </div>
 
 
-      <div class="anketa">
-        <h3 class="FAQ_headers">Подача заявки на омбен</h3>
+      <div className="anketa">
+        <h3 className="FAQ_headers">Подача заявки на омбен</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ab repellat accusamus obcaecati ipsam ea
           molestias
@@ -33,8 +33,8 @@ export function Faq() {
       </div>
 
 
-      <div class="lk">
-        <h3 class="FAQ_headers">Личный кабинет</h3>
+      <div className="lk">
+        <h3 className="FAQ_headers">Личный кабинет</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ab repellat accusamus obcaecati ipsam ea
           molestias
@@ -43,7 +43,7 @@ export function Faq() {
         </p>
       </div>
 
-      <h3 class="FAQ_headers">Контакты технической поддержки</h3>
+      <h3 className="FAQ_headers">Контакты технической поддержки</h3>
       <p>
         <strong>e-mail:</strong> skrepka.info@yandex.ru
       </p>
