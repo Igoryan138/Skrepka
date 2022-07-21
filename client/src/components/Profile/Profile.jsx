@@ -18,6 +18,7 @@ export default function Profile() {
             <Link to="account" className="list-group-item list-group-item-action" aria-current="true">
               Учетная запись
             </Link>
+            <Link to="favourites" className="list-group-item list-group-item-action">Избранное</Link>
 
             <div className="accordion accordion-flush" id="accordionFlushExample">
               <div className="accordion-item">
@@ -50,8 +51,6 @@ export default function Profile() {
                 </div>
               </div>
             </div>
-            <Link to="favourites" className="list-group-item list-group-item-action">Избранное</Link>
-            <Link to="messages" className="list-group-item list-group-item-action">Сообщения</Link>
           </div>
         </div>
         <div className={style.menu_right}>

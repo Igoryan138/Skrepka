@@ -9,7 +9,7 @@
 .card img {
   /* width: 100%; */
   object-fit: cover;
-  height: 200px;
+  height: 180px;
 }
 
 .card_body {
@@ -24,4 +24,13 @@
 
 .card_body button {
   margin-bottom: 5%;
+}
+
+
+.h5{
+  background-color:rgb(230, 246, 255);
+  padding: 10px;
+  line-height: 1;
+  margin: 15px;
+  border-radius:  20px;
 }
