@@ -18,8 +18,8 @@ export default function Favourites() {
 
   return (
     <div>
-      <div className={style.item}>
-        {adverts?.map((el) => <FavouriteItem key={el.id} el={el} />)}
+      <div className='row'>
+        {adverts?.map((el) => <div key={el.id} className='col-md-3 mb-3'><FavouriteItem  el={el} /></div>)}
       </div>
     </div>
   )

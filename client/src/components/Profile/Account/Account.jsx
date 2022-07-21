@@ -26,11 +26,11 @@ export default function Account() {
     {mode === 'view' && (
       
       <div className={styles.profile}>
-        <h3>Управление профилем</h3>
-        <h5>Имя: {user?.firstName}</h5>
-        <h5>Фамилия: {user?.lastName}</h5>
-        <h5>E-mail: {user?.email}</h5>
-        <h5>Телефон: {user?.phone}</h5>
+        <h3 className='h3'>Управление профилем</h3>
+        <h5 className='h5'>Имя: {user?.firstName}</h5>
+        <h5 className='h5'>Фамилия: {user?.lastName}</h5>
+        <h5 className='h5'>E-mail: {user?.email}</h5>
+        <h5 className='h5'>Телефон: {user?.phone}</h5>
         <button type="submit" className="btn btn-info mt-2" onClick={() => setMode('edit')}>Редактировать</button>
       </div> 
     )} 

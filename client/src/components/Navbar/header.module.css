@@ -35,7 +35,7 @@ header li {
 }
 
 header li:last-child{
-  padding-right: 0;
+  padding-bottom: 10px;
 }
 
 header a {
@@ -71,6 +71,8 @@ right: 0; */
 
 .navbar{
   width: 100%;
+  padding-top: 10px; 
+  padding-bottom: 0;
 }
 
 header a{
@@ -79,4 +81,17 @@ header a{
 
 header a:hover{
   color: #b2dfdb;
+}
+
+.brand{
+  /* padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem; */
+  padding-top: 0; 
+  padding-bottom: 0;
+}
+
+
+.navb{
+  padding-top: 0; 
+  padding-bottom: 0;
 }
