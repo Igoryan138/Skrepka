@@ -10,7 +10,8 @@ import Modal from '../../Modal/Modal'
 
 export default function MyOutgoing() {
   const isLogin = useSelector((store) => store.user.user?.id)
-  const { id } = useParams()
+  const { id, dealId } = useParams()
+  console.log(dealId);
   const [advert, setAdvert] = useState()
   const [bigPhoto, setBigPhoto] = useState()
   const [visible, setVisible] = useState(false)
@@ -30,7 +31,7 @@ export default function MyOutgoing() {
   }, [id, isLogin])
 
   const cancelDeal = () => {
-    axios.delete(`${process.env.REACT_APP_API_URL}deal/outgoing/${id}`)
+    axios.delete(`${process.env.REACT_APP_API_URL}deal/outgoing/${dealId}`)
   }
 
   const onNext = () => {

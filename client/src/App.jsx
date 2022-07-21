@@ -1,5 +1,7 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom'
 import { Main, Navbar, Footer, Registration, Auth, Faq } from './components';
@@ -31,6 +33,8 @@ function App() {
   const store = useSelector((store) => store)
   const isLoaded = useSelector((store) => store.user.isLoaded)
 
+  
+
   // ! Получаем список категорий + записываем состояние в стор
   useEffect(() => {
     dispatch(chekUserAuth());
@@ -58,8 +62,10 @@ function App() {
           <Route path='' element={<AddAdvertisement />} />
           <Route path='success' element={<SuccessDealFromAdv />} />
           <Route path='active/:id' element={<ActiveAdvert />} />
-          <Route path='myOutgoing/:id' element={<MyOutgoing />} />
-          <Route path='myIncoming/:id' element={<MyIncoming />} />          
+          {/* <Route path='myOutgoing/:id' element={<MyOutgoing />} /> */}
+          <Route path='myOutgoing/:id/:dealId' element={<MyOutgoing />} />
+          {/* <Route path='myIncoming/:id' element={<MyIncoming />} />           */}
+          <Route path='myIncoming/:id/:dealId' element={<MyIncoming />} />          
           <Route path=':id' element={<AdvertItem />} />
         </Route>
         <Route path='profile/*' element={id && <Profile />  } >
