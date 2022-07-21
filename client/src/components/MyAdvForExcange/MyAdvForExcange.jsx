@@ -17,19 +17,19 @@ export default function MyAdvForExcange({ el, notMineAdvId }) {
   
   return (
     <div className={style.size}>
-      <div className="col">
+      
         <div className="card">
-          <img src={`${process.env.REACT_APP_API_URL}${el.url}`} style={{ width: '18rem' }} className="card-img-top" alt="" />
+          <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className={style.img} alt="" />
           <div className="card-body">
             <Link to={`/add/${el.id}`}>
-              <h5 className="card-title">{el.title}</h5>
+              <h6 className="card-title">{el.title}</h6>
             </Link>
             <Link to={`/exchange/success`}>
               <button type="button" onClick={addDeal} className="btn btn-success">Предложить на обмен</button>
             </Link>
           </div>
         </div>
-      </div>
+
     </div>
   )
 }

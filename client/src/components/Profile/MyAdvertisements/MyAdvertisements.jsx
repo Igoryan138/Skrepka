@@ -19,16 +19,6 @@ export default function MyAdvertisements() {
  
   return (
     <div>
-      <div>
-        <ul className="nav nav-tabs justify-content-center">
-          <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="">Активные</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="completed">Завершенные</Link>
-          </li>
-        </ul>
-      </div>
       <div className={style.item}>
         {adverts?.map((el) => <MyAdvertItem key={el.id} el={el} setAdverts={setAdverts} adverts={adverts}/>)}
       </div>

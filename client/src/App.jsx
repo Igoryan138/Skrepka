@@ -1,5 +1,4 @@
 import './App.css';
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom'
@@ -21,6 +20,10 @@ import OutgoingDeals from './components/Profile/MyDeals/OutgoingDeals/OutgoingDe
 import CompletedDeals from './components/Profile/MyDeals/CompletedDeals/CompletedDeals';
 import IncomingDeals from './components/Profile/MyDeals/IncomingDeals/IncomingDeals';
 import Exchange from './components/Exchange/Exchange';
+import ActiveAdvert from './components/AdvertItem/ActiveAdvert/ActiveAdvert';
+import MyOutgoing from './components/AdvertItem/MyOutgoing/MyOutgoing';
+import MyIncoming from './components/AdvertItem/MyIncoming/MyIncoming';
+import SuccessDealFromAdv from './components/AdvertItem/SuccessDealFromAdv/SuccessDealFromAdv';
 
 function App() {
   const dispatch = useDispatch()
@@ -52,6 +55,10 @@ function App() {
         <Route path="search" element={<SearchResult />} />
         <Route path='add' >
           <Route path='' element={<AddAdvertisement />} />
+          <Route path='success' element={<SuccessDealFromAdv />} />
+          <Route path='active/:id' element={<ActiveAdvert />} />
+          <Route path='myOutgoing/:id' element={<MyOutgoing />} />
+          <Route path='myIncoming/:id' element={<MyIncoming />} />          
           <Route path=':id' element={<AdvertItem />} />
         </Route>
         <Route path='profile/*' element={id && <Profile />  } >
