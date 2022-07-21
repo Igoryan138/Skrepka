@@ -1,5 +1,7 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom'
 import { Main, Navbar, Footer, Registration, Auth, Faq } from './components';
@@ -30,6 +32,8 @@ function App() {
   const id = useSelector((store) => store.user.user?.id)
   const store = useSelector((store) => store)
   const isLoaded = useSelector((store) => store.user.isLoaded)
+
+  
 
   // ! Получаем список категорий + записываем состояние в стор
   useEffect(() => {

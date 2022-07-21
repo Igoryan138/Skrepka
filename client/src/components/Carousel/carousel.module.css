@@ -3,8 +3,8 @@
   background-color: rgb(230, 246, 255);
   border-radius: 8px;
   overflow: hidden;
-  margin: 1%;
-  width: 350px;
+  margin: 5%;
+  /* width: 350px; */
   height: 450px;
   color: black;
 }

@@ -17,16 +17,6 @@
   margin-top: 1%;
 }
 
-
-.slick-arrow, .slick-prev {
-  color: black;
-} 
-
-.slick-prev:before, .slick-next:before {
-  color: black;
-  font-size: 30px;
-}
-
 .titleCategory {
   /* font-family: 'Century Gothic'; */
   width: 400px;
@@ -37,8 +27,3 @@
   width: 470px;
   margin-top: 15px;
 }
-
-
-
-
-
