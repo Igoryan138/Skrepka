@@ -6,10 +6,10 @@ import axios from 'axios';
 
 export default function MyCompletedAdvertItem({ el }) {
   return (
-    <div className={style.size}>
+    <div className={style.card}>
       <div className="col">
         <Link to={`/add/${el.id}`}>
-          <div className="card">
+          <div className={style.card_body}>
             <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className="card-img-top" alt={el.title} />
             <div className="card-body">
               <h5 className="card-title">{el.title}</h5>

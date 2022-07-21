@@ -15,7 +15,7 @@ export default function Exchange({ loginUser }) {
     axios.get(`${process.env.REACT_APP_API_URL}profile/advertisements/${loginUser}`)
       .then((res) => setMyAdvert(res.data))
   }, [id, loginUser])
-
+  console.log(myAdvert);
   return (
     <div>
       <div>
@@ -33,10 +33,19 @@ export default function Exchange({ loginUser }) {
       </div>
 
       <div>
-        <h2>Выберите товар, который хотите предложить на обмен:</h2>
-        <div className={style.myItem}>
-          {myAdvert?.map((el) => <MyAdvForExcange key={el.id} el={el} notMineAdvId={advert.id} />)}
-        </div>
+        {myAdvert === [] ?
+          <>
+            <br />
+            <h3>Но кажется Вам не на что меняться. <br /> Добавьте товар, который хотели бы поменять.</h3>
+          </>
+          :
+          <>
+            <h2>Выберите товар, который хотите предложить на обмен:</h2>
+            <div className={style.myItem}>
+              {myAdvert?.map((el) => <MyAdvForExcange key={el.id} el={el} notMineAdvId={advert.id} />)}
+            </div>
+          </>
+        }
       </div>
     </div>
   )

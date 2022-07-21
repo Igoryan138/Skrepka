@@ -19,9 +19,11 @@ export function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
         {/* <div className={style.img}>
-          <img width={200} height={50} src="https://i.pinimg.com/736x/41/94/b9/4194b9862150fd34e5d39c4c02406012.jpg" alt="" />
+          
          </div> */}
-          <Link to="/" className="navbar-brand"> Главная</Link>
+          <Link to="/" className="navbar-brand"> 
+          <img className={style.img} src="logo.png" alt="" />
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -32,11 +34,11 @@ export function Navbar() {
                 id ? (
                   <>
                     <li className="nav-item">
-                      <Link to="profile" className="nav-link">Профиль</Link>
+                      <Link to="profile/account" className="nav-link">Профиль</Link>
                     </li>
 
                     <li className="nav-item">
-                      <Link to="#" className="nav-link" onClick={logoutHandler}>Выйти</Link>
+                      <Link to="/" className="nav-link" onClick={logoutHandler}>Выйти</Link>
                     </li>
 
                     <li className="nav-item">

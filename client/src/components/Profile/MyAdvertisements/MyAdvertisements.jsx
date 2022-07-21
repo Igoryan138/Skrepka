@@ -7,7 +7,6 @@ import { useState } from 'react'
 import MyAdvertItem from './MyAdvertItem/MyAdvertItem'
 
 export default function MyAdvertisements() {
-  const navigate = useNavigate()
   const id = useSelector((store) => store.user.user?.id)
   // console.log('id', id);
   const [adverts, setAdverts] = useState([])

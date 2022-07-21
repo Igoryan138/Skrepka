@@ -4,6 +4,21 @@
 }
 
 .profile {
-  padding-right: 400px;
+ 
   /* justify-content: start; */
+}
+
+h3,h5{
+  border: 1px solid silver;
+  background-color: rgb(230, 246, 255);
+  border-radius: 20px;
+  max-width: 600px;
+  margin: 15px auto;
+  line-height: 2;
+}
+
+h5{
+  background-color:    whitesmoke;
+  padding: 10px;
+  line-height: 1;
 }

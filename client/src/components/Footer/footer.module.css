@@ -1,18 +1,23 @@
 .footer {
- 
- 
   margin-top: 3%;
   flex: 0 0 auto;
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
- 
+ text-align: center;
 }
 
 
 footer a{
   color:rgb(0, 0, 0);
+  text-decoration: underline;
 }
 
 footer a:hover{
   color: #b2dfdb;
+}
+
+.ul_text{
+  align-items: center;
+  height: 50px;
+  padding: auto;
 }
