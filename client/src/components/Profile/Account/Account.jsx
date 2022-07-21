@@ -45,10 +45,10 @@ export default function Account() {
         })
       }}>
         <div>Редактирование</div>
-        <input value={firstName} onChange={(e)=>setFirstName(e.target.value)}  type= 'text'/> 
-        <input value={lastName} onChange={(e)=>setLastName(e.target.value)}  type= 'text'/> 
-        <input value={email} onChange={(e)=>setEmail(e.target.value)}  type= 'text'/> 
-        <input value={phone} onChange={(e)=>setPhone(e.target.value)}  type= 'text'/> 
+        <input value={firstName} onChange={(e)=>setFirstName(e.target.value)}  type= 'text'/> <br />
+        <input value={lastName} onChange={(e)=>setLastName(e.target.value)}  type= 'text'/> <br />
+        <input value={email} onChange={(e)=>setEmail(e.target.value)}  type= 'text'/> <br />
+        <input value={phone} onChange={(e)=>setPhone(e.target.value)}  type= 'text'/> <br />
         <button type="submit" className="btn btn-success">Сохранить</button>
         <button type="submit" className="btn btn-danger" onClick={() => setMode('view')}>Отменить</button>
       </form> 

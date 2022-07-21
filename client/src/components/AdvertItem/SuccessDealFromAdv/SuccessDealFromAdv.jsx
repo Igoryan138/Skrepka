@@ -8,9 +8,9 @@ export default function SuccessDealFromAdv() {
     <br />
       <div className={style.main}>
         <h2>Поздравляем с успешным совершением сделки!</h2>
-        <h3>Теперь Вы можете добавить новое объявление к себе на страницу и продолжить свой путь к мечте!</h3>
-        <Link to='/profile/outgoingDeals'>
-          <button type="button" class="btn btn-success">Посмотреть все мои объявления</button>
+        <h3>Новое объявление уже добавлено к Вам на страницу. Продолжайте свой путь к мечте!</h3>
+        <Link to='/profile/advertisements'>
+          <button type="button" class="btn btn-success">Посмотреть мои объявления</button>
         </Link>        
       </div>
     </>
