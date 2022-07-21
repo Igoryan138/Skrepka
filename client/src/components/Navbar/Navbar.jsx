@@ -66,9 +66,9 @@ export function Navbar() {
 
     <header>
       <div className={style.container_logo}>
-            <div className={style.img}>
-            <img width={200} height={50} src="https://i.pinimg.com/736x/41/94/b9/4194b9862150fd34e5d39c4c02406012.jpg" alt="" />
-            </div>
+        <div className={style.img}>
+          <img width={200} height={50} src="https://i.pinimg.com/736x/41/94/b9/4194b9862150fd34e5d39c4c02406012.jpg" alt="" />
+        </div>
         <nav>
 
           <ul>
@@ -79,33 +79,33 @@ export function Navbar() {
 
 
             {
-                id ? (
-                  <>
-                    <li className="nav-item">
-                      <Link to="profile" >Профиль</Link>
-                    </li>
+              id ? (
+                <>
+                  <li className="nav-item">
+                    <Link to="profile" >Профиль</Link>
+                  </li>
 
-                    <li className="nav-item">
-                      <Link to="#"  onClick={logoutHandler}>Выйти</Link>
-                    </li>
+                  <li className="nav-item">
+                    <Link to="#" onClick={logoutHandler}>Выйти</Link>
+                  </li>
 
-                    <li className={style.btn}>
-                      <Link to='/add' >Добавить объявление</Link>
-                    </li>
-                  </>
+                  <li className={style.btn}>
+                    <Link to='/add' >Добавить объявление</Link>
+                  </li>
+                </>
 
-                ) : (
-                  <>
-                    <li className="nav-item">
-                      <Link to="registration">Регистрация</Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link to="login"  >Войти</Link>
-                    </li>
-                  </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <Link to="registration">Регистрация</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="login"  >Войти</Link>
+                  </li>
+                </>
 
-                )
-              }
+              )
+            }
 
           </ul>
         </nav>
