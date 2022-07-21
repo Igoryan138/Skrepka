@@ -1,11 +1,9 @@
 .footer {
- 
- 
   margin-top: 3%;
   flex: 0 0 auto;
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
- 
+ text-align: center
 }
 
 
