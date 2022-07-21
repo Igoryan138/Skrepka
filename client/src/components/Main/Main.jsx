@@ -62,7 +62,7 @@ export function Main() {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1385,
+        breakpoint: 1770,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -71,7 +71,7 @@ export function Main() {
         }
       },
       {
-        breakpoint: 935,
+        breakpoint: 1340,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -79,7 +79,7 @@ export function Main() {
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
