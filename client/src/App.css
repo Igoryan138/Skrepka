@@ -52,6 +52,7 @@
 .navbar-expand-lg{
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
+  height: 50px;
 }
 
 

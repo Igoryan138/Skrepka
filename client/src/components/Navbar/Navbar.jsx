@@ -22,7 +22,7 @@ export function Navbar() {
           
          </div> */}
           <Link to="/" className="navbar-brand"> 
-          <img width={200} height={50} src="logo.png" alt="" />
+          <img className={style.img} src="logo.png" alt="" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
