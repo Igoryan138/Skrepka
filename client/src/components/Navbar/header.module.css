@@ -35,7 +35,7 @@ header li {
 }
 
 header li:last-child{
-  padding-right: 0;
+  padding-bottom: 10px;
 }
 
 header a {
@@ -71,7 +71,7 @@ right: 0; */
 
 .navbar{
   width: 100%;
-  padding-top: 0; 
+  padding-top: 10px; 
   padding-bottom: 0;
 }
 
