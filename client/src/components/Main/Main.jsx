@@ -53,42 +53,42 @@ export function Main() {
   // ! Достаем категории из стора
   const { category } = useSelector((state) => state)
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 1770,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 1340,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          nitialSlide: 2,
-        }
-      },
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
+  // const settings = {
+  //   dots: true,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 4,
+  //   initialSlide: 0,
+  //   autoplay: true,
+  //   autoplaySpeed: 2000,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1770,
+  //       settings: {
+  //         slidesToShow: 3,
+  //         slidesToScroll: 3,
+  //         infinite: true,
+  //         dots: true
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 1340,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 2,
+  //         nitialSlide: 2,
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 900,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1
+  //       }
+  //     }
+  //   ]
+  // };
 
   return (
     <main className={styles.Main}>
@@ -99,9 +99,9 @@ export function Main() {
       </div>
       <h2>Новые объявления</h2>
       <div className={styles.Slider}>
-        <Slider {...settings}>
+        {/* <Slider {...settings}> */}
           {newAdverts.map(el => <Carousel key={el.id} el={el} />)}
-        </Slider>
+        {/* </Slider> */}
       </div>
     </main>
   )
