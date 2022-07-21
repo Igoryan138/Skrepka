@@ -2,10 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 3%
 }
 
 .List {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 50px;
 }

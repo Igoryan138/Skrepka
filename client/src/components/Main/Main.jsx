@@ -60,11 +60,9 @@ export function Main() {
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1385,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -73,11 +71,11 @@ export function Main() {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 935,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
+          nitialSlide: 2,
         }
       },
       {
@@ -99,9 +97,9 @@ export function Main() {
       </div>
       <h2>Новые объявления</h2>
       <div className={styles.Slider}>
-        {/* <Slider {...settings}>
+        <Slider {...settings}>
           {newAdverts.map(el => <Carousel key={el.id} el={el} />)}
-        </Slider> */}
+        </Slider>
       </div>
     </main>
   )

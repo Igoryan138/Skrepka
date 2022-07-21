@@ -1,11 +1,3 @@
-.slick-slide>div {
-  margin: 0 10px;
-}
-
-.slick-list {
-  margin: 0 -10px;
-}
-
 .card {
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
@@ -13,28 +5,26 @@
   overflow: hidden;
   margin: 2%;
   width: 350px;
-  height: 400px;
+  height: 450px;
   color: black;
 }
 
-.cardTop h1 {
-  font-size: 1rem;
-  margin: 10px 20px;
-}
-
 .cardTop {
-  height: 250px;
+  height: 300px;
 }
 
 .cardTop img {
-  /* width: 100%; */
-  /* object-fit: cover; */
-  height: 250px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .cardBottom {
-  margin: 10px 20px;
+  margin-top: 5%;
+}
+
+.cardBottom h4 {
+  color: black;
 }
 
 .date {
@@ -43,17 +33,12 @@
 
 .date::before {
   content: '';
-  background: gainsboro;
+  background: #0d6efd;
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
   right: 0;
   height: 2px;
-}
-
-.slick-prev:before, .slick-next:before {
-  color: black;
-  font-size: 30px;
 }
 
 a {
@@ -62,4 +47,24 @@ a {
 
 .card h5 {
   padding-top: 5%;
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 400px;
+    height: 500px;
+    margin: 2%;
+    border: 1px solid silver;
+    background-color: rgb(230, 246, 255);
+  }
+
+  .cardBottom {
+    /* margin: 10px 20px; */
+    margin-top: 20%;
+  }
+
+  .card img {
+    object-fit: cover;
+    height: 350px;
+  }
 }

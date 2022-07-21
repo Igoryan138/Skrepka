@@ -44,7 +44,7 @@ export default function Search() {
           </select>
         </div>
         <div className={`${styles.phrase} input-group`}>
-          <input onChange={inputsHandler} name="phrase" type="text" className="form-control h-100" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+          <input onChange={inputsHandler} placeholder="Поиск по объявлениям" name="phrase" type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
         </div>
         <div className={styles.city} >
           <select onChange={inputsHandler} name="city" className='form-select h-100' aria-label="Default select example">

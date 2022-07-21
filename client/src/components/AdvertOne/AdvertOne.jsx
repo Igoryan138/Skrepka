@@ -12,11 +12,11 @@ export default function AdvertOne({ el }) {
       </div>
       <div className={styles.cardBottom}>
         <Link to={`/add/${el.id}`}>
-          <h3 className={styles.title}>{el.title}</h3>
+          <h4 className={styles.title}>{el.title}</h4>
         </Link>
         <span className={styles.date}>{el.createdAt.slice(0, 10)}</span>
+        <h5>{el.city}</h5>
       </div>
-      <h5>{el.city}</h5>
     </div>
   )
 }

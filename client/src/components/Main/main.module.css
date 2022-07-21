@@ -1,7 +1,5 @@
 .Main {
-  width: 70%;
-  /* width: 100vh; */
-  /* height: 100vh; */
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -19,6 +17,19 @@
 .Slider {
   margin-top: 3%;
 }
+
+
+.slick-arrow, .slick-prev {
+  color: black;
+} 
+
+.slick-prev:before, .slick-next:before {
+  color: black;
+  font-size: 30px;
+}
+
+
+
 
 
 
