@@ -6,7 +6,6 @@ export default function Profile() {
   return (
     <div>
       <div className={style.title}>
-        <h1>Профиль</h1>
         <br />
       </div>
 
@@ -32,20 +31,6 @@ export default function Profile() {
                 </div>
               </div>             
             </div>
-
-            {/* <div className="accordion-item">
-              <h2 className="accordion-header" id="headingOne">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-                  Мои объявления
-                </button>
-              </h2>
-              <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div className="accordion-body">
-                  <Link to="advertisements" className="list-group-item list-group-item-action">Активные</Link>
-                  <Link to="advertisements/completed" className="list-group-item list-group-item-action">Завершенные</Link>
-                </div>
-              </div>
-            </div> */}
 
             <div className="accordion-item">
               <h2 className="accordion-header" id="headingTwo">
@@ -76,3 +61,4 @@ export default function Profile() {
 
   )
 }
+
