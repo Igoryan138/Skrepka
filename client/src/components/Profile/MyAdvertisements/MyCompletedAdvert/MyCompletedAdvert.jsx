@@ -8,7 +8,7 @@ import MyCompletedAdvertItem from '../MyCompletedAdvertItem/MyCompletedAdvertIte
 
 
 export default function MyCompletedAdvert() {
-  const id = useSelector((store) => store.user.user.id)
+  const id = useSelector((store) => store.user.user?.id)
   const [completedAdverts, setCompletedAdverts] = useState([])
 
   useEffect(() => {
@@ -18,16 +18,6 @@ export default function MyCompletedAdvert() {
 
   return (
     <div>
-      <div>
-        <ul className="nav nav-tabs justify-content-center">
-          <li className="nav-item">
-            <Link className="nav-link" aria-current="page" to="/profile/advertisements">Активные</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link active" to="completed">Завершенные</Link>
-          </li>
-        </ul>
-      </div>
       <div className={style.item}>
         {completedAdverts?.map((el) => <MyCompletedAdvertItem key={el.id} el={el} />)}
       </div>

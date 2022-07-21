@@ -86,7 +86,7 @@ export function Navbar() {
                   </li>
 
                   <li className="nav-item">
-                    <Link to="#" onClick={logoutHandler}>Выйти</Link>
+                    <Link to="/" onClick={logoutHandler}>Выйти</Link>
                   </li>
 
                   <li className={style.btn}>

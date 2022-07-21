@@ -20,18 +20,22 @@ export default function Exchange({ loginUser }) {
     <div>
       <div>
         <h2>Вам понравилось это объявление:</h2>
-        <img src={`${process.env.REACT_APP_API_URL}${advert?.url[0]}`} style={{ width: '18rem' }} alt=""></img>
-        <div className='card-body'>
-          <Link to={`/add/${advert?.id}`}>
-            <h5 className="card-title item">{advert?.title}</h5>
-          </Link>
+        <div className={style.ourItem}>
+          <div className="card">
+            <img src={`${process.env.REACT_APP_API_URL}${advert?.url[0]}`} style={{ width: '18rem' }} className="card-img-top" alt=""></img>
+            <div className='card-body'>
+              <Link to={`/add/${advert?.id}`}>
+                <h5 className="card-title">{advert?.title}</h5>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
       <div>
         <h2>Выберите товар, который хотите предложить на обмен:</h2>
-        <div className={style.item}>
-          {myAdvert?.map((el) => <MyAdvForExcange key={el.id} el={el} notMineAdvId={advert.id}/>)}
+        <div className={style.myItem}>
+          {myAdvert?.map((el) => <MyAdvForExcange key={el.id} el={el} notMineAdvId={advert.id} />)}
         </div>
       </div>
     </div>
