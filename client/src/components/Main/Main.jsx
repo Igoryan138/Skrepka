@@ -78,12 +78,14 @@ export function Main() {
 
   return (
     <main className={styles.Main}>
+      <br /><img src={`${process.env.REACT_APP_API_URL}icon/skrepka.png`} alt='' />
       <Search />
-      <h2>Категории</h2>
+      {/* <h2 className={styles.titleCategory}>Категории</h2> */}
+      <br /><img src={`${process.env.REACT_APP_API_URL}icon/category.png`} className={styles.titleCategory} alt='' />
       <div className={styles.Category}>
         {category.map((el) => <Category key={el.id} el={el} />)}
       </div>
-      <h2>Новые объявления</h2>
+      <img src={`${process.env.REACT_APP_API_URL}icon/newAdvs2.png`} className={styles.titleNewAdv} alt='' />
       <div className={styles.Slider}>
         <Slider {...settings}>
         {newAdverts.map(el => <Carousel key={el.id} el={el} />)}

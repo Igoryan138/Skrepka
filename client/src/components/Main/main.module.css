@@ -11,16 +11,19 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 2%;
 }
 
 .Slider {
-  margin-top: 3%;
+  margin-top: 1%;
 }
 
+.titleCategory {
+  /* font-family: 'Century Gothic'; */
+  width: 400px;
+  margin-top: 10px;
+}
 
-
-
-
-
-
+.titleNewAdv {
+  width: 470px;
+  margin-top: 15px;
+}

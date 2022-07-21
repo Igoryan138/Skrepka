@@ -34,7 +34,7 @@ export default function IncomingDealsItem({ el, notMineGoods }) {
           <div className="card">
             <img src={`${process.env.REACT_APP_API_URL}${notMineGoods.url}`} className="card-img-top" alt="" />
             <div className="card-body">
-              <Link to={`/add/myIncoming/${notMineGoods.Good.id}`}>
+              <Link to={`/add/myIncoming/${notMineGoods.Good.id}/${notMineGoods.id}`}>
                 <h5 className="card-title">{notMineGoods.Good.title}</h5>
               </Link>
             </div>
