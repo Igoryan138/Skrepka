@@ -55,6 +55,7 @@ router.get('/outgoing/:id', async (req, res) => {
 })
 
 router.delete('/outgoing/:id', async (req, res) => {
+  console.log();
   try {
     const { id } = req.params
     const deal = await Deal.findOne({ where: { id } })
