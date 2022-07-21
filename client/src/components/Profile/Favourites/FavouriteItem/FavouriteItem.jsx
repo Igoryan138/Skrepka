@@ -14,7 +14,7 @@ export default function FavouriteItem({ el }) {
           </div>
           <div className="card-body">
             <Link to={`/add/${el.id}`}>
-              <h5 className="card-title">{el.title}</h5>
+              <h5 className={`card-title ${style.h5}`}>{el.title}</h5>
             </Link>
           </div>
         </div>
