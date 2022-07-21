@@ -9,7 +9,6 @@ export default function Profile() {
          <img  src="https://i.pinimg.com/736x/41/94/b9/4194b9862150fd34e5d39c4c02406012.jpg" alt="" />
         </div> */}
       <div className={style.title}>
-        <h1>Профиль</h1>
         <br />
       </div>
 
@@ -35,20 +34,6 @@ export default function Profile() {
                 </div>
               </div>             
             </div>
-
-            {/* <div className="accordion-item">
-              <h2 className="accordion-header" id="headingOne">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-                  Мои объявления
-                </button>
-              </h2>
-              <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div className="accordion-body">
-                  <Link to="advertisements" className="list-group-item list-group-item-action">Активные</Link>
-                  <Link to="advertisements/completed" className="list-group-item list-group-item-action">Завершенные</Link>
-                </div>
-              </div>
-            </div> */}
 
             <div className="accordion-item">
               <h2 className="accordion-header" id="headingTwo">
@@ -79,3 +64,4 @@ export default function Profile() {
 
   )
 }
+
