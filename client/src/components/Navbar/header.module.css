@@ -72,3 +72,11 @@ right: 0; */
 .navbar{
   width: 100%;
 }
+
+header a{
+  color:rgb(0, 0, 0);
+}
+
+header a:hover{
+  color: #b2dfdb;
+}

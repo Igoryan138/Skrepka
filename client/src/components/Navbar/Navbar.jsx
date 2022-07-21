@@ -16,9 +16,12 @@ export function Navbar() {
   }
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand">Главная</Link>
+        {/* <div className={style.img}>
+          <img width={200} height={50} src="https://i.pinimg.com/736x/41/94/b9/4194b9862150fd34e5d39c4c02406012.jpg" alt="" />
+         </div> */}
+          <Link to="/" className="navbar-brand"> Главная</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
