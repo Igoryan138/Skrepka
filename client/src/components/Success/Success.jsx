@@ -1,11 +1,17 @@
 import React from 'react'
+import style from './Success.module.css'
 import { Link } from 'react-router-dom'
 
 export default function Success() {
   return (
-    <div>
-      <h2>Ваша заявка на обмен успешно отправлена!</h2>
-      <p>Перейти в <Link to='/profile/outgoingDeals' >Мои заявки</Link></p>
-    </div>
+    <>
+    <br /><br />
+      <div className={style.main}>
+        <h2>Ваша заявка на обмен успешно отправлена!</h2>
+        <Link to='/profile/outgoingDeals'>
+          <button type="button" class="btn btn-success">Перейти в мои заявки</button>
+        </Link>        
+      </div>
+    </>
   )
 }

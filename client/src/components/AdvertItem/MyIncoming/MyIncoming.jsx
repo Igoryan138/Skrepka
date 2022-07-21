@@ -1,13 +1,14 @@
-import style from './AdvertItem.module.css'
+import style from './MyIncoming.module.css'
 import axios from 'axios'
 import React from 'react'
 import { useSelector } from "react-redux"
 import { useParams, Link } from 'react-router-dom'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../../Modal/Modal'
 
-export default function AdvertItem() {
+
+export default function MyIncoming() {
   const isLogin = useSelector((store) => store.user.user?.id)
   const { id } = useParams()
   const [advert, setAdvert] = useState()
@@ -15,9 +16,6 @@ export default function AdvertItem() {
   const [visible, setVisible] = useState(false)
   const [arrow, setArrow] = useState('hidden')
   const [favourite, setFavourite] = useState()
-  const [notActive, setNotActive] = useState()
-
-  const myAdv = (isLogin === advert?.user?.id)
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}add/${id}`)
@@ -26,13 +24,18 @@ export default function AdvertItem() {
         setBigPhoto(res.data.url[0])
       })
 
-    axios.get(`${process.env.REACT_APP_API_URL}add/active/${id}`)
-      .then((res) => setNotActive(res.status === 201))
-
     axios.post(`${process.env.REACT_APP_API_URL}add/favorite/check`, { id: +id, isLogin })
       .then((res) => setFavourite(res.status === 200))
 
   }, [id, isLogin])
+
+  const cancelDeal = () => {
+    axios.delete(`${process.env.REACT_APP_API_URL}deal/outgoing/${id}`)
+  }
+
+  const acceptDeal = () => {
+    axios.put(`${process.env.REACT_APP_API_URL}deal/incoming/${id}`)
+  }
 
   const onNext = () => {
     const res = advert.url.findIndex((el) => el === bigPhoto)
@@ -59,9 +62,9 @@ export default function AdvertItem() {
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>
-        <img src={`${process.env.REACT_APP_API_URL}icon/left.png`} onClick={onLast} style={{ width: '30px', height: '50px', margin: '20px' }} alt=''/>
-        <img onClick={onNext} src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} width={800} alt="main" />
-        <img src={`${process.env.REACT_APP_API_URL}icon/right.png`} onClick={onNext} style={{ width: '30px', height: '50px', margin: '20px' }} alt=''/>
+        <div onClick={onLast} style={{ background: 'white', width: '20px', height: '20px' }}></div>
+        <img src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} width={500} alt="main" />
+        <div onClick={onNext} style={{ background: 'white', width: '20px', height: '20px' }}></div>
       </Modal>
       <div className={style.center}>
 
@@ -91,40 +94,22 @@ export default function AdvertItem() {
           </div>
 
           <div className={style.contact}>
-            {notActive ?
-              <h3>К сожалению, сделка по этому объявлению уже состоялась.</h3>
-              :
-              (myAdv ?
-                <>
-                  <h3>Это Ваше объявление. <br/> Хотите посмотреть все свои обявления?</h3>
-                  <Link to={'/profile/advertisements'} >
-                    <button type="button" className="btn btn-success">Перейти к моим объявлениям</button>
-                  </Link>
-                </>
-                :
-                (isLogin ?
-                  <>
-                    <div>
-                      <h1>{advert?.user?.firstName} {advert?.user?.lastName}</h1>
-                      <h3>тел. {advert?.user?.phone}</h3>
-                    </div>
-                    <Link to={`/exchange/${id}`}>
-                      <button type="button" className="btn btn-primary">Предложить обмен</button>
-                    </Link>
-                  </>
-                  :
-                  <>
-                    <h3>
-                      Если вы хотите предложить обмен на этот товар, пожалуйста, пройдите авторизацию
-                    </h3>
-                    <Link to={'/registration'} >
-                      <button type="button" className="btn btn-primary">Зарегистрироваться</button>
-                    </Link>
-                    <br />
-                    <Link to={'/login'} >
-                      <button type="button" className="btn btn-success">Войти</button>
-                    </Link>
-                  </>))
+            {
+              <>
+                <div>
+                  <h1>{advert?.user?.firstName} {advert?.user?.lastName}</h1>
+                  <h3>тел. {advert?.user?.phone}</h3>
+                </div>
+                <Link to={`/add/success`}>
+                  <button type="button" onClick={acceptDeal} className="btn btn-success">Принять предложение</button>
+                </Link>
+                <Link to={`/profile/incomingDeals`}>
+                  <button type="button" className="btn btn-info">Посмотреть другие заявки</button>
+                </Link>
+                <Link to={`/profile/incomingDeals`}>
+                  <button type="button" onClick={cancelDeal} className="btn btn-danger">Отменить сделку</button>
+                </Link>
+              </>
             }
           </div>
         </div>
@@ -156,3 +141,4 @@ export default function AdvertItem() {
 
   )
 }
+

@@ -2,7 +2,9 @@
   text-align: center;
   height: 100%;
   width: 100%;
-  flex: 1 1 auto;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
 }
 
 .App-logo {
@@ -41,14 +43,12 @@
   }
 }
 
-/* .slick-prev:before, .slick-next:before {
-  color: black;
-  font-size: 30px;
+.main{
+  flex-grow: 1;
+
 }
 
-.slick-arrow, .slick-prev {
-  color: black;
-} */
+
 
 
 
