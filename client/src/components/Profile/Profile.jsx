@@ -4,13 +4,13 @@ import { Link, Outlet } from 'react-router-dom'
 export default function Profile() {
 
   return (
-    <div>
+    <div className='container pt-3'>
       {/* <div className={style.img}>
          <img  src="https://i.pinimg.com/736x/41/94/b9/4194b9862150fd34e5d39c4c02406012.jpg" alt="" />
         </div> */}
-      <div className={style.title}>
+      {/* <div className={style.title}>
         <br />
-      </div>
+      </div> */}
 
       <div className={style.menu}>
         <div className={style.menu_left}>

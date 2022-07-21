@@ -53,7 +53,6 @@
 .navbar-expand-lg{
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
-  height: 50px;
 }
 
 
@@ -63,4 +62,35 @@ header a{
 
 header a:hover{
   color: #b2dfdb;
+}
+
+.accordion-body{
+  padding: 0;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed{
+  border-radius: 0;
+}
+
+.accordion-button{
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.accordion-item {
+  border: none
+}
+
+.pt-3{
+  padding-top: 15px;
+}
+
+.mh-200{
+  min-height: 200px;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items:center;
 }

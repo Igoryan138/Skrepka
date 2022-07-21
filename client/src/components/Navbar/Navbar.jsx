@@ -16,13 +16,13 @@ export function Navbar() {
   }
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light ">
+      <nav className={`navbar navbar-expand-lg navbar-light ${style.navb}`}>
         <div className="container-fluid">
         {/* <div className={style.img}>
           
          </div> */}
-          <Link to="/" className="navbar-brand"> 
-          <img className={style.img} src="logo.png" alt="" />
+          <Link to="/" className={`${style.brand} navbar-brand `}> 
+          <img className={style.img} src="/logo/logo.png" alt="" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
