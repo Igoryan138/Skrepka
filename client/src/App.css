@@ -49,6 +49,16 @@
 }
 
 
+.navbar-expand-lg{
+  border: 1px solid silver;
+  background-color: rgb(230, 246, 255);
+}
 
 
+header a{
+  color:rgb(0, 0, 0);
+}
 
+header a:hover{
+  color: #b2dfdb;
+}

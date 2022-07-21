@@ -7,10 +7,10 @@
 
 } */
 
-header {
+/* header {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   padding: 10px 50px;
@@ -18,7 +18,7 @@ header {
   background-color: rgb(230, 246, 255);
   border: 1px solid silver;
   height: 60px;
-}
+} */
 
 
 
@@ -33,6 +33,11 @@ header li {
   display: inline-block;
   padding: 0 20px;
 }
+
+header li:last-child{
+  padding-right: 0;
+}
+
 header a {
   text-decoration: none;
   color: rgb(0, 0, 0);
@@ -62,4 +67,16 @@ right: 0; */
   justify-content: space-around;
   position: absolute;
   left: 0;
+}
+
+.navbar{
+  width: 100%;
+}
+
+header a{
+  color:rgb(0, 0, 0);
+}
+
+header a:hover{
+  color: #b2dfdb;
 }
