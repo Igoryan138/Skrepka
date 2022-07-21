@@ -24,7 +24,9 @@ export default function Account() {
   return (
     <>
     {mode === 'view' && (
+      
       <div className={styles.profile}>
+        <h3>Управление профилем</h3>
         <h5>Имя: {user?.firstName}</h5>
         <h5>Фамилия: {user?.lastName}</h5>
         <h5>E-mail: {user?.email}</h5>

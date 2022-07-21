@@ -11,7 +11,7 @@ export function Faq() {
       <h2 className={style.FAQ_headers}>FAQ</h2>
 
       <div className={style.register}>
-        <h3 className={style.FAQ_headers}>Регистрация  пользователя </h3>
+        <h4 className={style.FAQ_headers}>Регистрация  пользователя </h4>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ab repellat accusamus obcaecati ipsam ea
           molestias
@@ -22,7 +22,7 @@ export function Faq() {
 
 
       <div className={style.anketa}>
-        <h3 className={style.FAQ_headers}>Подача заявки на омбен</h3>
+        <h4 className={style.FAQ_headers}>Подача заявки на омбен</h4>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ab repellat accusamus obcaecati ipsam ea
           molestias
@@ -34,7 +34,7 @@ export function Faq() {
 
 
       <div className={style.lk}>
-        <h3 className={style.FAQ_headers}>Личный кабинет</h3>
+        <h4 className={style.FAQ_headers}>Личный кабинет</h4>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure ab repellat accusamus obcaecati ipsam ea
           molestias
@@ -43,7 +43,7 @@ export function Faq() {
         </p>
       </div>
 
-      <h3 className={style.FAQ_headers}>Контакты технической поддержки</h3>
+      <h4 className={style.FAQ_headers}>Контакты технической поддержки</h4>
       <div className={style.info}>
       <p>
         <strong>e-mail:</strong> skrepka.info@yandex.ru

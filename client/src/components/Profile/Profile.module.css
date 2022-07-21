@@ -5,9 +5,16 @@
 
 .menu_left {
   width: 25%;
+  /* border: 
+  border-radius: 30%; */
 }
 
 .menu_right {
   width: 70%;
+  border: 1px solid silver;
+  border-radius: 20px;
+  align-items:center;
+  margin: ;
+ 
 }
 

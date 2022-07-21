@@ -9,7 +9,7 @@ export default function Profile() {
          <img  src="https://i.pinimg.com/736x/41/94/b9/4194b9862150fd34e5d39c4c02406012.jpg" alt="" />
         </div> */}
       <div className={style.title}>
-        <h1>Профиль</h1>
+       
         <br />
       </div>
 

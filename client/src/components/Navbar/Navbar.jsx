@@ -34,11 +34,11 @@ export function Navbar() {
                 id ? (
                   <>
                     <li className="nav-item">
-                      <Link to="profile" className="nav-link">Профиль</Link>
+                      <Link to="profile/account" className="nav-link">Профиль</Link>
                     </li>
 
                     <li className="nav-item">
-                      <Link to="#" className="nav-link" onClick={logoutHandler}>Выйти</Link>
+                      <Link to="/" className="nav-link" onClick={logoutHandler}>Выйти</Link>
                     </li>
 
                     <li className="nav-item">
