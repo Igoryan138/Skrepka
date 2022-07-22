@@ -20,7 +20,7 @@ export default function OutgoingDealsItem({ el, notMineGoods }) {
               <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className="card-img-top" alt="" />
               <div className="card-body">
                 <Link to={`/add/${el.id}`}>
-                  <h6 className="card-title">{el.Good.title}</h6>
+                  <h5 className="card-title">{el.Good.title}</h5>
                 </Link>
               </div>
             </div>
@@ -35,15 +35,15 @@ export default function OutgoingDealsItem({ el, notMineGoods }) {
               <img src={`${process.env.REACT_APP_API_URL}${notMineGoods.url}`} className="card-img-top" alt="" />
               <div className="card-body">
                 <Link to={`/add/myOutgoing/${notMineGoods.id}/${el.id}`}>
-                  <h6 className="card-title">{notMineGoods.title}</h6>
+                  <h5 className="card-title">{notMineGoods.title}</h5>
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {button ? <button type="button"  onClick={cancelDeal} className="btn btn-outline-info">Отменить заявку</button>
-      : <button type="button" className="btn btn-outline-secondary" disabled>Заявка отменена</button>
+      {button ? <button type="button"  onClick={cancelDeal} className="btn btn-secondary">Отменить заявку</button>
+      : <button type="button" className="btn btn-primary" disabled>Заявка отменена</button>
       }
     </div>
 

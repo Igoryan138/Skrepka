@@ -10,7 +10,7 @@ export default function SuccessDealFromAdv() {
         <h2>Поздравляем с успешным совершением сделки!</h2>
         <h3>Новое объявление уже добавлено к Вам на страницу. Продолжайте свой путь к мечте!</h3>
         <Link to='/profile/advertisements'>
-          <button type="button" class="btn btn-outline-success">Посмотреть мои объявления</button>
+          <button type="button" className="btn btn-outline-success">Посмотреть мои объявления</button>
         </Link>        
       </div>
     </>

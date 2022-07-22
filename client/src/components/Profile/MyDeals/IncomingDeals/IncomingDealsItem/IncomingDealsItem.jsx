@@ -16,40 +16,48 @@ export default function IncomingDealsItem({ el, notMineGoods }) {
   }
 
   return (
-    <div className={style.main}>
-      <div className={style.size}>
-        <div className="col">
-          <div className="card">
-            <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className="card-img-top" alt="" />
-            <div className="card-body">
-              <Link to={`/add/${el.id}`}>
-                <h5 className="card-title">{el.title}</h5>
-              </Link>
+    <>
+      <div className={style.main}>
+        <div className={style.size}>
+          <div className="col">
+            <div className="card">
+              <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className="card-img-top" alt="" />
+              <div className="card-body">
+                <Link to={`/add/${el.id}`}>
+                  <h5 className="card-title">{el.title}</h5>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={style.img}>
+          <img src={`${process.env.REACT_APP_API_URL}/icon/left.png`} width={100} alt='' />
+        </div>
+        <div className={style.size}>
+          <div className="col">
+            <div className="card w-333">
+              <img src={`${process.env.REACT_APP_API_URL}${notMineGoods.url}`} className="card-img-top" alt="" />
+              <div className="card-body">
+                <Link to={`/add/myIncoming/${notMineGoods.Good.id}/${notMineGoods.id}`}>
+                  <h5 className="card-title">{notMineGoods.Good.title}</h5>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className={style.size}>
-        <div className="col">
-          <div className="card">
-            <img src={`${process.env.REACT_APP_API_URL}${notMineGoods.url}`} className="card-img-top" alt="" />
-            <div className="card-body">
-              <Link to={`/add/myIncoming/${notMineGoods.Good.id}/${notMineGoods.id}`}>
-                <h5 className="card-title">{notMineGoods.Good.title}</h5>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+
       {button ?
         <>
-          <button type="button" onClick={cancelDeal} className="btn btn-outline-danger">Отклонить</button>
+          <button type="button" onClick={cancelDeal} className={`${style.button} btn btn-outline-danger`}>Отклонить</button>
           <Link to={`/add/success`}>
-          <button type="button" onClick={acceptDeal} className="btn btn-outline-success">Принять</button>
+          <button type="button" onClick={acceptDeal} className={`${style.button} btn btn-outline-success`}>Принять</button>
           </Link>
         </>
-        : <button type="button" className="btn btn-outline-secondary" disabled>Заявка отклонена</button>
+        : <button type="button" className="btn btn-outline-secondary " disabled>Заявка отклонена</button>
       }
-    </div>
+    </>
+
+
   )
 }
