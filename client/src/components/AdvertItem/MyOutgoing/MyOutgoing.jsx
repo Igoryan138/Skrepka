@@ -99,7 +99,7 @@ export default function MyOutgoing() {
                 </div>
                 <h5>Вы уже отправили запрос на сделку. <br /> Либо дождитесь, пока владелец свяжется с Вами, либо отмените сделку</h5>
                 <Link to={`/profile/outgoingDeals`}>
-                  <button type="button" onClick={cancelDeal} className="btn btn-danger">Отменить сделку</button>
+                  <button type="button" onClick={cancelDeal} className="btn btn-outline-danger">Отменить сделку</button>
                 </Link>
               </>
             }

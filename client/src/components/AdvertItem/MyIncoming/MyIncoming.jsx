@@ -101,13 +101,13 @@ export default function MyIncoming() {
                   <h3>тел. {advert?.user?.phone}</h3>
                 </div>
                 <Link to={`/add/success`}>
-                  <button type="button" onClick={acceptDeal} className="btn btn-success">Принять предложение</button>
+                  <button type="button" onClick={acceptDeal} className="btn btn-outline-success">Принять предложение</button>
                 </Link>
                 <Link to={`/profile/incomingDeals`}>
-                  <button type="button" className="btn btn-info">Посмотреть другие заявки</button>
+                  <button type="button" className="btn btn-outline-info">Посмотреть другие заявки</button>
                 </Link>
                 <Link to={`/profile/incomingDeals`}>
-                  <button type="button" onClick={cancelDeal} className="btn btn-danger">Отменить сделку</button>
+                  <button type="button" onClick={cancelDeal} className="btn btn-outline-danger">Отменить сделку</button>
                 </Link>
               </>
             }
