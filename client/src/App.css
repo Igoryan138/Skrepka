@@ -16,7 +16,7 @@
   flex-direction: column;
   min-height: 100vh;
   font-family:Century Gothic;
-  /* background: url('../public/house.jpeg') no-repeat 100px 500px */
+  /* background-image: url('/house.jpeg')  */
 }
 
 .App-logo {
