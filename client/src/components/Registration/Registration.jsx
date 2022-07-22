@@ -31,6 +31,7 @@ export function Registration() {
   return (
     <div className={`${styles.registr} container`}>
       <form onSubmit={(e) => regHandler(e)} >
+        <img src={`${process.env.REACT_APP_API_URL}icon/registration.png`} alt='' />
         <div >
           {/* <label htmlFor="validationCustom01" className="htmlForm-label">Имя</label> */}
           <input name='firstName' placeholder='Введите имя' onChange={inputHandler} type="text" className="htmlForm-control" id="validationCustom01" required />

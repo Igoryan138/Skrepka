@@ -17,6 +17,9 @@ module.exports = {
       logo: {
         type: Sequelize.STRING
       },
+      title: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

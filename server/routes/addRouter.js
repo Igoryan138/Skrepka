@@ -141,6 +141,36 @@ router.get('/active/:id', async (req, res) => {
   }
 })
 
+router.put('/change/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { exchange, description, title } = req.body;
+    const good = await Good.findOne({ where: { id }})
+    // console.log(good);
+    good.description = description;
+    good.exchange = exchange;
+    good.title = title;
+    good.save()
+    good({ raw: true })
+    console.log(good);
+    const adv = await Good.findOne({ where: { id: good.id }, raw: true })
+    const user = await User.findOne({ where: { id: adv.userId }, raw: true })
+    delete user.password;
+    delete user.email;
+    delete user.createdAt;
+    delete user.updatedAt;
+    const photo = await Photo.findAll({ where: { goodId: id }, raw: true })
+    const urlPhoto = photo.map((el) => el.url)
+    adv.url = urlPhoto;
+    adv.user = user;
+    delete adv.userId
+    console.log('------',adv);
+    res.json(adv)
+  } catch (error) {
+    console.log('catchError---->', error);
+  }
+})
+
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   // console.log(id);
@@ -157,6 +187,7 @@ router.get('/:id', async (req, res) => {
     adv.user = user;
     delete adv.userId
     // console.log('photo', urlPhoto);
+    console.log(adv);
     res.json(adv)
   } catch (error) {
     console.log('catch---->', error);

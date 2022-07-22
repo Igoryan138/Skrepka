@@ -14,24 +14,6 @@ export default function AddAdvertisement() {
   const navigate = useNavigate()
   const [newAdvert, setNewAdvert] = useState({})
   const userId = useSelector((store) => store.user.user?.id)
-  // const [title, setTitle] = useState('')
-  // const [description, setDescription] = useState('')
-  // const [exchange, setExchange] = useState('')
-  // const [city, setCity] = useState();
-  // const [images, setImages] = useState([]);
-  // const [imageURLs, setImageURLs] = useState([])
-
-  // useEffect(() => {
-  //   if (images.length < 1) return;
-  //   const newImagesUrls = [];
-  //   images.forEach((image) => newImagesUrls.push(URL.createObjectURL(image)));
-  //   setImageURLs(newImagesUrls)
-  // }, [images])
-
-  // const fileSelectedHandler = (e) => {
-  //   console.log('fileSelectedHandler', e.target.files);
-  //   setImages([...e.target.files, ...images])
-  // }
 
   // ! Обработчик инпутов
   const inputsHandler = (e) => {

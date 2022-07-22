@@ -63,6 +63,14 @@
   width: 21px;
 }
 
+.description {
+  width: 100%
+}
+
+.exchange {
+  width: 100%
+}
+
 @media screen and (max-width: 1000px) {
   .centerContent {
     display: flex;
@@ -72,7 +80,7 @@
 
   .contact {
     width: 100%;
-    height: 400px;
+    height: 450px;
   }
 
   .photo {
