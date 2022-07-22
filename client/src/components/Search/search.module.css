@@ -31,6 +31,15 @@
   margin-top: 10px;
 }
 
+.add {
+  border: none;
+  font-weight: 500;
+}
+
+.add:hover{
+  background-color: #a0aab3;
+}
+
 @media (min-width: 768px) and (max-width: 1400px) {
   .search {
     flex-wrap: wrap;
