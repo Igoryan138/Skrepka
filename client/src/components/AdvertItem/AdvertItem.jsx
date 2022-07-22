@@ -23,7 +23,7 @@ export default function AdvertItem() {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}add/${id}`)
       .then((res) => {
-        console.log('useEffect', res.data);
+        // console.log('useEffect', res.data);
         setAdvert(res.data)
         setBigPhoto(res.data.url[0])
       })
@@ -70,7 +70,7 @@ export default function AdvertItem() {
       })
     setEdit(false)
   }
-  console.log(advert?.description);
+  // console.log(advert?.description);
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>

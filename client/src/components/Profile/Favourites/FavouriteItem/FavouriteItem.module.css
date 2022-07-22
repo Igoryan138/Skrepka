@@ -1,5 +1,62 @@
-.size {
-  width: 32%;
-  margin: 2px;
+.card {
+  transition: box-shadow .3s;
+  border: 1px solid silver;
+  background-color: rgb(230, 246, 255);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2%;
+  width: 150px;
+  height: 200px;
+  color: black;
 }
 
+.card:hover {
+  box-shadow: 0 0 20px rgb(129, 125, 125); 
+}
+
+.cardTop {
+  height: 150px;
+}
+
+.cardTop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardBottom {
+  vertical-align: middle;
+  height:100%;
+}
+
+.cardBottom span {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card h5 {
+  padding-top: 5%;
+}
+
+@media (max-width: 767px) {
+  .card {
+    width: 400px;
+    height: 500px;
+    margin: 2%;
+    border: 1px solid silver;
+    background-color: rgb(230, 246, 255);
+  }
+
+  .cardBottom {
+    /* margin: 10px 20px; */
+    margin-top: 20%;
+  }
+
+  .card img {
+    object-fit: cover;
+    height: 350px;
+  }
+}

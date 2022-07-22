@@ -8,7 +8,7 @@ import AdvertOne from '../AdvertOne/AdvertOne'
 import Search from '../Search/Search'
 import styles from './advertlist.module.css'
 
-const limit = 20
+// const limit = 20
 
 
 export default function AdvertList() {
@@ -21,7 +21,7 @@ export default function AdvertList() {
 
   // ! Достаем из стора все категории
   const { category } = useSelector((state) => state)
-  console.log('category', category);
+  // console.log('category', category);
   // ! Завожу стейт для текущей категории
   const [currentCategory, setCurrentCategory] = useState('')
 
@@ -38,7 +38,7 @@ export default function AdvertList() {
     }
   }, [category, name])
 
-  console.log('currentCategory', currentCategory);
+  // console.log('currentCategory', currentCategory);
 
   // ! Достаем из стора результаты поиска
   const searchResult = useSelector((state) => state.search)
@@ -50,21 +50,23 @@ export default function AdvertList() {
 
   // ! Запрашиваю с сервера все объявления по данной категории
   useEffect(() => {
-    const skip = (page - 1) * limit
+    // const skip = (page - 1) * limit
     if (name) {
-      axios.get(`${process.env.REACT_APP_API_URL}category/${name}?limit=${limit}&skip=${skip}`)
+      // axios.get(`${process.env.REACT_APP_API_URL}category/${name}?limit=${limit}&skip=${skip}`)
+      axios.get(`${process.env.REACT_APP_API_URL}category/${name}`)
         .then((advertsFromServer) => {
           // console.log('advertsFromServer', advertsFromServer);
           // ! setAdverts(advertsFromServer.data.items)
-          setAdverts(advertsFromServer.data.items)
+          setAdverts(advertsFromServer.data?.items)
           // setPages(Math.ceil(advertsFromServer.data.count / limit))    //узнаем кол-во страниц
         })
     } else {
-      axios.get(`${process.env.REACT_APP_API_URL}category?limit=${limit}&skip=${skip}`)
+      // axios.get(`${process.env.REACT_APP_API_URL}category?limit=${limit}&skip=${skip}`)
+      axios.get(`${process.env.REACT_APP_API_URL}category`)
         .then((advertsFromServer) => {
           // console.log('advertsFromServer', advertsFromServer);
           // ! setAdverts(advertsFromServer.data.items)
-          setAdverts(advertsFromServer.data.items)
+          setAdverts(advertsFromServer.data?.items)
           // setPages(Math.ceil(advertsFromServer.data.count / limit))  //узнаем кол-во страниц
         })
     }

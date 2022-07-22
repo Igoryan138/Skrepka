@@ -1,5 +1,6 @@
 .card {
   border: 1px solid silver;
+  transition: box-shadow .3s;
   background-color: rgb(230, 246, 255);
   border-radius: 8px;
   overflow: hidden;
@@ -7,6 +8,10 @@
   /* width: 350px; */
   height: 450px;
   color: black;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgb(129, 125, 125);  
 }
 
 .slick-slide>div {
