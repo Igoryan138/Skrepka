@@ -22,7 +22,7 @@ export default function MyAdvForExcange({ el, notMineAdvId }) {
           <img src={`${process.env.REACT_APP_API_URL}${el.url}`} className={style.img} alt="" />
           <div className="card-body">
             <Link to={`/add/${el.id}`}>
-              <h6 className="card-title">{el.title}</h6>
+              <h6 className={`card-title ${style.textB}`}>{el.title}</h6>
             </Link>
             <Link to={`/exchange/success`}>
               <button type="button" onClick={addDeal} className="btn btn-outline-success">Предложить на обмен</button>

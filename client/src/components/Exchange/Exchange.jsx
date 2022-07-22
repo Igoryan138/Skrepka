@@ -25,7 +25,7 @@ export default function Exchange({ loginUser }) {
             <img src={`${process.env.REACT_APP_API_URL}${advert?.url[0]}`} style={{ width: '18rem' }} className="card-img-top" alt=""></img>
             <div className='card-body'>
               <Link to={`/add/${advert?.id}`}>
-                <h5 className="card-title">{advert?.title}</h5>
+                <h5 className={`card-title ${style.textB}`}>{advert?.title}</h5>
               </Link>
             </div>
           </div>
