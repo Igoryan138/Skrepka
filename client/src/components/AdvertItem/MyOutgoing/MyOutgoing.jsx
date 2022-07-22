@@ -59,9 +59,9 @@ export default function MyOutgoing() {
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>
-        <div onClick={onLast} style={{ background: 'white', width: '20px', height: '20px' }}></div>
-        <img src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} width={500} alt="main" />
-        <div onClick={onNext} style={{ background: 'white', width: '20px', height: '20px' }}></div>
+        <img src={`${process.env.REACT_APP_API_URL}icon/left.png`} onClick={onLast} style={{ width: '30px', height: '50px', margin: '20px' }} alt='' />
+        <img src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} width={800} alt="main" />
+        <img src={`${process.env.REACT_APP_API_URL}icon/right.png`} onClick={onNext} style={{ width: '30px', height: '50px', margin: '20px' }} alt='' />
       </Modal>
       <div className={style.center}>
 
@@ -98,11 +98,25 @@ export default function MyOutgoing() {
                   <h3>тел. {advert?.user?.phone}</h3>
                 </div>
                 <h5>Вы уже отправили запрос на сделку. <br /> Либо дождитесь, пока владелец свяжется с Вами, либо отмените сделку</h5>
-                <Link to={`/profile/outgoingDeals`}>
-                  <button type="button" onClick={cancelDeal} className="btn btn-outline-danger">Отменить сделку</button>
-                </Link>
+
               </>
             }
+            <div className={style.description}>
+              <h3>Описание</h3>
+              <p>{advert?.description || 'описание отсутствует'}</p>
+            </div>
+
+            <div className={style.exchange}>
+              {advert?.exchange ?
+                <>
+                  <h3>Желаемый обмен</h3>
+                  <p>{advert?.exchange}</p>
+                </>
+                : <></>}
+            </div>
+            <Link to={`/profile/outgoingDeals`}>
+              <button type="button" onClick={cancelDeal} className="btn btn-outline-danger">Отменить сделку</button>
+            </Link>
           </div>
         </div>
 
@@ -112,19 +126,7 @@ export default function MyOutgoing() {
       <br />
       <div>
 
-        <div className={style.description}>
-          <h3>Описание</h3>
-          <p>{advert?.description || 'описание отсутствует'}</p>
-        </div>
 
-        <div className={style.exchange}>
-          {advert?.exchange ?
-            <>
-              <h3>Желаемый обмен</h3>
-              <p>{advert?.exchange}</p>
-            </>
-            : <></>}
-        </div>
 
       </div>
 

@@ -31,14 +31,11 @@
 
 .cardBottom span {
   color: black;
+  padding-top: 5%;
 }
 
 a {
   text-decoration: none;
-}
-
-.card h5 {
-  padding-top: 5%;
 }
 
 @media (max-width: 767px) {

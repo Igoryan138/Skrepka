@@ -106,6 +106,19 @@ export default function ActiveAdvert() {
                 </Link>
               </>
             }
+            <div className={style.description}>
+              <h3>Описание</h3>
+              <p>{advert?.description || 'описание отсутствует'}</p>
+            </div>
+
+            <div className={style.exchange}>
+              {advert?.exchange ?
+                <>
+                  <h3>Желаемый обмен</h3>
+                  <p>{advert?.exchange}</p>
+                </>
+                : <></>}
+            </div>
           </div>
         </div>
 
@@ -115,19 +128,7 @@ export default function ActiveAdvert() {
       <br />
       <div>
 
-        <div className={style.description}>
-          <h3>Описание</h3>
-          <p>{advert?.description || 'описание отсутствует'}</p>
-        </div>
 
-        <div className={style.exchange}>
-          {advert?.exchange ?
-            <>
-              <h3>Желаемый обмен</h3>
-              <p>{advert?.exchange}</p>
-            </>
-            : <></>}
-        </div>
 
       </div>
 

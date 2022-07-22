@@ -11,23 +11,25 @@
 .photo {
   display: flex;
   flex-direction: column;
-  width: 60%
+  width: 60%;
+  margin-right: 10px;
 }
 
 .title {
   display: flex;
+  margin-top: 15px;
 }
 
 .bigPhoto {
   width: 100%;
   height: 300px;
-
+  object-fit: cover;
+  border:1px solid rgb(218, 213, 213);
 }
 
 .bigPhotoImg {
   width: 100%;
   height: 100%;
-  border:1px solid rgb(218, 213, 213);
   object-fit: cover;
 }
 
@@ -43,7 +45,9 @@
   margin: 2px;
   width: 100px;
   padding: 5px;
-  border:1px solid rgb(218, 213, 213)
+  border:1px solid rgb(218, 213, 213);
+  object-fit: cover;
+
 }
 
 .contact {
@@ -52,6 +56,7 @@
   justify-content: center;
   align-items: center;
   width: 40%;
+  margin-left: 10px;
 }
 
 .zaglushka {
@@ -59,10 +64,22 @@
 }
 
 .miniZaglushka {
-  width: 20px;
+  width: 21px;
 }
 
-@media screen and (max-width: 1000px) {
+.description {
+  width: 100%
+}
+
+.exchange {
+  width: 100%
+}
+
+.btn {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 1400px) {
   .centerContent {
     display: flex;
     flex-direction: column;
@@ -71,7 +88,8 @@
 
   .contact {
     width: 100%;
-    height: 250px;
+    height: 450px;
+    margin-top: 20px;
   }
 
   .photo {

@@ -18,7 +18,7 @@ export default function Exchange({ loginUser }) {
   console.log(myAdvert);
   return (
     <div>
-      <div>
+      <div className={style.mainAdv}>
         <h2>Вам понравилось это объявление:</h2>
         <div className={style.ourItem}>
           <div className="card">
@@ -32,7 +32,7 @@ export default function Exchange({ loginUser }) {
         </div>
       </div>
 
-      <div>
+      <div className={style.myAdv}>
         {myAdvert === [] ?
           <>
             <br />

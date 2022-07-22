@@ -9,7 +9,7 @@ export default function Success() {
       <div className={style.main}>
         <h2>Ваша заявка на обмен успешно отправлена!</h2>
         <Link to='/profile/outgoingDeals'>
-          <button type="button" class="btn btn-outline-success">Перейти в мои заявки</button>
+          <button type="button" className="btn btn-outline-success">Перейти в мои заявки</button>
         </Link>        
       </div>
     </>
