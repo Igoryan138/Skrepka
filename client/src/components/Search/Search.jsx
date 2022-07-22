@@ -57,7 +57,7 @@ export default function Search() {
           </select>
         </div>
         <div className={styles.search_button}>
-          <button type="submit" className="btn btn-outline-primary h-100 w-10">Найти</button>
+          <button type="submit" className="btn btn-primary h-100 w-10">Найти</button>
         </div>
       </div>
     </form>
