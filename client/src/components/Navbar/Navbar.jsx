@@ -42,7 +42,7 @@ export function Navbar() {
                     </li>
 
                     <li className="nav-item">
-                      <Link to='/add' className={`btn btn-secondary ${style.add}`}>Добавить объявление</Link>
+                      <Link to='/add' className={`btn btn-primary ${style.add}`}>Добавить объявление</Link>
                     </li>
                   </>
 

@@ -13,7 +13,7 @@
   justify-content: center;
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
-  border-radius: 20px;
+  border-radius: 10px;
   max-width: 600px;
   margin: 15px;
   line-height: 2;
@@ -44,3 +44,16 @@
 .no_margin{
   margin: 0;
 }
+
+.form{
+  width: 600px;
+}
+
+.addB:hover{
+background-color:#a0aab3;
+}
+
+.btnEdit{
+margin: 10px;
+}
+

@@ -33,12 +33,12 @@ export default function Account() {
         <h5 className={styles.h5}>Телефон: {user?.phone}</h5>
         <div>
 
-        <button type="submit" className={`btn btn-info mt-2 ${styles.add} `}onClick={() => setMode('edit')}>Редактировать</button>
+        <button type="submit" className={`btn btn-primary ${styles.addB}`} onClick={() => setMode('edit')}>Редактировать</button>
         </div>
       </div> 
     )} 
      {mode === 'edit' && (
-      <form onSubmit={(e) => {
+      <form  className={styles.form} onSubmit={(e) => {
         e.preventDefault()
         dispatch(editUser({
           firstName,
@@ -49,7 +49,7 @@ export default function Account() {
           setMode('view')
         })
       }}>
-        <div className={styles.h5}> <strong>Редактирование</strong></div>
+        <div className="h2"> <strong>Редактирование</strong></div>
 
         <div className={styles.inp}>
           <h5>Имя:</h5>
@@ -62,8 +62,8 @@ export default function Account() {
         <input className={`${styles.h5} ${styles.no_margin}`} value={phone} onChange={(e)=>setPhone(e.target.value)}  type= 'text'/> <br />
 
         </div>
-        <button  type="submit" className="btn btn-success">Сохранить</button>
-        <button  type="submit" className="btn btn-danger" onClick={() => setMode('view')}>Отменить</button>
+        <button   type="submit" className={`btn btn-success ${styles.btnEdit}`}>Сохранить</button>
+        <button  type="submit" className={`btn btn-danger ${styles.btnEdit}`} onClick={() => setMode('view')}>Отменить</button>
       </form> 
     )} 
     
