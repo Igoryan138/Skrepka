@@ -33,7 +33,7 @@ export default function Account() {
         <h5 className={styles.h5}>Телефон: {user?.phone}</h5>
         <div>
 
-        <button type="submit" className={`btn btn-info mt-2 ${styles.add} `}onClick={() => setMode('edit')}>Редактировать</button>
+        <button type="submit" className={`btn btn-outline-info mt-2 ${styles.add} `}onClick={() => setMode('edit')}>Редактировать</button>
         </div>
       </div> 
     )} 
@@ -62,8 +62,8 @@ export default function Account() {
         <input className={`${styles.h5} ${styles.no_margin}`} value={phone} onChange={(e)=>setPhone(e.target.value)}  type= 'text'/> <br />
 
         </div>
-        <button  type="submit" className="btn btn-success">Сохранить</button>
-        <button  type="submit" className="btn btn-danger" onClick={() => setMode('view')}>Отменить</button>
+        <button  type="submit" className="btn btn-outline-success">Сохранить</button>
+        <button  type="submit" className="btn btn-outline-danger" onClick={() => setMode('view')}>Отменить</button>
       </form> 
     )} 
     

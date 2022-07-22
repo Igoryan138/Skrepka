@@ -99,10 +99,10 @@ export default function ActiveAdvert() {
                   <h3>тел. {advert?.user?.phone}</h3>
                 </div>
                 <Link to={`/exchange/${id}`}>
-                  <button type="button" className="btn btn-success">Совершить сделку</button>
+                  <button type="button" className="btn btn-outline-success">Совершить сделку</button>
                 </Link>
                 <Link to={`/profile/outgoingDeals`}>
-                  <button type="button" className="btn btn-danger">Отменить предложение</button>
+                  <button type="button" className="btn btn-outline-danger">Отменить предложение</button>
                 </Link>
               </>
             }

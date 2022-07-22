@@ -34,7 +34,7 @@ export default function OutgoingCompletedDealsItem({ el, notMineOutgoingGoods })
           </div>
         </div>
       </div>
-      <button type="button" onClick={returnDeal} className="btn btn-secondary">Вернуть</button>
+      <button type="button" onClick={returnDeal} className="btn btn-outline-secondary">Вернуть</button>
     </div>
   )
 }
