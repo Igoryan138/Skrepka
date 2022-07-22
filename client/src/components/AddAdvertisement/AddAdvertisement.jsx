@@ -84,7 +84,7 @@ export default function AddAdvertisement() {
           <input required type="file" multiple name="photo" onChange={inputsHandler} accept="image/*" />
         </div>
         <br />
-        <button type="submit" className="btn btn-success">Разместить</button>
+        <button type="submit" className="btn btn-outline-success">Разместить</button>
       </form>
     </div>
   )

@@ -150,8 +150,7 @@ router.put('/change/:id', async (req, res) => {
     good.description = description;
     good.exchange = exchange;
     good.title = title;
-    good.save()
-    good({ raw: true })
+    await good.save()
     console.log(good);
     const adv = await Good.findOne({ where: { id: good.id }, raw: true })
     const user = await User.findOne({ where: { id: adv.userId }, raw: true })
@@ -164,7 +163,6 @@ router.put('/change/:id', async (req, res) => {
     adv.url = urlPhoto;
     adv.user = user;
     delete adv.userId
-    console.log('------',adv);
     res.json(adv)
   } catch (error) {
     console.log('catchError---->', error);

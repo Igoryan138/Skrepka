@@ -42,8 +42,8 @@ export default function OutgoingDealsItem({ el, notMineGoods }) {
           </div>
         </div>
       </div>
-      {button ? <button type="button"  onClick={cancelDeal} className="btn btn-info">Отменить заявку</button>
-      : <button type="button" className="btn btn-secondary" disabled>Заявка отменена</button>
+      {button ? <button type="button"  onClick={cancelDeal} className="btn btn-outline-info">Отменить заявку</button>
+      : <button type="button" className="btn btn-outline-secondary" disabled>Заявка отменена</button>
       }
     </div>
 

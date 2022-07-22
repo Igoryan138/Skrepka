@@ -9,13 +9,14 @@ import Modal from '../Modal/Modal';
 
 export default function AdvertItem() {
   const isLogin = useSelector((store) => store.user.user?.id)
-  const { id, edit } = useParams()
+  const { id } = useParams()
   const [advert, setAdvert] = useState()
   const [bigPhoto, setBigPhoto] = useState()
   const [visible, setVisible] = useState(false)
   const [arrow, setArrow] = useState('hidden')
   const [favourite, setFavourite] = useState()
   const [notActive, setNotActive] = useState()
+  const [edit, setEdit] = useState(false)
 
   const myAdv = (isLogin === advert?.user?.id)
 
@@ -38,7 +39,6 @@ export default function AdvertItem() {
   const [title, setTitle] = useState(advert?.title)
   const [exchange, setExchange] = useState(advert?.exchange)
   const [description, setDescription] = useState(advert?.description)
-  console.log(exchange);
 
   const onNext = () => {
     const res = advert.url.findIndex((el) => el === bigPhoto)
@@ -66,10 +66,11 @@ export default function AdvertItem() {
     axios.put(`${process.env.REACT_APP_API_URL}add/change/${id}`, { title, exchange, description })
       .then((res) => {
         console.log('changeValues', res.data);
-        // setAdvert(res.data)
+        setAdvert(res.data)
       })
+    setEdit(false)
   }
-
+  console.log(advert?.description);
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>
@@ -115,15 +116,16 @@ export default function AdvertItem() {
               (myAdv ?
                 <>
                   {edit ?
-                    <Link to={`/profile/advertisements`} >
-                      <button type="submit" onClick={changeValues} className="btn btn-success">Сохранить</button>
-                    </Link>
+                    // <Link to={`/profile/advertisements`} >
+                      <button type="submit" onClick={changeValues} className="btn btn-outline-success">Сохранить</button>
+                    // </Link>
                     :
                     <>
                       <h3>Это Ваше объявление. <br /> Хотите посмотреть все свои обявления?</h3>
                       <Link to={'/profile/advertisements'} >
                         <button type="button" className="btn btn-info">Перейти к моим объявлениям</button>
                       </Link>
+                        <button onClick={() => setEdit(true)}type="button" className="btn btn-outline-warning">Редактировать</button>
                     </>
                   }
                 </>
@@ -135,7 +137,7 @@ export default function AdvertItem() {
                       <h3>тел. {advert?.user?.phone}</h3>
                     </div>
                     <Link to={`/exchange/${id}`}>
-                      <button type="button" className="btn btn-primary">Предложить обмен</button>
+                      <button type="button" className="btn btn-outline-primary">Предложить обмен</button>
                     </Link>
                   </>
                   :
@@ -144,11 +146,11 @@ export default function AdvertItem() {
                       Если вы хотите предложить обмен на этот товар, пожалуйста, пройдите авторизацию
                     </h3>
                     <Link to={'/registration'} >
-                      <button type="button" className="btn btn-primary">Зарегистрироваться</button>
+                      <button type="button" className="btn btn-outline-primary">Зарегистрироваться</button>
                     </Link>
                     <br />
                     <Link to={'/login'} >
-                      <button type="button" className="btn btn-success">Войти</button>
+                      <button type="button" className="btn btn-outline-success">Войти</button>
                     </Link>
                   </>))
             }
@@ -167,7 +169,8 @@ export default function AdvertItem() {
                 <>
                   <h3>Желаемый обмен</h3>
                   {edit ?
-                    <textarea onChange={(e) => setExchange(e.target.value)} required name='exchange' className="form-control" id="exampleFormControlTextarea1" rows="2" >{advert?.exchange}</textarea>
+                    <textarea onChange={(e) => setExchange(e.target.value)} required name='exchange' className="form-control" id="exampleFormControlTextarea1" rows="2" >
+                      {advert?.exchange}</textarea>
                     :
                     <p>{advert?.exchange}</p>
                   }

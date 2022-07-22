@@ -34,7 +34,7 @@ export function Auth() {
           {/* <label htmlFor="exampleInputPassword1" className="htmlForm-label">Password</label> */}
           <input name='password' placeholder='Введите пароль' onChange={inputHandler} type="password" id="exampleInputPassword1" />
         </div>
-        <button type="submit" className="btn btn-primary">Войти</button>
+        <button type="submit" className="btn btn-outline-primary">Войти</button>
       </form>
     </div>
   )
