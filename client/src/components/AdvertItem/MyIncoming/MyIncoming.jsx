@@ -62,9 +62,9 @@ export default function MyIncoming() {
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>
-        <div onClick={onLast} style={{ background: 'white', width: '20px', height: '20px' }}></div>
-        <img src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} width={500} alt="main" />
-        <div onClick={onNext} style={{ background: 'white', width: '20px', height: '20px' }}></div>
+        <img src={`${process.env.REACT_APP_API_URL}icon/left.png`} onClick={onLast} style={{ width: '30px', height: '50px', margin: '20px' }} alt='' />
+        <img src={`${process.env.REACT_APP_API_URL}${bigPhoto}`} width={800} alt="main" />
+        <img src={`${process.env.REACT_APP_API_URL}icon/right.png`} onClick={onNext} style={{ width: '30px', height: '50px', margin: '20px' }} alt='' />
       </Modal>
       <div className={style.center}>
 
@@ -100,45 +100,41 @@ export default function MyIncoming() {
                   <h1>{advert?.user?.firstName} {advert?.user?.lastName}</h1>
                   <h3>тел. {advert?.user?.phone}</h3>
                 </div>
-                <Link to={`/add/success`}>
-                  <button type="button" onClick={acceptDeal} className="btn btn-outline-success">Принять предложение</button>
-                </Link>
-                <Link to={`/profile/incomingDeals`}>
-                  <button type="button" className="btn btn-outline-info">Посмотреть другие заявки</button>
-                </Link>
-                <Link to={`/profile/incomingDeals`}>
-                  <button type="button" onClick={cancelDeal} className="btn btn-outline-danger">Отменить сделку</button>
-                </Link>
               </>
             }
+            <br />
+            <div className={style.description}>
+              <h3>Описание</h3>
+              <p>{advert?.description || 'описание отсутствует'}</p>
+            </div>
+
+            <div className={style.exchange}>
+              {advert?.exchange ?
+                <>
+                  <h3>Желаемый обмен</h3>
+                  <p>{advert?.exchange}</p>
+                </>
+                : <></>}
+            </div>
+            <Link to={`/profile/incomingDeals`}>
+              <button type="button" className={`btn btn-outline-info ${style.btn}`}>Посмотреть другие заявки</button>
+            </Link>
+            <Link to={`/add/success`}>
+              <button type="button" onClick={acceptDeal} className={`btn btn-outline-success ${style.btn}`}>Принять предложение</button>
+            </Link>
+            <Link to={`/profile/incomingDeals`}>
+              <button type="button" onClick={cancelDeal} className={`btn btn-outline-danger ${style.btn}`}>Отменить сделку</button>
+            </Link>
+
+            <div>
+            </div>
           </div>
         </div>
 
         <div className={style.zaglushka}></div>
 
       </div>
-      <br />
-      <div>
-
-        <div className={style.description}>
-          <h3>Описание</h3>
-          <p>{advert?.description || 'описание отсутствует'}</p>
-        </div>
-
-        <div className={style.exchange}>
-          {advert?.exchange ?
-            <>
-              <h3>Желаемый обмен</h3>
-              <p>{advert?.exchange}</p>
-            </>
-            : <></>}
-        </div>
-
-      </div>
-
-
     </div>
-
   )
 }
 
