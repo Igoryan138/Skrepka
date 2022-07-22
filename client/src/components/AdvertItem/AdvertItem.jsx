@@ -35,7 +35,7 @@ export default function AdvertItem() {
       .then((res) => setFavourite(res.status === 200))
 
   }, [id, isLogin])
-  
+
   const [title, setTitle] = useState(advert?.title)
   const [exchange, setExchange] = useState(advert?.exchange)
   const [description, setDescription] = useState(advert?.description)
@@ -117,15 +117,15 @@ export default function AdvertItem() {
                 <>
                   {edit ?
                     // <Link to={`/profile/advertisements`} >
-                      <button type="submit" onClick={changeValues} className="btn btn-outline-success">Сохранить</button>
+                    <button type="submit" onClick={changeValues} className="btn btn-outline-success">Сохранить</button>
                     // </Link>
                     :
                     <>
                       <h3>Это Ваше объявление. <br /> Хотите посмотреть все свои обявления?</h3>
                       <Link to={'/profile/advertisements'} >
-                        <button type="button" className="btn btn-info">Перейти к моим объявлениям</button>
+                        <button type="button" className={`btn btn-outline-primary ${style.btn}`}>Перейти к моим объявлениям</button>
                       </Link>
-                        <button onClick={() => setEdit(true)}type="button" className="btn btn-outline-warning">Редактировать</button>
+                      <button onClick={() => setEdit(true)} type="button" className={`btn btn-outline-warning ${style.btn}`}>Редактировать</button>
                     </>
                   }
                 </>
@@ -137,7 +137,7 @@ export default function AdvertItem() {
                       <h3>тел. {advert?.user?.phone}</h3>
                     </div>
                     <Link to={`/exchange/${id}`}>
-                      <button type="button" className="btn btn-outline-primary">Предложить обмен</button>
+                      <button type="button" className={`btn btn-primary ${style.btn}`}>Предложить обмен</button>
                     </Link>
                   </>
                   :
@@ -146,11 +146,10 @@ export default function AdvertItem() {
                       Если вы хотите предложить обмен на этот товар, пожалуйста, пройдите авторизацию
                     </h3>
                     <Link to={'/registration'} >
-                      <button type="button" className="btn btn-outline-primary">Зарегистрироваться</button>
+                      <button type="button" className={`btn btn-outline-primary  ${style.btn}`}>Зарегистрироваться</button>
                     </Link>
-                    <br />
                     <Link to={'/login'} >
-                      <button type="button" className="btn btn-outline-success">Войти</button>
+                      <button type="button" className={`btn btn-outline-success ${style.btn}`}>Войти</button>
                     </Link>
                   </>))
             }
