@@ -19,7 +19,7 @@ export default function MyAdvertItem({ el, setAdverts, adverts }) {
         <Link to={`/add/${el.id}`}>
           <h5 className={`${style.h5} card-title}`}>{el.title}</h5>
         </Link>
-        <button type="button" onClick={deleteAdvert} className="btn btn-outline-outline-danger">Удалить</button>
+        <button type="button" onClick={deleteAdvert} className="btn btn-outline-danger">Удалить</button>
       </div>
     </div>
   )
