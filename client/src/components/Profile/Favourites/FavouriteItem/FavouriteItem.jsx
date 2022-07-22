@@ -3,7 +3,7 @@ import style from './FavouriteItem.module.css'
 import { Link } from 'react-router-dom';
 
 export default function FavouriteItem({ el }) {
-  console.log('el---', el);
+  // console.log('el---', el);
   return (
     // <div className={style.size}>
       // <div className="col">
