@@ -1,4 +1,5 @@
 .category {
+  transition: box-shadow .3s;
   width: 200px;
   height: 250px;
   margin: 1%;
@@ -18,6 +19,10 @@
   object-fit: cover;
   width: 100%;
   height: 200px;
+}
+
+.category:hover {
+  box-shadow: 0 0 20px rgb(129, 125, 125);  
 }
 
 @media (max-width: 767px) {

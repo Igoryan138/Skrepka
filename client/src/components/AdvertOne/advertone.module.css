@@ -1,4 +1,5 @@
 .card {
+  transition: box-shadow .3s;
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
   border-radius: 8px;
@@ -7,6 +8,10 @@
   width: 300px;
   height: 400px;
   color: black;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgb(129, 125, 125); 
 }
 
 .cardTop {
