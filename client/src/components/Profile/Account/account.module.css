@@ -9,6 +9,8 @@
 }  */
 
 .h3, .h5{
+  display: flex;
+  justify-content: center;
   border: 1px solid silver;
   background-color: rgb(230, 246, 255);
   border-radius: 20px;
@@ -17,8 +19,28 @@
   line-height: 2;
 }
 
-.h5{
-  background-color:rgb(230, 246, 255);
+.add{
+   background-color: #a0aab3;
+  border: 1px solid silver;
+  max-width: 600px;
+  color:white
+}
+/* .h5{
+  background-color:#c4c9cd;
   padding: 10px;
   line-height: 1;
+  border: solid 1px silver;
+  border-radius: 20px;
+  max-width: 600px;
+} */
+
+.inp{
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  justify-content: center;
+}
+
+.no_margin{
+  margin: 0;
 }

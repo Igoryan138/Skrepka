@@ -21,7 +21,7 @@ export default function AdvertList() {
 
   // ! Достаем из стора все категории
   const { category } = useSelector((state) => state)
-
+  console.log('category', category);
   // ! Завожу стейт для текущей категории
   const [currentCategory, setCurrentCategory] = useState('')
 
@@ -31,14 +31,14 @@ export default function AdvertList() {
   useEffect(() => {
     if (name) {
       if (category && category.length) {
-        setCurrentCategory(category.filter(el => el.identifier === name)[0].name)
+        setCurrentCategory(category.filter(el => el.identifier === name)[0].title)
       }
     } else {
-      setCurrentCategory('Все категории')
+      setCurrentCategory('icon/allCategory.png')
     }
   }, [category, name])
 
-  // console.log('currentCategory', currentCategory);
+  console.log('currentCategory', currentCategory);
 
   // ! Достаем из стора результаты поиска
   const searchResult = useSelector((state) => state.search)
@@ -72,13 +72,13 @@ export default function AdvertList() {
 
   return (
     <div className={styles.List}>
-      <div>
-        <h1>{currentCategory}</h1>
-      </div>
-      <div>
-        <h2>Количество объявлений: {search ? searchResult.length : adverts.length}</h2>
-      </div>
       <Search />
+      <div className={styles.title}>
+        <img src={`${process.env.REACT_APP_API_URL}${currentCategory}`} alt='' />
+      </div>
+      <div className={styles.advCount}>
+        <p>Количество объявлений: {search ? searchResult.length : adverts.length}</p>
+      </div>
      
       {search ? (<div className={styles.list}>
         {searchResult.map((el) => <AdvertOne key={el.id} el={el} />)}
