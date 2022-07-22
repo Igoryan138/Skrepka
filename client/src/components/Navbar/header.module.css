@@ -26,6 +26,7 @@ li {
   list-style: none;
   display: inline-block;
   padding: 0 20px;
+  font-weight: 500;
 }
 
 header li {
@@ -95,7 +96,14 @@ header a:hover{
   padding-top: 0; 
   padding-bottom: 0;
 }
+.add {
+  border: none;
+}
 
 .add:hover{
   background-color: #a0aab3;
+}
+
+.navbar span {
+  font-weight: 500;
 }

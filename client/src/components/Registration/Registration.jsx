@@ -58,7 +58,7 @@ export function Registration() {
         </div>
 
         <div className="col-12">
-          <button className="btn btn-primary mt-4" type="submit">Регистрация</button>
+          <button className="btn btn-outline-primary mt-4" type="submit">Регистрация</button>
         </div>
       </form>
     </div>

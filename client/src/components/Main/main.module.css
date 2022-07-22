@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 1%;
 }
 
 .Slider {
@@ -25,4 +26,10 @@
 .titleNewAdv {
   width: 470px;
   margin-top: 15px;
+}
+
+@media (max-width: 767px) { 
+  .Main>img {
+    width: 90%;
+  }
 }

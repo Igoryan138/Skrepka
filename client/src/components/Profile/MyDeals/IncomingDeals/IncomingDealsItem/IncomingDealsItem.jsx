@@ -43,12 +43,12 @@ export default function IncomingDealsItem({ el, notMineGoods }) {
       </div>
       {button ?
         <>
-          <button type="button" onClick={cancelDeal} className="btn btn-danger">Отклонить</button>
+          <button type="button" onClick={cancelDeal} className="btn btn-outline-danger">Отклонить</button>
           <Link to={`/add/success`}>
-            <button type="button" onClick={acceptDeal} className="btn btn-success">Принять</button>
+            <button type="button" onClick={acceptDeal} className="btn btn-outline-success">Принять</button>
           </Link>
         </>
-        : <button type="button" className="btn btn-secondary" disabled>Заявка отклонена</button>
+        : <button type="button" className="btn btn-outline-secondary" disabled>Заявка отклонена</button>
       }
     </div>
   )
