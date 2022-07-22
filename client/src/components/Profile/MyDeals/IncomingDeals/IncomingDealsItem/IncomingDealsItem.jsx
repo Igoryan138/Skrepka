@@ -45,7 +45,7 @@ export default function IncomingDealsItem({ el, notMineGoods }) {
         <>
           <button type="button" onClick={cancelDeal} className="btn btn-outline-danger">Отклонить</button>
           <Link to={`/add/success`}>
-            <button type="button" onClick={acceptDeal} className="btn btn-outline-success">Принять</button>
+          <button type="button" onClick={acceptDeal} className="btn btn-outline-success">Принять</button>
           </Link>
         </>
         : <button type="button" className="btn btn-outline-secondary" disabled>Заявка отклонена</button>

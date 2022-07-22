@@ -42,7 +42,7 @@ export default function Exchange({ loginUser }) {
           <>
             <h2>Выберите товар, который хотите предложить на обмен:</h2>
             <div className={style.myItem}>
-              {myAdvert?.map((el) => <MyAdvForExcange key={el.id} el={el} notMineAdvId={advert.id} />)}
+              {myAdvert?.map((el) => <MyAdvForExcange key={el.id} el={el} notMineAdvId={advert?.id} />)}
             </div>
           </>
         }
