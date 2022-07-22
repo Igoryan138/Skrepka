@@ -24,6 +24,7 @@ export function Auth() {
   return (
     <div className={`${styles.auth} container`}>
       <form onSubmit={(e) => authHandler(e)}>
+        <img src={`${process.env.REACT_APP_API_URL}icon/login.png`} alt='' />
         <div className="mb-3">
           {/* <label htmlFor="exampleInputEmail1" className="htmlForm-label">Email address</label> */}
           <input name='email' placeholder='E-mail: ivan@mail.ru' onChange={inputHandler} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" />

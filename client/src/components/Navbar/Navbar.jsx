@@ -10,7 +10,7 @@ export function Navbar() {
   const id = useSelector((store) => store.user.user?.id)
 
   const logoutHandler = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     dispatch(logOutUser(id))
 
   }
