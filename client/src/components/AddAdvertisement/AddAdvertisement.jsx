@@ -40,8 +40,8 @@ export default function AddAdvertisement() {
   return (
     <div className='container mt-5 ' >
       <form className={style.form} onSubmit={addHandler} encType="multipart/form-data">
+      <img src={`${process.env.REACT_APP_API_URL}icon/addAdv.png`} className={style.imgTitle} alt='' />
         <div className={style.selects}>
-          {/* <div className="mb-3"> */}
           <select required onChange={inputsHandler} name="category" className="form-select h-100 w-25" aria-label="Default select example">
             <option selected disabled>Выберите категорию</option>
             <option value="personals">Личные вещи</option>
@@ -50,8 +50,6 @@ export default function AddAdvertisement() {
             <option value="animals">Животные</option>
             <option value="hobbies">Хобби и отдых</option>
           </select>
-          {/* </div> */}
-          {/* <div className="mb-3"> */}
           <select required onChange={inputsHandler} name="city" className="form-select h-100 w-25" aria-label="Default select example">
             <option selected disabled>Выберите город</option>
             <option value="Москва">Москва</option>
@@ -60,7 +58,6 @@ export default function AddAdvertisement() {
             <option value="Саратов">Саратов</option>
             <option value="Анапа">Анапа</option>
           </select>
-          {/* </div> */}
         </div>
         <div className={`${style.city} mb-3 w-50`}>
           <label htmlFor="exampleFormControlInput1" className="form-label">Напишите название:</label>
@@ -70,21 +67,15 @@ export default function AddAdvertisement() {
           <label htmlFor="exampleFormControlTextarea1" className="form-label">Добавьте описание:</label>
           <textarea required name='description' onChange={inputsHandler} className="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
         </div>
-        {/* <div className="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">Выберите город:</label>
-          <AddressSuggestions name='city' token={process.env.REACT_APP_API_KEY} onChange={inputsHandler} />
-        </div> */}
-
         <div className={`${style.change} mb-3 w-50`}>
           <label htmlFor="exampleFormControlTextarea1" className="form-label">На что хотите поменять? (необязательно)</label>
           <input name='exchange' onChange={inputsHandler} className="form-control" id="exampleFormControlInput1" />
         </div>
         <div className="form-file">
-          {/* <label>Выберите файл</label> */}
           <input required type="file" multiple name="photo" onChange={inputsHandler} accept="image/*" />
         </div>
         <br />
-        <button type="submit" className="btn btn-outline-success">Разместить</button>
+        <button type="submit" className="btn btn-outline-primary">Разместить</button>
       </form>
     </div>
   )
