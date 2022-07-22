@@ -1,0 +1,4 @@
+.outgoingDeals {
+  display: flex;
+    flex-direction: column;
+}

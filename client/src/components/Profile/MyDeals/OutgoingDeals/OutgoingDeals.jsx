@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import OutgoingDealsItem from './OutgoingDealsItem/OutgoingDealsItem'
+import './outgoingDeals.css'
 
 
 export default function OutgoingDeals() {
@@ -21,7 +22,7 @@ export default function OutgoingDeals() {
   // console.log(notMineGoods);
 
   return (
-    <div>
+    <div className='outgoingDeals'>
       {myDeals?.map((el, i) => <OutgoingDealsItem key={el.id} el={el} notMineGoods={notMineGoods[i]} />)}
     </div>
   )
