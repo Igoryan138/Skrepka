@@ -25,4 +25,26 @@
 
 
 
+@media screen and (max-width: 1000px) {
+  .menu{
+    width: 100%;
+   flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+  
+  }
+  .menu_left{
+  width: 100%;
+ 
+  }
+  .menu_right{
+    width: 100%;
+    margin-top: 16px;
+  }
+ 
+
+}
+
+
+
 
