@@ -4,25 +4,55 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Photos', [
       {
-        url: 'photo/1l.jpeg',
+        url: 'photo/cigane.jpg',
         goodId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        url: 'photo/2l.jpg',
+        url: 'photo/cigane2.jpg',
+        goodId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/cigane3.jpg',
+        goodId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/tea.jpg',
         goodId: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        url: 'photo/3l.jpeg',
+        url: 'photo/tea2.jpg',
+        goodId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/tea3.jpg',
+        goodId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/coffee.jpg',
         goodId: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        url: 'photo/1h.jpeg',
+        url: 'photo/coffe2.jpeg',
+        goodId: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/hoodi.jpg',
         goodId: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -40,7 +70,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        url: 'photo/2el.jpeg',
+        url: 'photo/doska.jpg',
         goodId: 7,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -64,7 +94,25 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        url: 'photo/4a.jpeg',
+        url: 'photo/lyalya.jpg',
+        goodId: 11,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/lyalya2.jpg',
+        goodId: 11,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/lyalya3.jpg',
+        goodId: 11,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/lyalya4.jpg',
         goodId: 11,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -112,7 +160,25 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        url: 'photo/oboi2.jpg',
+        goodId: 19,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
         url: 'photo/7h.png',
+        goodId: 19,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/oboi1.jpg',
+        goodId: 19,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/oboi3.jpg',
         goodId: 19,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -124,6 +190,11 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        url: 'photo/screen.png',
+        goodId: 21,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },{
         url: 'photo/d1.png',
         goodId: 21,
         createdAt: new Date(),
@@ -166,13 +237,19 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        url: 'photo/mem1.png',
+        url: 'photo/mem.jpg',
         goodId: 22,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         url: 'photo/mem2.png',
+        goodId: 22,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        url: 'photo/mem1.png',
         goodId: 22,
         createdAt: new Date(),
         updatedAt: new Date(),
