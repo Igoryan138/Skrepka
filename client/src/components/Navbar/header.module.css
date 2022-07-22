@@ -48,13 +48,13 @@ header a:hover {
   color: #b2dfdb;
 }
 
-.btn{
+/* .btn {
 background-color:rgb(215, 234, 236);
 padding: 2px;
 border: solid 1px #b2dfdb;
-/* position: absolute;
-right: 0; */
-}
+position: absolute;
+right: 0;
+} */
 
 .img{
   /* width:200px;  */

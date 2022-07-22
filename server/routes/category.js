@@ -4,18 +4,20 @@ const uniq = require('../middleware/uniq')
 const { Op } = require("sequelize");
 
 router.get('/', async (req, res) => {
-  const { skip = 0, limit = 10 } = req.query
+  // const { skip = 0, limit = 10 } = req.query
   try {
     const goods = await Good.findAll({
       where: {status: 'active'},
       raw: true,
-      offset: +skip,
-      limit: +limit,
+      // offset: +skip,
+      // limit: +limit,
       include: {
         model: Photo,
         attributes: ['url'],
       },
     })
+
+    console.log('goods', goods);
 
     // ! Делаем массив уникальным
     const uniqArr = uniq(goods)
@@ -42,6 +44,7 @@ router.post('/', async (req, res) => {
       console.log('указана только фраза');
       goods = await Good.findAll({
         where: {
+          status: 'active',
           title: {
             [Op.iLike]: `%${phrase}%`
           }
@@ -59,6 +62,7 @@ router.post('/', async (req, res) => {
       console.log('указаны фраза и город');
       goods = await Good.findAll({
         where: {
+          status: 'active',
           title: {
             [Op.iLike]: `%${phrase}%`
           },
@@ -81,6 +85,7 @@ router.post('/', async (req, res) => {
       })
       goods = await Good.findAll({
         where: {
+          status: 'active',
           title: {
             [Op.iLike]: `%${phrase}%`
           },
@@ -103,6 +108,7 @@ router.post('/', async (req, res) => {
       })
       goods = await Good.findAll({
         where: {
+          status: 'active',
           title: {
             [Op.iLike]: `%${phrase}%`
           },
@@ -126,6 +132,7 @@ router.post('/', async (req, res) => {
       })
       goods = await Good.findAll({
         where: {
+          status: 'active',
           categoryId: currentCategory.id,
           city,
         },
@@ -142,6 +149,7 @@ router.post('/', async (req, res) => {
       console.log('указан только город');
       goods = await Good.findAll({
         where: {
+          status: 'active',
           city,
         },
         raw: true,
@@ -161,6 +169,7 @@ router.post('/', async (req, res) => {
       })
       goods = await Good.findAll({
         where: {
+          status: 'active',
           categoryId: currentCategory.id,
         },
         raw: true,
@@ -175,6 +184,9 @@ router.post('/', async (req, res) => {
     if (!phrase && category === 'all' && city === 'all') {
       console.log('ничего не указано');
       goods = await Good.findAll({
+        where: {
+          status: 'active',
+        },
         raw: true,
         include: {
           model: Photo,
@@ -188,6 +200,9 @@ router.post('/', async (req, res) => {
     // ! Если не нашли ни один результат - то возвращаем все объявления
     if (goods.length === 0) {
       goods = await Good.findAll({
+        where: {
+          status: 'active',
+        },
         raw: true,
         include: {
           model: Photo,
