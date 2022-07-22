@@ -1,3 +1,13 @@
+/* @font-face {
+  font-family: "CenturyGothicRegular";
+  src: url("./fonts/CenturyGothicRegular/CenturyGothicRegular.eot");
+  src: url("./fonts/CenturyGothicRegular/CenturyGothicRegular.eot?#iefix")format("embedded-opentype"),
+  url("./fonts/CenturyGothicRegular/CenturyGothicRegular.woff") format("woff"),
+  url("./fonts/CenturyGothicRegular/CenturyGothicRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+} */
+
 .App {
   text-align: center;
   height: 100%;
@@ -5,7 +15,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Century Gothic';
+  /* font-family: 'Century Gothic'; */
   /* background-image: url('/house.jpeg')  */
 }
 
@@ -116,3 +126,6 @@ header a:hover {
   width: 600px;
 }
 
+h5,h6{
+  font-family: 'Raleway', sans-serif;
+}
