@@ -66,35 +66,35 @@ header a:hover {
 }
 
 
-.accordion-body{
+.accordion-body {
   padding: 0;
 }
 
-.accordion-item:last-of-type .accordion-button.collapsed{
+.accordion-item:last-of-type .accordion-button.collapsed {
   border-radius: 0;
 }
 
-.accordion-button{
+.accordion-button {
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid rgba(0, 0, 0, .125);
 }
 
 .accordion-item {
   border: none
 }
 
-.pt-3{
+.pt-3 {
   padding-top: 15px;
 }
 
-.mh-200{
+.mh-200 {
   min-height: 200px;
 }
 
-.flex-center{
+.flex-center {
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
 
 .slick-prev:before,
@@ -103,5 +103,9 @@ header a:hover {
   font-size: 30px;
 }
 
-
-
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #285e8e;
+  /*set the color you want here*/
+}
