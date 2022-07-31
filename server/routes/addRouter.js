@@ -20,16 +20,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.post('/new', upload.array('photo'), async (req, res) => {
-
-  // console.log('req.files', req.files);
-  // console.log('req.body', req.body);
   const { userId, title, description, city, exchange, category } = req.body
-  // console.log('userId, title, description, city, exchange, category', userId, title, description, city, exchange, category);
-
 
   // ! Находим категорию указанную при добавлении
   const currentCategory = await Category.findOne({ where: { identifier: category }, raw: true },)
-  // console.log('currentCategory', currentCategory);
 
   // ! Заносим товар в таблицу
   const newGood = await Good.create({
@@ -37,7 +31,6 @@ router.post('/new', upload.array('photo'), async (req, res) => {
     categoryId: currentCategory.id,
     userId: +userId
   })
-  // console.log('newGood', newGood);
 
   // ! Заносим фото в таблицу
   for (let i = 0; i < req.files.length; i++) {
@@ -50,7 +43,6 @@ router.post('/new', upload.array('photo'), async (req, res) => {
 });
 
 router.get('/new', async (req, res) => {
-  // console.log('зашел');
   try {
     const newAdverts = await Good.findAll({
       where: {status: 'active'},
@@ -76,10 +68,8 @@ router.get('/new', async (req, res) => {
 
 router.post('/favorite', async (req, res) => {
   const { id, isLogin } = req.body
-  console.log(id, isLogin);
   try {
     const serchFav = await Favourites.findAll({ where: { userId: isLogin, goodId: id }})
-    console.log(serchFav);
     if (serchFav == false) {
       await Favourites.create({ userId: isLogin, goodId: id })
       return res.sendStatus(200)
@@ -88,7 +78,7 @@ router.post('/favorite', async (req, res) => {
       return res.sendStatus(201)
     }
   } catch (error) {
-    console.log('catchError---->', error);
+    console.log(error);
   }
 })
 
@@ -96,20 +86,18 @@ router.post('/favorite/check', async (req, res) => {
   const { id, isLogin } = req.body
   try {
     const serchFav = await Favourites.findAll({ where: { userId: isLogin, goodId: id }})
-    console.log('check------>', serchFav);
     if (serchFav == false) {
       return res.sendStatus(201)
     } else {
       return res.sendStatus(200)
     }
   } catch (error) {
-    console.log('catchError---->', error);
+    console.log(error);
   }
 })
 
 router.get('/favourites/:id', async (req, res) => {
   const { id } = req.params
-  console.log(id);
   try {
     const allFavourites = await Favourites.findAll({ 
       where: { userId: id },
@@ -123,7 +111,7 @@ router.get('/favourites/:id', async (req, res) => {
     }
     res.json(goods)
   } catch (error) {
-    console.log('catchError---->', error);
+    console.log(error);
   }
 })
 
@@ -137,7 +125,7 @@ router.get('/active/:id', async (req, res) => {
       return res.sendStatus(201)
     }
   } catch (error) {
-    console.log('catchError---->', error);
+    console.log(error);
   }
 })
 
@@ -146,7 +134,7 @@ router.put('/change/:id', async (req, res) => {
     const { id } = req.params;
     const { exchange, description, title } = req.body;
     const good = await Good.findOne({ where: { id }})
-    // console.log(good);
+
     good.description = description;
     good.exchange = exchange;
     good.title = title;
@@ -165,13 +153,13 @@ router.put('/change/:id', async (req, res) => {
     delete adv.userId
     res.json(adv)
   } catch (error) {
-    console.log('catchError---->', error);
+    console.log(error);
   }
 })
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
-  // console.log(id);
+
   try {
     const adv = await Good.findOne({ where: { id }, raw: true })
     const user = await User.findOne({ where: { id: adv.userId }, raw: true })
@@ -184,23 +172,22 @@ router.get('/:id', async (req, res) => {
     adv.url = urlPhoto;
     adv.user = user;
     delete adv.userId
-    // console.log('photo', urlPhoto);
-    console.log(adv);
+
     res.json(adv)
   } catch (error) {
-    console.log('catch---->', error);
+    console.log(error);
   }
 })
 
 router.delete('/:id', async (req, res) => {
-  console.log('req.params', req.params);
+
   try {
     const { id } = req.params;
     await Photo.destroy({ where: { goodId: id } })
     await Good.destroy({ where: { id } })
     res.sendStatus(200)
   } catch (error) {
-    console.log('catchError---->', error);
+    console.log(error);
   }
 })
 

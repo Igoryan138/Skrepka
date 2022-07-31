@@ -11,7 +11,7 @@ router.post('/account', async (req, res) => {
     }))
     res.json(user)    
   } catch (error) {
-    console.log('catchError----->', error)
+    console.log(error)
   }
 })
 
@@ -38,7 +38,7 @@ router.post('/edit',  async (req, res) => {
     }
     res.json(req.session.user)
   } catch (error) {
-    console.log('catchError----->', error)
+    console.log(error)
   }
 })
 router.get('/advertisements/completed/:id', async (req, res) => {
@@ -52,7 +52,7 @@ router.get('/advertisements/completed/:id', async (req, res) => {
     }
     res.json(adverts)
   } catch (error) {
-    console.log('catchError---->', error);
+    console.log(error);
   }
 
 })
@@ -64,12 +64,11 @@ router.get('/advertisements/:id', async (req, res) => {
     const allId = adverts.map((el) => el.id)
     for (let i = 0; i < allId.length; i++) {
       const firstPhoto = await Photo.findOne({ where: { goodId: allId[i] }, raw: true })
-      console.log('firstPhoto=====>',firstPhoto);
       adverts[i].url = firstPhoto.url
     }
     res.json(adverts)
   } catch (error) {
-    console.log('catchError---->', error);
+    console.log(error);
   }
 })
 

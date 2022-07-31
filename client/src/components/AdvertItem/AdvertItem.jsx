@@ -23,7 +23,6 @@ export default function AdvertItem() {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}add/${id}`)
       .then((res) => {
-        // console.log('useEffect', res.data);
         setAdvert(res.data)
         setBigPhoto(res.data.url[0])
       })
@@ -46,7 +45,6 @@ export default function AdvertItem() {
       setBigPhoto(advert.url[res + 1])
     } else {
       setArrow(false)
-      console.log(arrow);
     }
   }
 
@@ -65,12 +63,11 @@ export default function AdvertItem() {
   const changeValues = () => {
     axios.put(`${process.env.REACT_APP_API_URL}add/change/${id}`, { title, exchange, description })
       .then((res) => {
-        console.log('changeValues', res.data);
         setAdvert(res.data)
       })
     setEdit(false)
   }
-  // console.log(advert?.description);
+
   return (
     <div>
       <Modal visible={visible} onCancel={() => setVisible(false)}>
@@ -116,9 +113,7 @@ export default function AdvertItem() {
               (myAdv ?
                 <>
                   {edit ?
-                    // <Link to={`/profile/advertisements`} >
                     <button type="submit" onClick={changeValues} className="btn btn-outline-success">Сохранить</button>
-                    // </Link>
                     :
                     <>
                       <h3>Это Ваше объявление. <br /> Хотите посмотреть все свои обявления?</h3>

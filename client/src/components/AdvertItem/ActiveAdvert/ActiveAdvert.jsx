@@ -41,7 +41,6 @@ export default function ActiveAdvert() {
       setBigPhoto(advert.url[res + 1])
     } else {
       setArrow(false)
-      console.log(arrow);
     }
   }
 

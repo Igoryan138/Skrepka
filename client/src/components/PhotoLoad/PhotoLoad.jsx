@@ -4,7 +4,6 @@ import style from './PhotoLoad.module.css'
 export default function PhotoLoad() {
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([])
-  console.log('images', images);
 
   useEffect(() => {
     if (images.length < 1) return;
@@ -14,7 +13,6 @@ export default function PhotoLoad() {
   }, [images])
 
   const fileSelectedHandler = (e) => {
-    console.log('fileSelectedHandler', e.target.files);
     setImages([...e.target.files, ...images])
   }
   return (

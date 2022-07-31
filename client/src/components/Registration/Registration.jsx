@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-// import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/actions/user.action'
 import styles from './registr.module.css'
@@ -21,11 +20,8 @@ export function Registration() {
   }
 
   function regHandler(event) {
-
     event.preventDefault()
     dispatch(setUser(input))
-
-    // setInput('')
   }
 
   return (

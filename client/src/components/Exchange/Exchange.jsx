@@ -15,7 +15,7 @@ export default function Exchange({ loginUser }) {
     axios.get(`${process.env.REACT_APP_API_URL}profile/advertisements/${loginUser}`)
       .then((res) => setMyAdvert(res.data))
   }, [id, loginUser])
-  console.log(myAdvert);
+
   return (
     <div>
       <div className={style.mainAdv}>
