@@ -3,7 +3,6 @@ import styles from './FavouriteItem.module.css'
 import { Link } from 'react-router-dom';
 
 export default function FavouriteItem({ el }) {
-  // console.log('el---', el);
   return (
     <div className={styles.card}>
     <div className={styles.cardTop}>

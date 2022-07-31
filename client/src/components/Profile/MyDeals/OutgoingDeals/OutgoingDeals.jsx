@@ -17,9 +17,6 @@ export default function OutgoingDeals() {
         setNotMineGoods(res.data.notMineGoods)
       })
   }, [id])
-  
-  console.log(myDeals);
-  // console.log(notMineGoods);
 
   return (
     <div className='outgoingDeals'>

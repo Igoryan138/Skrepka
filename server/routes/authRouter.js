@@ -28,8 +28,6 @@ router.route('/').post( async (req, res) => {
       phone: user.phone
     }
 
-    // const id = user.id
-    // const name = user.firstName
     res.json(req.session.user)
   } catch (error) {
     console.log(error)

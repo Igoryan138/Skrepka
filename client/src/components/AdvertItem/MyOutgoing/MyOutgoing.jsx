@@ -11,7 +11,6 @@ import Modal from '../../Modal/Modal'
 export default function MyOutgoing() {
   const isLogin = useSelector((store) => store.user.user?.id)
   const { id, dealId } = useParams()
-  console.log(dealId);
   const [advert, setAdvert] = useState()
   const [bigPhoto, setBigPhoto] = useState()
   const [visible, setVisible] = useState(false)
@@ -40,7 +39,6 @@ export default function MyOutgoing() {
       setBigPhoto(advert.url[res + 1])
     } else {
       setArrow(false)
-      console.log(arrow);
     }
   }
 

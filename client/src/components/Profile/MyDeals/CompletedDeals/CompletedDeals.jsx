@@ -14,21 +14,15 @@ export default function CompletedDeals() {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}deal/outgoingCompleted/${id}`)
       .then((res) => {
-        // console.log('outgoing', res.data);
         setOutgoingMyGoods(res.data.myDeals)
         setNotMineOutgoingGoods(res.data.notMineGoods)
       })
-    // console.log(myOutgoingGoods);
-    // console.log(notOutgoingMineGoods);
 
     axios.get(`${process.env.REACT_APP_API_URL}deal/incomingCompleted/${id}`)
       .then((res) => {
-        // console.log('incoming', res.data);
         setIncomingMyGoods(res.data.myGoods)
         setNotMineIncomingGoods(res.data.notMineGoods)
       })
-    // console.log(myIncomingGoods);
-    // console.log(notMineIncomingGoods);
   }, [id])
 
   return (

@@ -1,21 +1,11 @@
 import React, { useState } from 'react'
-// import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { editUser } from '../../../redux/actions/user.action'
-// import { useState } from 'react'
-// import { useEffect } from 'react'
 import styles from './account.module.css'
 
 export default function Account() {
-
-  // const [currentuser, setCurrentUser] = useState({})
   const [mode, setMode] = useState('view') 
   const  user  = useSelector((store) => store.user.user)
-  // console.log('USER=======>>>>>>>',user);
-  // useEffect(()=>{
-  //   axios.post('http://localhost:3100/profile/account', user )
-  //     .then(res => setCurrentUser(res.data))
-  // }, [])
   const [firstName, setFirstName] = useState(user?.firstName)
   const [lastName, setLastName] = useState(user?.lastName)
   const [email,setEmail] = useState(user?.email)

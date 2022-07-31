@@ -10,17 +10,12 @@ export function Navbar() {
   const id = useSelector((store) => store.user.user?.id)
 
   const logoutHandler = (e) => {
-    // e.preventDefault()
     dispatch(logOutUser(id))
-
   }
   return (
     <header>
       <nav className={`navbar navbar-expand-lg navbar-light ${style.navb}`}>
         <div className="container-fluid">
-        {/* <div className={style.img}>
-          
-         </div> */}
           <Link to="/" className={`${style.brand} navbar-brand `}> 
           <img className={style.img} src="/logo/logo.png" alt="" />
           </Link>
@@ -63,59 +58,6 @@ export function Navbar() {
         </div>
       </nav>
     </header>
-
-
-
-
-
-
-    // <header>
-    //   <div className={style.container_logo}>
-    //     <div className={style.img}>
-    //       <img width={200} height={50} src="https://i.pinimg.com/736x/41/94/b9/4194b9862150fd34e5d39c4c02406012.jpg" alt="" />
-    //     </div>
-    //     <nav>
-
-    //       <ul>
-
-    //         <li>
-    //           <Link to="/" className="home">Главная</Link>
-    //         </li>
-
-
-    //         {
-    //           id ? (
-    //             <>
-    //               <li className="nav-item">
-    //                 <Link to="profile" >Профиль</Link>
-    //               </li>
-
-    //               <li className="nav-item">
-    //                 <Link to="/" onClick={logoutHandler}>Выйти</Link>
-    //               </li>
-
-    //               <li className={style.btn}>
-    //                 <Link to='/add' >Добавить объявление</Link>
-    //               </li>
-    //             </>
-
-    //           ) : (
-    //             <>
-    //               <li className="nav-item">
-    //                 <Link to="registration">Регистрация</Link>
-    //               </li>
-    //               <li className="nav-item">
-    //                 <Link to="login"  >Войти</Link>
-    //               </li>
-    //             </>
-
-    //           )
-    //         }
-
-    //       </ul>
-    //     </nav>
-    //   </div>
-    // </header>
   )
 }
 

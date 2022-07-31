@@ -7,8 +7,6 @@ import { addAdv } from '../../redux/actions/adv.action';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-// import axios from 'axios';
-
 export default function AddAdvertisement() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -24,7 +22,6 @@ export default function AddAdvertisement() {
     e.preventDefault();
     const formData = new FormData(e.target)
     formData.append('userId', userId)
-    // console.log('formData', formData);
     try {
       await axios({
         url: `${process.env.REACT_APP_API_URL}add/new`,

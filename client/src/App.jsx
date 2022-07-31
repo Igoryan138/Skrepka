@@ -40,10 +40,6 @@ function App() {
     dispatch(chekUserAuth());
   }, [dispatch])
 
-  // if(!isLoaded){
-  //   return 'LOADING...'
-  // }
-
   return (
     <div className="App">
       <Navbar />
