@@ -1,0 +1,10 @@
+.registr {
+  display: flex;
+  flex-direction: column;
+}
+
+.registr input {
+  margin-top: 2%;
+  width: 400px;
+  height: 40px;
+}

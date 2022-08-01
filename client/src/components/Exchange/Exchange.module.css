@@ -1,0 +1,40 @@
+.mainAdv {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.myAdv {
+  margin-top: 15px;
+}
+
+.ourItem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.myItem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 250px;
+  color: black;
+}
+
+.textB{
+  color:black
+}
+
+@media screen and (max-width: 1100px) {
+  .myItem {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .myItem {
+    height: 750px;
+  }
+}
+
+

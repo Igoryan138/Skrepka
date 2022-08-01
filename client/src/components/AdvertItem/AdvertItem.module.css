@@ -1,0 +1,98 @@
+.center {
+  display: flex;
+  justify-content: space-around;
+}
+
+.centerContent {
+  display: flex;
+  width: 60%;
+}
+
+.photo {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-right: 10px;
+}
+
+.title {
+  display: flex;
+  margin-top: 15px;
+}
+
+.bigPhoto {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border:1px solid rgb(218, 213, 213);
+}
+
+.bigPhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.miniPhoto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.miniPhotoImg {
+  display: inline-flex;
+  margin: 2px;
+  width: 100px;
+  padding: 5px;
+  border:1px solid rgb(218, 213, 213);
+  object-fit: cover;
+
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin-left: 10px;
+}
+
+.zaglushka {
+  width: 8%
+}
+
+.miniZaglushka {
+  width: 21px;
+}
+
+.description {
+  width: 100%;
+  /* margin-top: 5px; */
+}
+
+.exchange {
+  width: 100%
+}
+
+.btn {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 1400px) {
+  .centerContent {
+    display: flex;
+    flex-direction: column;
+    width: 60%
+  }
+
+  .contact {
+    width: 100%;
+    height: 450px;
+  }
+
+  .photo {
+    width: 100%;
+  }
+}

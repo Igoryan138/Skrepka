@@ -1,0 +1,41 @@
+.faq_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.FAQ_headers{
+text-align: center;
+text-decoration: underline;
+line-height: 2;
+}
+
+
+.register{
+  border: 2px solid silver;
+  margin: 20px;
+  padding: 5px;
+  line-height: 2;
+} 
+
+.anketa{
+  border: 2px solid silver;
+  margin: 20px;
+  padding: 5px;
+  line-height: 2;
+}
+
+.lk{
+  border: 2px solid silver;
+  margin: 20px;
+  padding: 5px;
+  line-height: 2;
+}
+
+
+.info{
+  border: 2px solid silver;
+  line-height: 2;
+  padding: 10px;
+}

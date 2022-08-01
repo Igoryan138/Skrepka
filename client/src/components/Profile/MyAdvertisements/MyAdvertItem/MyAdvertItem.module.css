@@ -1,0 +1,41 @@
+.card {
+  transition: box-shadow .3s;
+  border: 1px solid silver;
+  width: 180px;
+  /* height: 300px; */
+  border-radius: 0.25rem;
+  margin: 1%;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgb(129, 125, 125);  
+}
+
+.card img {
+  /* width: 100%; */
+  object-fit: cover;
+  height: 180px;
+}
+
+.card_body {
+  margin-top: 5%;
+  padding: auto;
+}
+
+.card_body a {
+  text-decoration: none;
+  color: black;
+}
+
+.card_body button {
+  margin-bottom: 5%;
+}
+
+
+.h5{
+  background-color:rgb(230, 246, 255);
+  padding: 10px;
+  line-height: 1;
+  margin: 15px;
+  border-radius:  10px;
+}

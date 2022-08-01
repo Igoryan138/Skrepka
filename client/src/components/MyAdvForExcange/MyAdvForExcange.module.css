@@ -1,0 +1,15 @@
+.size {
+  width: 170px;
+  height: 200px;
+  margin: 5px;
+}
+
+.img {
+  height: 100px;
+  object-fit: cover;
+}
+
+
+.textB{
+  color: black;
+}

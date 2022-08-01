@@ -1,0 +1,16 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth input {
+  margin-top: 1%;
+  width: 400px;
+  height: 40px;
+}
+
+.auth button {
+  margin-top: 1%;
+  width: 10%;
+  height: 40px;
+}

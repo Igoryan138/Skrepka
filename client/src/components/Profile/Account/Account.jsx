@@ -1,0 +1,62 @@
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { editUser } from '../../../redux/actions/user.action'
+import styles from './account.module.css'
+
+export default function Account() {
+  const [mode, setMode] = useState('view') 
+  const  user  = useSelector((store) => store.user.user)
+  const [firstName, setFirstName] = useState(user?.firstName)
+  const [lastName, setLastName] = useState(user?.lastName)
+  const [email,setEmail] = useState(user?.email)
+  const [phone,setPhone] = useState(user?.phone)
+  const dispatch = useDispatch()
+  return (
+    <>
+    {mode === 'view' && (
+      
+      <div className={styles.profile}>
+        <h2 className='h2'><strong>Управление профилем</strong></h2>
+        <h5 className={styles.h5}>Имя: {user?.firstName}</h5>
+        <h5 className={styles.h5}>Фамилия: {user?.lastName}</h5>
+        <h5 className={styles.h5}>E-mail: {user?.email}</h5>
+        <h5 className={styles.h5}>Телефон: {user?.phone}</h5>
+        <div>
+
+        <button type="submit" className={`btn btn-primary ${styles.addB}`} onClick={() => setMode('edit')}>Редактировать</button>
+        </div>
+      </div> 
+    )} 
+     {mode === 'edit' && (
+      <form  className={styles.form} onSubmit={(e) => {
+        e.preventDefault()
+        dispatch(editUser({
+          firstName,
+          lastName,
+          email,
+          phone
+        })).then(()=>{
+          setMode('view')
+        })
+      }}>
+        <div className="h2"> <strong>Редактирование</strong></div>
+
+        <div className={styles.inp}>
+          <h5>Имя:</h5>
+        <input className={`${styles.h5} ${styles.no_margin}`} value={firstName} onChange={(e)=>setFirstName(e.target.value)}  type= 'text'/> <br />
+        <h5>Фамилия:</h5>
+        <input className={`${styles.h5} ${styles.no_margin}`} value={lastName} onChange={(e)=>setLastName(e.target.value)}  type= 'text'/> <br />
+        <h5>E-mail:</h5>
+        <input className={`${styles.h5} ${styles.no_margin}`}value={email} onChange={(e)=>setEmail(e.target.value)}  type= 'text'/> <br />
+        <h5>Номер телефона:</h5>
+        <input className={`${styles.h5} ${styles.no_margin}`} value={phone} onChange={(e)=>setPhone(e.target.value)}  type= 'text'/> <br />
+
+        </div>
+        <button   type="submit" className={`btn btn-outline-success ${styles.btnEdit}`}>Сохранить</button>
+        <button  type="submit" className={`btn btn-outline-danger ${styles.btnEdit}`} onClick={() => setMode('view')}>Отменить</button>
+      </form> 
+    )} 
+    
+    </>
+  )
+}
